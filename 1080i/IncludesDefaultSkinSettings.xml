@@ -71,8 +71,6 @@
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_trailer)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_trailersandmore)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_mylist)</onload>
-	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_favorites)</onload>
-	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_trakt)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_plot)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_cast)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_wikipedia)</onload>
