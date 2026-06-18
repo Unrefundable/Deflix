@@ -114,7 +114,7 @@
     </variable>
 	
 	<variable name="Path_Similar">
-        <value condition="Control.HasFocus(62) | String.IsEqual(Window.Property(AdditionalInfo),similar)">plugin://plugin.video.tmdb.bingie.helper?info=recommendations&amp;nextpage=false&amp;length=1$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="Control.HasFocus(62) | Control.IsVisible(355) | Control.IsVisible(356) | String.IsEqual(Window.Property(AdditionalInfo),similar)">plugin://plugin.video.tmdb.bingie.helper?info=recommendations&amp;nextpage=false&amp;length=1$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
 	
 	<variable name="Path_Reviews">
@@ -134,6 +134,11 @@
 	<variable name="Path_MyList">
         <value condition="!Skin.HasSetting(AddToFavorites) + [Library.HasContent(Movies) | Library.HasContent(TVShows)]">plugin://script.bingie.widgets/?action=mylist&amp;mediatype=media&amp;limit=100&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
 		<value condition="Skin.HasSetting(AddToFavorites) | !Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper?info=trakt_favorites&amp;tmdb_type=both&amp;widget=true&amp;sort_by=added&amp;sort_how=desc&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)])</value>
+    </variable>
+
+	<variable name="Path_SurpriseMe">
+        <value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=random&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=random_popular&amp;tmdb_type=both&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
 	
 	<variable name="Path_CastInMovies">
@@ -518,18 +523,16 @@
     </variable>
 	
 	<variable name="DefWidget4Content">
-		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">special://skin/extras/widgetplaylists/criticallyacclaimedmovies.xsp</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+Movies&amp;list_slug=imdb-top-rated-movies&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+Movies&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+Movies&amp;list_slug=imdb-top-rated-movies&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+Movies&amp;widget=true&amp;limit=250&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
     </variable>
 	
 	<variable name="DefWidget4Name">
-		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">$LOCALIZE[31532]</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31277]</value>
+		<value>$LOCALIZE[31277]</value>
     </variable>
 	
 	<variable name="DefWidget5Content">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=similar&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+TV+Shows&amp;list_slug=imdb-top-rated-tv-shows&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+TV+Shows&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+TV+Shows&amp;list_slug=imdb-top-rated-tv-shows&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+TV+Shows&amp;widget=true&amp;limit=250&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
 	</variable>
 	
 	<variable name="DefWidget5Name">
@@ -558,13 +561,11 @@
     </variable>
 	
 	<variable name="DefMovieHub2Content">
-		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">special://skin/extras/widgetplaylists/criticallyacclaimedmovies.xsp</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+Movies&amp;list_slug=imdb-top-rated-movies&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+Movies&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+Movies&amp;list_slug=imdb-top-rated-movies&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+Movies&amp;widget=true&amp;limit=250&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
 	</variable>
 	
 	<variable name="DefMovieHub2Name">
-		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">$LOCALIZE[31532]</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31277]</value>
+		<value>$LOCALIZE[31277]</value>
     </variable>
 	
 	<variable name="DefTVShowHubContent">
@@ -589,7 +590,7 @@
 	
 	<variable name="DefTVShowHub2Content">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">special://skin/extras/widgetplaylists/bingeworthyshows.xsp</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+TV+Shows&amp;list_slug=imdb-top-rated-tv-shows&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+TV+Shows&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=IMDB:+Top+Rated+TV+Shows&amp;list_slug=imdb-top-rated-tv-shows&amp;user_slug=justin&amp;plugin_category=IMDB:+Top+Rated+TV+Shows&amp;widget=true&amp;limit=250&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
 	</variable>
 	
 	<variable name="DefTVShowHub2Name">

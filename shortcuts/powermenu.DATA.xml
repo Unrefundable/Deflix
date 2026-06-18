@@ -1,6 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <shortcuts>
 	<shortcut>
+		<defaultID>31385</defaultID>
+		<label>$LOCALIZE[31385]</label>
+		<label2 />
+		<icon>shortcuts/something.png</icon>
+		<thumb />
+		<action>ActivateWindow(1118)</action>
+	</shortcut>
+	<shortcut>
 		<defaultID>5</defaultID>
 		<label>$LOCALIZE[5]</label>
 		<label2 />

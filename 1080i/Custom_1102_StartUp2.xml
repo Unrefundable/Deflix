@@ -78,7 +78,7 @@
 						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
 						<onclick>ClearProperty(StartupMask,Home)</onclick>
 						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup2,Home),00:02,silent)</onclick>
-						<onclick>AlarmClock(delay_window,ReplaceWindow(Videos,sources://video/),00:01,silent)</onclick>
+						<onclick>AlarmClock(delay_window,ReplaceWindow(Home),00:01,silent)</onclick>
 						<onup>PageUp(3000)</onup>
 						<ondown>PageDown(3000)</ondown>
 					</control>

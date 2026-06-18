@@ -3,6 +3,7 @@
 <window>
     <defaultcontrol always="true">5000</defaultcontrol>
 
+	<onload condition="String.StartsWith(Container.FolderPath,sources://music)">ReplaceWindow(Home)</onload>
 	<onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
     <include>allViewIds</include>
     <controls>
@@ -71,7 +72,7 @@
                     <include>SideBladeMenuButton</include>
                     <label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(musicplaylist)</onclick>
-					<visible>!String.IsEqual(Playlist.Length(music),0)</visible>
+					<visible>false</visible>
                 </control>
                 <control type="radiobutton" id="16">
                     <!--Button Party Mode-->
@@ -81,12 +82,14 @@
                 </control>
                 <control type="button" id="5">
                     <!--Button Files-->
+                    <visible>false</visible>
                     <description>Files</description>
                     <include>SideBladeMenuButton</include>
                     <label>$LOCALIZE[1214]</label>
                     <onclick>SetFocus(50)</onclick>
                 </control>
 				<control type="togglebutton" id="20">
+					<visible>false</visible>
 					<description>Update library</description>
 					<include>SideBladeMenuButton</include>
 					<label>$LOCALIZE[653]</label>

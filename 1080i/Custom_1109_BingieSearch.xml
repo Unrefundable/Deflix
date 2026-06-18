@@ -53,6 +53,7 @@
 			<onup condition="Skin.HasSetting(EnableBingieSearchFullKeyboard)">SetProperty(CustomSearch,1,home)</onup>
             <ondown>1007</ondown>
             <onright condition="!Integer.IsGreater(Container(77777).NumItems,0)">9900</onright>
+            <onright condition="Integer.IsGreater(Container(77777).NumItems,0)">77777</onright>
 			<onback>900</onback>
             <onback>SetFocus(900,$INFO[Window(Home).Property(menupos)])</onback>
             <!-- Space / Backspace Row -->
@@ -167,7 +168,7 @@
             <control type="label" id="987">
                 <visible>!$EXP[IsActualKeyboardActive]</visible>
                 <top>5</top>
-                <width>1130</width>
+                <width>1050</width>
                 <height>70</height>
                 <font>Reg42</font>
                 <align>left</align>
@@ -224,7 +225,6 @@
                 <content browse="never" limit="100" target="videos">$INFO[Window.Property(SuggestionPath)]</content>
             </include>
         </control>
-		
 	</control>
         <include content="Dim_Overlay">
             <param name="visibility" value="$EXP[IsMainMenuOpened]" />

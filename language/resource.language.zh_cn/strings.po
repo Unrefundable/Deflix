@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: Bingie
-# Addon id: skin.bingie
+# Addon id: Deflix
 # Addon Provider: matke
 msgid ""
 msgstr ""

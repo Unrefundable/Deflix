@@ -4,6 +4,8 @@
     <!-- seasons content for view525 -->
     <variable name="View525SeasonsContent">
         <value condition="[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + !String.IsEmpty(ListItem.DBID) + !String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">$INFO[Window(Home).Property(ListItem.TVShowID),videodb://tvshows/titles/,/]</value>
+        <value condition="[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + String.IsEmpty(Window(Home).Property(ListItem.TVShowID)) + !String.IsEmpty(ListItem.UniqueID(tvshow.tmdb))">plugin://plugin.video.tmdb.bingie.helper/?info=seasons&amp;tmdb_type=tv&amp;tmdb_id=$INFO[ListItem.UniqueID(tvshow.tmdb)]&amp;nextpage=false</value>
+        <value condition="[String.IsEqual(ListItem.DBType,episode) | Container.Content(episodes)] + String.IsEmpty(Window(Home).Property(ListItem.TVShowID)) + String.IsEmpty(ListItem.UniqueID(tvshow.tmdb)) + !String.IsEmpty(ListItem.Property(tvshow.tmdb_id))">plugin://plugin.video.tmdb.bingie.helper/?info=seasons&amp;tmdb_type=tv&amp;tmdb_id=$INFO[ListItem.Property(tvshow.tmdb_id)]&amp;nextpage=false</value>
         <value/>
     </variable>
 
@@ -538,7 +540,7 @@
                     <height>390</height>  				
                     <!-- Seasons list -->
                     <control type="list" id="5250">
-                        <visible allowhiddenfocus="true">Container(525).Content(episodes) + !String.IsEmpty(Container(525).ListItem.DBID)</visible>
+                        <visible allowhiddenfocus="true">Container(525).Content(episodes) + [!String.IsEmpty(Container(525).ListItem.DBID) | !String.IsEmpty(Container(525).ListItem.UniqueID(tvshow.tmdb)) | !String.IsEmpty(Container(525).ListItem.Property(tvshow.tmdb_id))]</visible>
                         <visible>Integer.IsGreater(Container(5250).NumItems,0) + !Container(5250).IsUpdating</visible>
                         <animation effect="fade" start="0" end="100" time="250">Visible</animation>
                         <left>15</left>
