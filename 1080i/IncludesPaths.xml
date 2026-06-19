@@ -600,7 +600,7 @@
 	
 	<variable name="DefNewHubContent">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=recent&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=Latest+Releases&amp;list_slug=latest-releases&amp;user_slug=giladg&amp;plugin_category=Latest+Releases&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=Latest+Releases&amp;list_slug=latest-releases&amp;user_slug=giladg&amp;plugin_category=Latest+Releases&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
 	</variable>
 	
 	<variable name="DefNewHubName">
@@ -610,7 +610,7 @@
 	
 	<variable name="DefNewHub1Content">
 		<value condition="Library.HasContent(Movies) | Library.HasContent(TVShows)">plugin://script.bingie.widgets/?action=popular&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=Latest+TV+Shows&amp;list_slug=latest-tv-shows&amp;user_slug=garycrawfordgc&amp;plugin_category=Latest+TV+Shows&amp;widget=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_userlist&amp;list_name=Latest+TV+Shows&amp;list_slug=latest-tv-shows&amp;user_slug=garycrawfordgc&amp;plugin_category=Latest+TV+Shows&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
 	</variable>
 	
 	<variable name="DefNewHub1Name">

@@ -10,7 +10,7 @@ Use this file source in Kodi:
 https://unrefundable.github.io/Deflix/
 ```
 
-Then install `repository.deflix-1.0.0.zip` from the source and install the
+Then install `repository.deflix-1.0.1.zip` from the source and install the
 skin from **Deflix Repository**.
 
 The GitHub Pages repository files are generated with:
