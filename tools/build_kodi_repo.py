@@ -17,7 +17,7 @@ DOCS = ROOT / "docs"
 REPO_DIR = DOCS / "repository"
 PAGES_BASE_URL = "https://unrefundable.github.io/Deflix"
 REPOSITORY_ID = "repository.deflix"
-REPOSITORY_VERSION = "1.0.0"
+REPOSITORY_VERSION = "1.0.1"
 
 EXCLUDED_TOP_LEVEL = {".git", "docs", "tools", "__MACOSX"}
 EXCLUDED_NAMES = {".DS_Store"}
@@ -80,13 +80,14 @@ def repository_addon_xml() -> ET.Element:
         "extension",
         {"point": "xbmc.addon.repository", "name": "Deflix Repository"},
     )
-    ET.SubElement(extension, "info", {"compressed": "false"}).text = (
+    directory = ET.SubElement(extension, "dir")
+    ET.SubElement(directory, "info", {"compressed": "false"}).text = (
         f"{PAGES_BASE_URL}/repository/addons.xml"
     )
-    ET.SubElement(extension, "checksum").text = (
+    ET.SubElement(directory, "checksum").text = (
         f"{PAGES_BASE_URL}/repository/addons.xml.md5"
     )
-    ET.SubElement(extension, "datadir", {"zip": "true"}).text = (
+    ET.SubElement(directory, "datadir", {"zip": "true"}).text = (
         f"{PAGES_BASE_URL}/repository/"
     )
 
@@ -108,6 +109,13 @@ def zip_repository_addon(addon_xml: ET.Element) -> Path:
     target_dir = REPO_DIR / REPOSITORY_ID
     target_dir.mkdir(parents=True, exist_ok=True)
     target = target_dir / f"{REPOSITORY_ID}-{REPOSITORY_VERSION}.zip"
+
+    stale_zips = [
+        *target_dir.glob(f"{REPOSITORY_ID}-*.zip"),
+        *DOCS.glob(f"{REPOSITORY_ID}-*.zip"),
+    ]
+    for stale_zip in stale_zips:
+        stale_zip.unlink()
 
     with tempfile.TemporaryDirectory() as tmp:
         package_root = Path(tmp) / REPOSITORY_ID
