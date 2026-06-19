@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deflix for Kodi</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08090b;
+      --panel: #14161b;
+      --text: #f4f4f5;
+      --muted: #b8bcc7;
+      --accent: #e50914;
+      --line: #2a2d35;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 20% 0%, #241113 0, transparent 34rem), var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    main {
+      width: min(960px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0;
+    }
+    .hero {
+      padding: 36px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+    p { color: var(--muted); max-width: 680px; }
+    a { color: var(--text); }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 6px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .button.secondary {
+      background: #20232a;
+      border: 1px solid var(--line);
+    }
+    section { padding: 28px 0; border-bottom: 1px solid var(--line); }
+    h2 { margin: 0 0 14px; font-size: 24px; }
+    ol { padding-left: 22px; color: var(--muted); }
+    li { margin: 10px 0; }
+    code {
+      display: inline-block;
+      max-width: 100%;
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: #20232a;
+      color: #fff;
+      overflow-wrap: anywhere;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .tile {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+    .tile strong { display: block; margin-bottom: 6px; }
+    footer { padding-top: 28px; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="hero">
+      <h1>Deflix</h1>
+      <p>A Kodi skin with a streaming-focused layout. Install the repository once, then install and update Deflix from Kodi's add-on browser.</p>
+      <div class="actions">
+        <a class="button" href="repository.deflix-1.0.0.zip">Download repository zip</a>
+        <a class="button secondary" href="repository/Deflix/Deflix-2.0.2.zip">Download skin zip</a>
+      </div>
+    </div>
+
+    <section>
+      <h2>Kodi Install</h2>
+      <ol>
+        <li>In Kodi, enable <strong>Unknown sources</strong> under Settings > System > Add-ons.</li>
+        <li>Add this file source: <code>https://unrefundable.github.io/Deflix/</code></li>
+        <li>Open Add-ons > Install from zip file, choose the source, then install <code>repository.deflix-1.0.0.zip</code>.</li>
+        <li>Open Install from repository > Deflix Repository > Look and feel > Skin > Deflix.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Repository Files</h2>
+      <div class="grid">
+        <div class="tile">
+          <strong>Kodi repository</strong>
+          <a href="repository/addons.xml">addons.xml</a>
+        </div>
+        <div class="tile">
+          <strong>Repository installer</strong>
+          <a href="repository.deflix-1.0.0.zip">repository.deflix-1.0.0.zip</a>
+        </div>
+        <div class="tile">
+          <strong>Current skin package</strong>
+          <a href="repository/Deflix/Deflix-2.0.2.zip">Deflix 2.0.2</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Deflix 2.0.2. Hosted from GitHub Pages.
+    </footer>
+  </main>
+</body>
+</html>
