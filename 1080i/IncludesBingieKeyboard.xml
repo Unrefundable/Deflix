@@ -391,27 +391,27 @@
                 <include content="NativeSearchKey">
                     <param name="id" value="108" />
                     <param name="onup" value="102" />
-                    <param name="ondown" value="309" />
+                    <param name="ondown" value="300" />
                 </include>
                 <!-- 0 -->
                 <include content="NativeSearchKey">
                     <param name="id" value="109" />
                     <param name="onup" value="103" />
-                    <param name="ondown" value="309" />
+                    <param name="ondown" value="300" />
                 </include>
                 <!-- Previous -->
                 <include content="NativeSearchKey">
                     <label>&lt;</label>
                     <param name="id" value="305" />
                     <param name="onup" value="104" />
-                    <param name="ondown" value="309" />
+                    <param name="ondown" value="300" />
                 </include>
                 <!-- Next -->
                 <include content="NativeSearchKey">
                     <label>&gt;</label>
                     <param name="id" value="306" />
                     <param name="onup" value="105" />
-                    <param name="ondown" value="309" />
+                    <param name="ondown" value="300" />
                 </include>
             </control>
 
@@ -453,14 +453,6 @@
                     <label/>
                     <include>SearchKeyDefs</include>
                     <onup>107</onup>
-                </control>
-                <!-- Layout -->
-                <control type="button" id="309">
-                    <height>search_key_size</height>
-                    <width>290</width>
-                    <include>SearchKeyDefs2</include>
-                    <label>$LOCALIZE[20177]</label>
-                    <onup>9000</onup>
                 </control>
             </control>
         </control>
