@@ -78,6 +78,8 @@
 				<align>left</align>
 				<label/>
 				<font>Reg30</font>
+				<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
+				<shadowcolor>$INFO[Skin.String(HeaderTextShadowColor)]</shadowcolor>
 			</control>
 			
 		

@@ -39,20 +39,8 @@
                 <aspectratio>keep</aspectratio>
             </control>
 
-            <control type="fadelabel" id="401">
-                <description>Line 1 Label</description>
-                <left>-3000</left>
-                <width>1</width>
-                <height>1</height>
-            </control>
-            <control type="fadelabel" id="402">
-                <description>Line 2 Label</description>
-                <left>-3000</left>
-                <width>1</width>
-                <height>1</height>
-            </control>
-            <control type="label">
-                <description>Visible Line 1 Label</description>
+            <control type="label" id="401">
+                <description>Heading text</description>
                 <depth>0.60</depth>
                 <left>98</left>
                 <top>20</top>
@@ -62,10 +50,10 @@
                 <textcolor>FFFFFFFF</textcolor>
                 <shadowcolor>AA000000</shadowcolor>
                 <aligny>center</aligny>
-                <label>$INFO[Control.GetLabel(401)]</label>
+                <label />
             </control>
-            <control type="label">
-                <description>Visible Line 2 Label</description>
+            <control type="label" id="402">
+                <description>Message text</description>
                 <depth>0.60</depth>
                 <left>98</left>
                 <top>57</top>
@@ -76,7 +64,7 @@
                 <shadowcolor>AA000000</shadowcolor>
                 <aligny>top</aligny>
                 <wrapmultiline>true</wrapmultiline>
-                <label>$INFO[Control.GetLabel(402)]</label>
+                <label />
             </control>
         </control>
 	</controls>

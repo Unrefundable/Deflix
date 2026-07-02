@@ -127,7 +127,7 @@
 			<include condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows) + !Skin.HasSetting(DisableSearchSuggestions)">Search_Suggestions_Content_2</include>
         </include>
 
-        <!--- ########## Right Layout ########## -->
+        <!-- ########## Right Layout ########## -->
         <control type="group" id="9900">
             <left>652</left>
             <top>32</top>

@@ -66,4 +66,14 @@
         <action>ActivateWindow(1114,return)</action>
     </shortcut>
 
+	<!-- Surprise Me Hub -->
+    <shortcut>
+        <label>$LOCALIZE[31385]</label>
+        <label2 />
+        <defaultID>31385</defaultID>
+        <icon>shortcuts/something.png</icon>
+        <thumb />
+        <action>ActivateWindow(1118,return)</action>
+    </shortcut>
+
 </shortcuts>
