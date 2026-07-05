@@ -11,6 +11,8 @@
     </variable>
 	
 	<variable name="Path_Param_Type">
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),movie)">tmdb_type=movie</value>
+        <value condition="String.IsEqual(ListItem.Property(tmdb_type),tv)">tmdb_type=tv</value>
         <value condition="$EXP[IsMovieDBType] | $EXP[IsSetDBType]">tmdb_type=movie</value>
         <value condition="$EXP[IsTvShowDBType] | $EXP[IsSeasonDBType] | $EXP[IsEpisodeDBType]">tmdb_type=tv</value>
         <value condition="$EXP[Exp_IsPersonInfo]">tmdb_type=person</value>
