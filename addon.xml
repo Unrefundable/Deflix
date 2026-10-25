@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- DEFLIX -->
-<addon id="Deflix" version="2.0.8" name="Deflix" provider-name="Unrefundable">
+<addon id="Deflix" version="2.1.0" name="Deflix" provider-name="Unrefundable">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.1.2"/>
@@ -26,6 +26,13 @@
 		<description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
 		<description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
 		<platform>all</platform>
+		<news>v2.1.0
+- Build menus once per boot instead of on every return to Home
+- Only save skin settings on Home load when a value changes
+- Keep only the Bingie Poster, Seasons, Episodes and List views (plus Live TV and Square until they are removed)
+- Turn off TMDb Helper Live TV lookups
+- Remove the info-screen Trailer button and unused auto-trailer code
+- Fix the invalid new-episode tag include in search results</news>
 		<license>GPL v2.0</license>
 		<forum></forum>
 		<source></source>

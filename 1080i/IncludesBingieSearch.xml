@@ -891,7 +891,6 @@
                                 <param name="widgetTags" value="$PARAM[widgetTags]" />
                             </include>
                         </control>
-						<include>$PARAM[layout]NewEpisodeTag</include>
                     </control>
                 </itemlayout>
                 <focusedlayout width="$PARAM[layoutwidth]" height="$PARAM[layoutheight]">
@@ -905,7 +904,6 @@
                                 <param name="widgetTags" value="$PARAM[widgetTags]" />
                             </include>
                         </control>
-						<include>$PARAM[layout]NewEpisodeTag</include>
 						<include content="SearchHiddenWidgetButton">
 							<param name="widgetstyle" value="poster"/>
 							<param name="widgetid" value="$PARAM[widgetid]"/>

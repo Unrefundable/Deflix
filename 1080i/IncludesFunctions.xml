@@ -63,17 +63,6 @@
 		<onfocus condition="!$EXP[IsEpisodeDBType]">ClearProperty(ListItem.Art.thumb,Home)</onfocus>
     </include>
 
-    <!-- Auto Trailer Function -->
-    <include name="Bingie_Default_AutoPreview">
-        <include content="Bingie_Trailer_Action" condition="Skin.HasSetting(BingieAutoTrailer)">
-            <param name="interval" value="$INFO[Skin.String(main_auto_trailer_interval)]" />
-            <param name="widgetid" value="$PARAM[widgetid]" />
-            <param name="groupid" value="$PARAM[groupid]" />
-        </include>
-        <onfocus condition="!String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">ClearProperty(KeepPlayingPreview,Home)</onfocus>
-        <onunfocus condition="System.HasAlarm(preview_delay)">CancelAlarm(preview_delay,silent)</onunfocus>
-        <onunfocus condition="$EXP[IsPlayingUnrecognizedContent] + String.IsEmpty(Window(Home).Property(KeepPlayingPreview))">PlayerControl(Stop)</onunfocus>
-    </include>
 
     <include name="Bingie_Spotlight_AutoPreview">
 		<onfocus condition="String.IsEmpty(Window(Home).Property(SpotlightTrailerInterval)) + [Window.IsVisible(1103) | !String.IsEmpty(Window(Home).Property(StartupMask))] + String.IsEqual(Skin.String(splash_screen),bingie_default) + [String.IsEqual(Skin.String(SplashAnimationResolution),2160p) | String.IsEqual(Skin.String(SplashAnimationResolution),1080p)]">SetProperty(SpotlightTrailerInterval,7,Home)</onfocus>		
@@ -90,16 +79,6 @@
         <onunfocus>SetProperty(SpotlightTrailerInterval,$INFO[Skin.String(main_auto_trailer_interval)],Home)</onunfocus>
     </include>
 
-    <include name="Bingie_Trailer_Action">
-        <onfocus condition="[[String.IsEqual(Skin.String(AutoYoutubeTrailer),true) | !String.Contains(ListItem.Trailer,plugin) + !String.IsEmpty(ListItem.DBID)] + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | $EXP[IsEpisodeDBTypeNoFallback]]] + !System.IdleTime(1) + System.HasAddon(plugin.video.youtube) + !String.IsEmpty(ListItem.Trailer) + [![String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)] | [String.IsEqual(Skin.String(trailersource),imdb) + !String.IsEqual(Skin.String(AutoYoutubeTrailer),true)]]">
-            AlarmClock(preview_delay,PlayMedia($ESCINFO[ListItem.Trailer],1),00:$PARAM[interval],silent)</onfocus>
-		<onfocus condition="[[String.IsEqual(Skin.String(AutoYoutubeTrailer),true) | !String.Contains(ListItem.Trailer,plugin) + !String.IsEmpty(ListItem.DBID)] + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | $EXP[IsEpisodeDBTypeNoFallback]]] + !System.IdleTime(1) + System.HasAddon(plugin.video.imdb.trailers) + String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">
-            AlarmClock(preview_delay,PlayMedia(plugin://plugin.video.imdb.trailers/?action=play_id&amp;imdb=$VAR[IMDb_Trailers],1),00:$PARAM[interval],silent)</onfocus>	
-        <onfocus condition="[[String.IsEqual(Skin.String(AutoYoutubeTrailer),true) | !String.Contains(ListItem.Trailer,plugin) + !String.IsEmpty(ListItem.DBID)] + $EXP[IsMovieDBTypeNoFallback]] + !System.IdleTime(1) + String.IsEmpty(ListItem.Trailer) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + String.IsEqual(Skin.String(trailersource),youtube)">
-            AlarmClock(preview_delay,RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]$INFO[ListItem.Year]),00:$PARAM[interval],silent)</onfocus>
-		<onfocus condition="[[String.IsEqual(Skin.String(AutoYoutubeTrailer),true) | !String.Contains(ListItem.Trailer,plugin) + !String.IsEmpty(ListItem.DBID)] + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsEpisodeDBTypeNoFallback]]] + !System.IdleTime(1) + String.IsEmpty(ListItem.Trailer) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + String.IsEqual(Skin.String(trailersource),youtube)">
-            AlarmClock(preview_delay,RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle]$INFO[ListItem.Year],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)]),00:$PARAM[interval],silent)</onfocus>	
-    </include>
 	
 	<include name="Bingie_Spotlight_Trailer_Action">
         <onfocus condition="[[String.IsEqual(Skin.String(AutoYoutubeTrailer),true) | !String.Contains(ListItem.Trailer,plugin) + !String.IsEmpty(ListItem.DBID)] + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | $EXP[IsEpisodeDBTypeNoFallback]]] + !System.IdleTime(1) + System.HasAddon(plugin.video.youtube) + !String.IsEmpty(ListItem.Trailer) + [![String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)] | [String.IsEqual(Skin.String(trailersource),imdb) + !String.IsEqual(Skin.String(AutoYoutubeTrailer),true)]] | !String.IsEmpty(Window(Home).Property(StartupMask)) + [[String.IsEqual(Skin.String(AutoYoutubeTrailer),true) | !String.Contains(ListItem.Trailer,plugin)] + [$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | $EXP[IsEpisodeDBTypeNoFallback]]] + System.HasAddon(plugin.video.youtube) + !String.IsEmpty(ListItem.Trailer) + [![String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)] | [String.IsEqual(Skin.String(trailersource),imdb) + !String.IsEqual(Skin.String(AutoYoutubeTrailer),true)]]">

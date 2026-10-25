@@ -563,48 +563,6 @@
                             </control>
 
 							<!-- Trailer -->
-                            <control type="radiobutton" id="54">
-                                <visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
-								<visible>$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.Property(tmdb_type),movie) | String.IsEqual(ListItem.Property(tmdb_type),tv) | !String.IsEmpty(ListItem.UniqueID(tmdb))</visible>
-                                <visible>!$EXP[IsEpisodeDBType]</visible>
-								<include content="Bingie_InfoDialog_Button_Texture">
-                                <param name="radiotexture" value="dialogs/videoinfo/tvstudio-icon.png"/>
-                                </include>
-								<textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
-								<focusedcolor>$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]</focusedcolor>
-								<texturefocus border="10" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_focus.png</texturefocus>
-								<texturenofocus/>
-                                <label>$LOCALIZE[20410]</label>
-								<height>52</height>
-								<width>224</width>
-								<aligny>center</aligny>
-								<align>left</align>
-								<textoffsetx>55</textoffsetx>
-								<textoffsety>7</textoffsety>
-								<textwidth>160</textwidth>
-                                <radioposx>11</radioposx>
-                                <radiowidth>27</radiowidth>
-                                <radioheight>27</radioheight>
-								<onclick condition="!System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">InstallAddon(plugin.video.youtube)</onclick>
-								<onclick condition="!System.HasAddon(plugin.video.imdb.trailers) + String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">InstallAddon(plugin.video.imdb.trailers)</onclick>
-								<onclick condition="[String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)] + String.IsEmpty(Window(Home).Property(BusyInfoDialogTrailer)) + Window.IsActive(1190)">SetProperty(BusyInfoDialogTrailer,1,Home)</onclick>
-								<onclick condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">SetProperty(TrailerPlayIcon,1)</onclick>
-								<onfocus condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">ClearProperty(TrailerPlayIcon)</onfocus>
-								<onclick condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">SetProperty(PlaySearchTrailer,1)</onclick>
-								<!-- movie trailer local -->
-                                <onclick condition="System.HasAddon(plugin.video.youtube) + !String.IsEmpty(ListItem.Trailer) + [![String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)] | [String.IsEqual(Skin.String(trailersource),imdb) + !String.IsEqual(Skin.String(AutoYoutubeTrailer),true)]]">
-									PlayMedia($ESCINFO[ListItem.Trailer],1)</onclick>
-								<onclick condition="System.HasAddon(plugin.video.imdb.trailers) + String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">
-									PlayMedia(plugin://plugin.video.imdb.trailers/?action=play_id&amp;imdb=$VAR[IMDb_Trailers],1)</onclick>
-								<!-- plugin with fallback -->
-								<onclick condition="System.HasAddon(plugin.video.youtube) + String.IsEmpty(ListItem.Trailer) + String.IsEqual(ListItem.DBType,movie) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + String.IsEqual(Skin.String(trailersource),youtube)">
-									RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]$INFO[ListItem.Year])</onclick>
-								<!-- tvshow trailer local/youtube -->
-								<onclick condition="System.HasAddon(plugin.video.youtube) + [String.IsEmpty(ListItem.Trailer) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)] + String.IsEqual(Skin.String(trailersource),youtube)">
-									RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle]$INFO[ListItem.Year],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)])</onclick>
-								<onclick condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">SetFocus(70011)</onclick>
-								<onclick condition="[Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable] | [Control.IsVisible(8181) + Control.IsVisible(1234) + Container(1234).ListItem.IsResumable]">SetProperty(ShowPlayBeginning,1)</onclick>
-							 </control>
 
 							<!--Similar Button	-->
                             <control type="radiobutton" id="62">
@@ -926,31 +884,6 @@
 							<texture border="10" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_focus.png</texture>
 						</control>
 							<!-- Trailer -->
-                            <control type="radiobutton">
-								<visible>!String.IsEmpty(Window.Property(TrailerPlayIcon))</visible>
-                                <visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
-								<textureradioonfocus colordiffuse="$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonfocus>
-								<textureradioofffocus colordiffuse="$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioofffocus>
-								<textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradioonnofocus>
-								<textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]">dialogs/videoinfo/tvstudio-icon.png</textureradiooffnofocus>
-								<textureradiooffdisabled colordiffuse="ffaaaaaa">$PARAM[radiotexture]</textureradiooffdisabled>
-								<textcolor>$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]</textcolor>
-								<focusedcolor>$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]</focusedcolor>
-								<texturenofocus/>
-                                <label>$LOCALIZE[20410]</label>
-								<height>52</height>
-								<width>224</width>
-								<top>664</top>
-								<left>139</left>
-								<aligny>center</aligny>
-								<align>left</align>
-								<textoffsetx>55</textoffsetx>
-								<textoffsety>7</textoffsety>
-								<textwidth>160</textwidth>
-                                <radioposx>11</radioposx>
-                                <radiowidth>27</radiowidth>
-                                <radioheight>27</radioheight>
-                             </control>
 						</control>
 
     <control type="list" id="8999">
@@ -1842,41 +1775,6 @@
 							</control>
 
 							<!-- Trailer -->
-                            <control type="radiobutton" id="54">
-                                <visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
-								<visible>$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback] | String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.Property(tmdb_type),movie) | String.IsEqual(ListItem.Property(tmdb_type),tv) | !String.IsEmpty(ListItem.UniqueID(tmdb))</visible>
-                                <visible>!$EXP[IsEpisodeDBType]</visible>
-								<include>Bingie_InfoDialog_Button_Default_Defs</include>
-                                <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
-                                </include>
-                                <label>[CAPITALIZE]$LOCALIZE[31480][/CAPITALIZE]</label>
-								<radioposx>19</radioposx>
-								<radioposy>22</radioposy>
-                                <radiowidth>22</radiowidth>
-                                <radioheight>22</radioheight>
-								<onclick condition="!System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">InstallAddon(plugin.video.youtube)</onclick>
-								<onclick condition="!System.HasAddon(plugin.video.imdb.trailers) + String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">InstallAddon(plugin.video.imdb.trailers)</onclick>
-								<onclick condition="[String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)] + String.IsEmpty(Window(Home).Property(BusyInfoDialogTrailer)) + Window.IsActive(1190)">SetProperty(BusyInfoDialogTrailer,1,Home)</onclick>
-								<!-- movie trailer local -->
-                                <onclick condition="System.HasAddon(plugin.video.youtube) + !String.IsEmpty(ListItem.Trailer) + [![String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)] | [String.IsEqual(Skin.String(trailersource),imdb) + !String.IsEqual(Skin.String(AutoYoutubeTrailer),true)]]">
-									PlayMedia($ESCINFO[ListItem.Trailer],1)</onclick>
-								<onclick condition="System.HasAddon(plugin.video.imdb.trailers) + String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">
-									PlayMedia(plugin://plugin.video.imdb.trailers/?action=play_id&amp;imdb=$VAR[IMDb_Trailers],1)</onclick>
-								<!-- plugin with fallback -->
-								<onclick condition="System.HasAddon(plugin.video.youtube) + String.IsEmpty(ListItem.Trailer) + String.IsEqual(ListItem.DBType,movie) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true) + String.IsEqual(Skin.String(trailersource),youtube)">
-									RunScript(script.bingie.helper,action=playtrailer,title=$INFO[ListItem.Title]$INFO[ListItem.Year])</onclick>
-								<!-- tvshow trailer local/youtube -->
-								<onclick condition="System.HasAddon(plugin.video.youtube) + [String.IsEmpty(ListItem.Trailer) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)] + String.IsEqual(Skin.String(trailersource),youtube)">
-									RunScript(script.bingie.helper,action=playtrailer,title=$VAR[TVShowTitle]$INFO[ListItem.Year],tvshow=true,youtube=$INFO[Skin.String(AutoYoutubeTrailer)])</onclick>
-								<onclick condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">SetFocus(70011)</onclick>
-								<onclick condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">SetProperty(TrailerPlayIcon,1)</onclick>
-								<onfocus condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">ClearProperty(TrailerClipIcon)</onfocus>
-								<ondown condition="!String.IsEmpty(ListItem.Set)">622</ondown>
-								<ondown condition="String.IsEmpty(ListItem.Set)">623</ondown>
-								<onclick condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">SetProperty(HideNowPlaying,1)</onclick>
-								<onclick condition="[Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable] | [Control.IsVisible(8181) + Control.IsVisible(1234) + Container(1234).ListItem.IsResumable]">SetProperty(ShowPlayBeginning,1)</onclick>
-							</control>
 
 							<!--Trailers Button-->
                             <control type="radiobutton" id="541">
@@ -2190,19 +2088,6 @@
 									<texture border="10" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_focus.png</texture>
 								</control>
 								<!-- Trailer -->
-								<control type="radiobutton">
-									<visible>!String.IsEmpty(Window.Property(TrailerPlayIcon))</visible>
-									<visible>Skin.HasSetting(videoinfo_button_trailer)</visible>
-									<include>Bingie_InfoDialog_Trailer_Button_Default_Defs</include>
-									<include content="Bingie_InfoDialog_Trailer_Button_Texture">
-										<param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
-									</include>
-									<label>[CAPITALIZE]$LOCALIZE[31480][/CAPITALIZE]</label>
-									<radioposx>19</radioposx>
-									<radioposy>22</radioposy>
-									<radiowidth>22</radiowidth>
-									<radioheight>22</radioheight>
-								</control>
 								<!--Trailers Button-->
 								<control type="radiobutton">
 									<visible>!String.IsEmpty(Window.Property(TrailerClipIcon))</visible>

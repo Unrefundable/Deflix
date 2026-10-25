@@ -9,12 +9,15 @@
     
 	<!-- BINGIE -->
     <onload condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.Reset(CustomSearchTerm)</onload>
-    <onload>Skin.SetString(TMDbBingieHelper.MonitorContainer,17195)</onload>
-	<onload condition="!Skin.HasSetting(EnableRatings)">Skin.SetBool(TMDbBingieHelper.DisableRatings)</onload>
-    <onload condition="Skin.HasSetting(EnableRatings)">Skin.Reset(TMDbBingieHelper.DisableRatings)</onload>
-	
-	<!-- Build Menu -->
-    <onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|moviehub|tvshowhub|newhub|musichub|customhub|somethinghub|mylisthub)</onload>
+    <!-- Skin.Set* saves settings to disk, so only call it when the value differs -->
+    <onload condition="!String.IsEqual(Skin.String(TMDbBingieHelper.MonitorContainer),17195)">Skin.SetString(TMDbBingieHelper.MonitorContainer,17195)</onload>
+	<onload condition="!Skin.HasSetting(EnableRatings) + !Skin.HasSetting(TMDbBingieHelper.DisableRatings)">Skin.SetBool(TMDbBingieHelper.DisableRatings)</onload>
+    <onload condition="Skin.HasSetting(EnableRatings) + Skin.HasSetting(TMDbBingieHelper.DisableRatings)">Skin.Reset(TMDbBingieHelper.DisableRatings)</onload>
+    <onload condition="!Skin.HasSetting(TMDbBingieHelper.DisablePVR)">Skin.SetBool(TMDbBingieHelper.DisablePVR)</onload>
+
+	<!-- Build Menu: once per boot; leaving Skin Settings rebuilds after edits -->
+    <onload condition="String.IsEmpty(Window(Home).Property(DeflixMenusBuilt))">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|moviehub|tvshowhub|newhub|musichub|customhub|somethinghub|mylisthub)</onload>
+    <onload>SetProperty(DeflixMenusBuilt,1,Home)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle,$INFO[Skin.String(widgetstyle)])</onload>
 	<onload>Skin.TimerStart(spotlightanimation)</onload>
 
