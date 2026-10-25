@@ -150,7 +150,6 @@
             <!-- content -->            
             <include>Home_Spotlight_Settings</include>
 			<include>Home_Widgets_Settings</include>
-			<include>Home_Trailers</include>
             <include>Home_Details_Settings</include>
 			<include>Thumbs_Up_Down_Settings</include>
 			<include>Search</include>
@@ -472,39 +471,6 @@
     </include>
 	
 	<!-- Home Trailers -->
-    <include name="Home_Trailers">
-        <control type="label" id="31522">
-            <include>SkinSettings_Header</include>
-            <label>$LOCALIZE[31522]</label>
-        </control>
-		<!-- Auto Play Trailer for Spotlight Content -->
-        <control type="radiobutton" id="31370">
-            <include>SkinSettings_Button</include>
-            <label>$LOCALIZE[31370]</label>
-			<onclick condition="!System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">InstallAddon(plugin.video.youtube)</onclick>
-			<onclick condition="!System.HasAddon(plugin.video.imdb.trailers) + String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">InstallAddon(plugin.video.imdb.trailers)</onclick>
-            <onclick condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | System.HasAddon(plugin.video.imdb.trailers) + System.HasAddon(plugin.video.imdb.trailers)">Skin.ToggleSetting(SpotLightTrailers)</onclick>
-            <selected>Skin.HasSetting(SpotLightTrailers)</selected>
-            <visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
-        </control>
-       	<!-- Auto Play Trailers in Home & Hubs -->
-        <control type="radiobutton" id="31173">
-            <include>SkinSettings_Button</include>
-            <label>$LOCALIZE[31173]</label>
-			<onclick condition="!System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">InstallAddon(plugin.video.youtube)</onclick>
-			<onclick condition="!System.HasAddon(plugin.video.imdb.trailers) + String.IsEqual(Skin.String(trailersource),imdb) + String.IsEqual(Skin.String(AutoYoutubeTrailer),true)">InstallAddon(plugin.video.imdb.trailers)</onclick>
-            <onclick condition="String.IsEqual(Skin.String(AutoYoutubeTrailer),false) | System.HasAddon(plugin.video.youtube) + String.IsEqual(Skin.String(trailersource),youtube) | String.IsEqual(Skin.String(trailersource),imdb) + System.HasAddon(plugin.video.imdb.trailers)">Skin.ToggleSetting(BingieAutoTrailer)</onclick>
-            <selected>Skin.HasSetting(BingieAutoTrailer)</selected>
-        </control>	
-        <!-- Select Delay Interval for Auto-Trailers -->
-        <control type="button" id="31213">
-            <include>SkinSettings_Button</include>
-            <label>$LOCALIZE[31213]</label>
-            <label2>$INFO[Skin.String(main_auto_trailer_interval.label)]</label2>
-            <visible>Skin.HasSetting(BingieAutoTrailer) | Skin.HasSetting(SpotLightTrailers)</visible>
-            <onclick>RunScript(script.bingie.toolbox,action=setskinsetting,setting=main_auto_trailer_interval,header=$LOCALIZE[31213])</onclick>
-        </control>		
-	</include>
 
       <!-- Home Details Settings -->
       <include name="Home_Details_Settings">

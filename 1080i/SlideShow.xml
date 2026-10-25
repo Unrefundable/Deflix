@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DEFLIX: Pictures is not part of this cloud-streaming skin. Kodi still expects
+     the window file, so this placeholder sends the user back Home. -->
 <window>
+    <onload>ReplaceWindow(Home)</onload>
     <controls/>
 </window>

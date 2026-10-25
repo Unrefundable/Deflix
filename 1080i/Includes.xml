@@ -9,12 +9,10 @@
     <include file="IncludesAnimations.xml" />
     <include file="IncludesNowPlaying.xml" />
     <include file="IncludesDialogVideoInfo.xml" />
-    <include file="View_10_SimplePVR.xml" />
     <include file="View_50_List.xml" />
     <include file="View_526_BingieMainPoster.xml" />
     <include file="View_525_Bingie_Episodes.xml" />
 	<include file="View_527_Bingie_Seasons.xml" />
-	<include file="View_528_BingieMainSquare.xml" />
     <include file="IncludesViews.xml" />
     <include file="IncludesMediaFlags.xml" />
     <include file="IncludesViewsLayoutPoster.xml" />
@@ -29,7 +27,6 @@
     <include file="IncludesBingieSearch.xml"/>
 	<include file="IncludesDefaultSkinSettings.xml" />
 	<include file="IncludesBackgroundBuilding.xml" />
-	<include file="IncludesWeather.xml" />
     <include file="IncludesHeader.xml" />
     <include file="IncludesFooter.xml" />
 	<include file="IncludesPaths.xml" />

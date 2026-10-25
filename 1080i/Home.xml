@@ -16,7 +16,7 @@
     <onload condition="!Skin.HasSetting(TMDbBingieHelper.DisablePVR)">Skin.SetBool(TMDbBingieHelper.DisablePVR)</onload>
 
 	<!-- Build Menu: once per boot; leaving Skin Settings rebuilds after edits -->
-    <onload condition="String.IsEmpty(Window(Home).Property(DeflixMenusBuilt))">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|moviehub|tvshowhub|newhub|musichub|customhub|somethinghub|mylisthub)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(DeflixMenusBuilt))">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|moviehub|tvshowhub|newhub|customhub|somethinghub|mylisthub)</onload>
     <onload>SetProperty(DeflixMenusBuilt,1,Home)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle,$INFO[Skin.String(widgetstyle)])</onload>
 	<onload>Skin.TimerStart(spotlightanimation)</onload>

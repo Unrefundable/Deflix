@@ -772,7 +772,6 @@
                 <include condition="Window.IsActive(1112)">skinshortcuts-template-newhub</include>
                 <include condition="Window.IsActive(1113)">skinshortcuts-template-customhub</include>
                 <include condition="Window.IsActive(1114)">skinshortcuts-template-mylisthub</include>
-				<include condition="Window.IsActive(1120)">skinshortcuts-template-musichub</include>				
             </control>
 			
 			<include condition="String.IsEqual(Skin.String(widgetstyle),poster) + !Skin.HasSetting(DisableDummySpotlight)">SpotlightDummyPosterWidget</include>

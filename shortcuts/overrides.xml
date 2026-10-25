@@ -17,8 +17,6 @@
 			<shortcut label="31534" grouping="32029" icon="shortcuts/mylist.png">ActivateWindow(1114,return)</shortcut>
 			<shortcut label="31385" grouping="32029" icon="shortcuts/something.png">ActivateWindow(1118,return)</shortcut>
 			<shortcut label="31252" grouping="32029" icon="shortcuts/widget.png">ActivateWindow(1113,return)</shortcut>
-			<shortcut label="32022" grouping="32029" icon="shortcuts/antenna.png" condition="PVR.HasTVChannels | PVR.HasRadioChannels">ActivateWindow(1116,return)</shortcut>
-			<shortcut label="2" grouping="32029" icon="shortcuts/music.png" condition="Library.HasContent(music)">ActivateWindow(1120,return)</shortcut>				
 			<shortcut label="12600" grouping="32029" icon="shortcuts/weather.png">ActivateWindow(Weather)</shortcut>					
 		</node>
 

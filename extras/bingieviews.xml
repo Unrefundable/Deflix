@@ -1,8 +1,6 @@
 <views>
-    <view id="Simple list (PVR)" value="10" languageid="31567" type="tvchannels,tvrecordings" excludefromdisable="true"/>
 	<view id="List" value="50" languageid="31223" type="all,!tvchannels,!tvrecordings" excludefromdisable="true"/>
 	<view id="Bingie Poster" value="526" languageid="31027" type="movies,setmovies,tvshows,seasons,sets,actors" />
-	<view id="Bingie Square" value="528" languageid="31122" type="movies,setmovies,tvshows,seasons,episodes,sets,actors,songs,artists,albums" />	
 	<view id="Bingie Seasons" value="527" languageid="31095" type="seasons" />	
     <view id="Bingie Episodes" value="525" languageid="31318" type="episodes" />
 </views>
