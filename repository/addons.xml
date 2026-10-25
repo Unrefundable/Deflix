@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <addons>
-    <addon id="Deflix" version="2.2.1" name="Deflix" provider-name="Unrefundable">
+    <addon id="Deflix" version="2.3.0" name="Deflix" provider-name="Unrefundable">
         <requires>
             <import version="5.17.0" addon="xbmc.gui" />
             <import addon="script.bingie.helper" version="1.1.2" />
@@ -26,7 +26,9 @@
             <description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
             <description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
             <platform>all</platform>
-            <news>v2.2.1
+            <news>v2.3.0
+- Remove the unused Inter font set and its 10 MB of font files; the Default (Netflix Sans) and Arial font sets remain
+v2.2.1
 - Fix empty Home menu after a skin update: rebuild menus when the main menu has no items
 v2.2.0
 - Remove Live TV, music, pictures, games and weather; Kodi's built-in windows for them are now small placeholders that return Home
