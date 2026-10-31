@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- BINGIE – patched by service.kodi.lg: removed EnableAutoPauseOnOSD auto-pause -->
+<!-- BINGIE – EnableAutoPauseOnOSD auto-pause removed -->
 <window>
         <onload>SetFocus(203)</onload>
         <onload condition="Player.Forwarding | Player.Rewinding">Play</onload>
