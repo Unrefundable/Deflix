@@ -53,7 +53,7 @@
 			<width>100%</width>
 			<height>112</height>
 			<texture border="15">diffuse/panel2.png</texture>
-			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 		</control>
 		
 		

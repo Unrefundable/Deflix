@@ -2368,3 +2368,91 @@ msgstr "小组件"
 msgctxt "#31579"
 msgid "color for play icon"
 msgstr "播放图标颜色"
+
+msgctxt "#31580"
+msgid "Watch Later"
+msgstr "稍后观看"
+
+msgctxt "#31581"
+msgid "Continue Watching"
+msgstr "继续观看"
+
+msgctxt "#31582"
+msgid "Recently Watched"
+msgstr "最近观看"
+
+msgctxt "#31583"
+msgid "Recommended Movies"
+msgstr "推荐电影"
+
+msgctxt "#31584"
+msgid "Top 100 Movies"
+msgstr "电影 Top 100"
+
+msgctxt "#31585"
+msgid "Top 100 Shows"
+msgstr "剧集 Top 100"
+
+msgctxt "#31586"
+msgid "New Movies"
+msgstr "最新电影"
+
+msgctxt "#31587"
+msgid "New Shows"
+msgstr "最新剧集"
+
+msgctxt "#31588"
+msgid "Action & Adventure"
+msgstr "动作与冒险"
+
+msgctxt "#31589"
+msgid "Comedy"
+msgstr "喜剧"
+
+msgctxt "#31590"
+msgid "Animation"
+msgstr "动画"
+
+msgctxt "#31591"
+msgid "Kids & Family"
+msgstr "儿童与家庭"
+
+msgctxt "#31592"
+msgid "Documentaries"
+msgstr "纪录片"
+
+msgctxt "#31593"
+msgid "Drama Series"
+msgstr "剧情剧集"
+
+msgctxt "#31594"
+msgid "Sci-Fi & Fantasy"
+msgstr "科幻与奇幻"
+
+msgctxt "#31596"
+msgid "Customize Prime Video rows"
+msgstr "自定义 Prime Video 栏目"
+
+msgctxt "#31597"
+msgid "Customize Netflix rows"
+msgstr "自定义 Netflix 栏目"
+
+msgctxt "#31598"
+msgid "Customize Apple TV rows"
+msgstr "自定义 Apple TV 栏目"
+
+msgctxt "#31599"
+msgid "Customize Disney+ rows"
+msgstr "自定义 Disney+ 栏目"
+
+msgctxt "#31603"
+msgid "Continue Watching Movies"
+msgstr "继续观看电影"
+
+msgctxt "#31604"
+msgid "Recommended Shows"
+msgstr "推荐剧集"
+
+msgctxt "#31605"
+msgid "Streaming catalogue country (two-letter code, e.g. US, GB, DE)"
+msgstr "流媒体片库国家/地区（两位字母代码，如 US、GB）"

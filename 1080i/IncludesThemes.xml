@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DEFLIX -->
+<includes>
+
+	<!-- Provider themes.
+	     Each provider hub sets Window(Home).Property(DeflixProvider) to prime, disney or apple
+	     (Home, Search and the Netflix hub clear it). These variables swap the accent and
+	     surface colours while it is set and otherwise return the user's own colour setting,
+	     so the default look is unchanged. -->
+
+	<variable name="Theme_ActiveSpinControlColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>$INFO[Skin.String(ActiveSpinControlColor)]</value>
+	</variable>
+
+	<variable name="Theme_BingieOSDProgressBarColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>$INFO[Skin.String(BingieOSDProgressBarColor)]</value>
+	</variable>
+
+	<variable name="Theme_BingieProgressBarColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>$INFO[Skin.String(BingieProgressBarColor)]</value>
+	</variable>
+
+	<variable name="Theme_LineUnderMenuIconsColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>$INFO[Skin.String(LineUnderMenuIconsColor)]</value>
+	</variable>
+
+	<variable name="Theme_OSDBufferingSpinnerColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>$INFO[Skin.String(OSDBufferingSpinnerColor)]</value>
+	</variable>
+
+	<variable name="Theme_OSDProgressBarColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>$INFO[Skin.String(OSDProgressBarColor)]</value>
+	</variable>
+
+	<variable name="Theme_OSDVolumeButtonColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>$INFO[Skin.String(OSDVolumeButtonColor)]</value>
+	</variable>
+
+	<variable name="Theme_SpinnerTextureColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>$INFO[Skin.String(SpinnerTextureColor)]</value>
+	</variable>
+
+	<variable name="Theme_BingieOSDProgressBarCacheColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">801a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">800063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">80ffffff</value>
+		<value>$INFO[Skin.String(BingieOSDProgressBarCacheColor)]</value>
+	</variable>
+
+	<variable name="Theme_OSDProgressBarCacheColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">801a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">800063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">80ffffff</value>
+		<value>$INFO[Skin.String(OSDProgressBarCacheColor)]</value>
+	</variable>
+
+	<variable name="Theme_BingieNewEpisodesTagColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ff48484a</value>
+		<value>$INFO[Skin.String(BingieNewEpisodesTagColor)]</value>
+	</variable>
+
+	<variable name="Theme_GeneralPanelsColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">cc1b2530</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">cc13172b</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">cc1c1c1e</value>
+		<value>$INFO[Skin.String(GeneralPanelsColor)]</value>
+	</variable>
+
+	<variable name="Theme_SideBladePanelColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">fa0b1218</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">fa02040d</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">fa0d0d0f</value>
+		<value>$INFO[Skin.String(SideBladePanelColor)]</value>
+	</variable>
+
+	<variable name="Theme_ButtonColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff232f3e</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff1f2333</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ff2c2c2e</value>
+		<value>$INFO[Skin.String(ButtonColor)]</value>
+	</variable>
+
+	<!-- Colours with no matching skin setting -->
+	<variable name="Theme_Background">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff0f171e</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff040714</value>
+		<value>black</value>
+	</variable>
+
+	<variable name="Theme_Accent">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
+		<value>ffe50914</value>
+	</variable>
+
+</includes>

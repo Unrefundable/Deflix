@@ -2,6 +2,8 @@
 <!-- BINGIE -->
 <includes>
     <include file="Defaults.xml" />
+    <include file="IncludesThemes.xml" />
+    <include file="IncludesProviders.xml" />
     <include file="IncludesVariables.xml" />
     <include file="IncludesBingie.xml" />
     <include file="IncludesHomeWidgets.xml" />
@@ -242,7 +244,7 @@
                 <aspectratio>keep</aspectratio>
                 <imagepath>spinner/busy_spinner/</imagepath>
                 <timeperimage>100</timeperimage>
-                <colordiffuse>$INFO[Skin.String(SpinnerTextureColor)]</colordiffuse>
+                <colordiffuse>$VAR[Theme_SpinnerTextureColor]</colordiffuse>
                 <fadetime>0</fadetime>
             </control>
         </definition>
@@ -272,7 +274,7 @@
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
         <pulseonselect>false</pulseonselect>
         <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="10">diffuse/panel.png</texturefocus>
-        <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="10">diffuse/panel.png</texturenofocus>
+        <texturenofocus colordiffuse="$VAR[Theme_ButtonColor]" border="10">diffuse/panel.png</texturenofocus>
      </include>
     <include name="KeyBoardKeyRadio">
         <align>left</align>
@@ -298,9 +300,9 @@
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
         <pulseonselect>false</pulseonselect>
         <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf-2.png</texturefocus>
-        <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf-2.png</texturenofocus>
+        <texturenofocus colordiffuse="$VAR[Theme_ButtonColor]" border="20">dialogs/keyboard/key-nf-2.png</texturenofocus>
         <alttexturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf-2.png</alttexturefocus>
-        <alttexturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf-2.png</alttexturenofocus>
+        <alttexturenofocus colordiffuse="$VAR[Theme_ButtonColor]" border="20">dialogs/keyboard/key-nf-2.png</alttexturenofocus>
     </include>
 
     <include name="SmallKey">
@@ -476,7 +478,7 @@
 					<width>1152</width>
 					<texturebg colordiffuse="$INFO[Skin.String(BingieOSDProgressBarBackgroundColor)]">diffuse/panel2.png</texturebg>
 					<lefttexture/>
-					<midtexture colordiffuse="$INFO[Skin.String(BingieOSDProgressBarCacheColor)]">diffuse/panel2.png</midtexture>
+					<midtexture colordiffuse="$VAR[Theme_BingieOSDProgressBarCacheColor]">diffuse/panel2.png</midtexture>
 					<righttexture/>
 					<overlaytexture/>
 					<info>Player.ProgressCache</info>
@@ -490,7 +492,7 @@
 					<width>1152</width>
 					<texturebg colordiffuse="4dffffff">diffuse/panel2.png</texturebg>
 					<lefttexture/>
-					<midtexture colordiffuse="$INFO[Skin.String(BingieOSDProgressBarColor)]">diffuse/panel2.png</midtexture>
+					<midtexture colordiffuse="$VAR[Theme_BingieOSDProgressBarColor]">diffuse/panel2.png</midtexture>
 					<righttexture/>
 					<overlaytexture/>
 					<info>Player.SeekBar</info>
@@ -610,7 +612,7 @@
 					<visible>Player.HasDuration + !VideoPlayer.content(livetv)</visible>					
 					<texturebg border="10" colordiffuse="00ffffff">diffuse/panel.png</texturebg>
 					<lefttexture/>
-					<midtexture border="10" colordiffuse="$INFO[Skin.String(OSDProgressBarCacheColor)]">diffuse/osd_panel.png</midtexture>
+					<midtexture border="10" colordiffuse="$VAR[Theme_OSDProgressBarCacheColor]">diffuse/osd_panel.png</midtexture>
 					<righttexture/>
 					<overlaytexture/>
                     <visible>!String.IsEqual(Skin.String(OSDProgressBarCacheColor),None)</visible>
@@ -625,7 +627,7 @@
 					<visible>!VideoPlayer.HasEpg</visible>
 					<texturebg border="10" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/osd_panel_trans.png</texturebg>
 					<lefttexture/>
-					<midtexture border="10" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/osd_panel.png</midtexture>
+					<midtexture border="10" colordiffuse="$VAR[Theme_OSDProgressBarColor]">diffuse/osd_panel.png</midtexture>
 					<righttexture/>
 					<overlaytexture/>
 				</control>
@@ -639,7 +641,7 @@
 					<visible>VideoPlayer.HasEpg</visible>
 					<texturebg border="10" colordiffuse="$VAR[OSDProgressBarBackgroundColor]">diffuse/osd_panel_trans.png</texturebg>
 					<lefttexture/>
-					<midtexture border="10" colordiffuse="$INFO[Skin.String(OSDProgressBarColor)]">diffuse/osd_panel.png</midtexture>
+					<midtexture border="10" colordiffuse="$VAR[Theme_OSDProgressBarColor]">diffuse/osd_panel.png</midtexture>
 					<righttexture/>
 					<overlaytexture/>
 				</control>

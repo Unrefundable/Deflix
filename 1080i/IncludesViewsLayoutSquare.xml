@@ -219,8 +219,8 @@
                 <textcolor>$INFO[Skin.String(NewEpisodes.TextColor)]</textcolor>
 				<focusedcolor>$INFO[Skin.String(NewEpisodes.TextColor)]</focusedcolor>
                 <textoffsetx>5</textoffsetx>
-                <texturefocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]" border="10">diffuse/panel3.png</texturefocus>
-                <texturenofocus colordiffuse="$INFO[Skin.String(BingieNewEpisodesTagColor)]" border="10">diffuse/panel3.png</texturenofocus>
+                <texturefocus colordiffuse="$VAR[Theme_BingieNewEpisodesTagColor]" border="10">diffuse/panel3.png</texturefocus>
+                <texturenofocus colordiffuse="$VAR[Theme_BingieNewEpisodesTagColor]" border="10">diffuse/panel3.png</texturenofocus>
             </control>
         </control>
     </include>

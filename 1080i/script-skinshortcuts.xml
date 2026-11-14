@@ -34,7 +34,7 @@
 				<posy>0</posy>
 				<width>1800</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 			</control>
 			<!-- black bg panel - if not mainmenu window -->
 			<control type="image">
@@ -63,7 +63,7 @@
 							<width>571</width>
 							<height>79</height>
 							<aligny>center</aligny>
-							<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+							<texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
 						</control>
 						<!-- thumb -->
 						<control type="image">
@@ -97,7 +97,7 @@
 							<width>571</width>
 							<height>79</height>
 							<aligny>center</aligny>
-							<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+							<texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
 							<visible>!Control.HasFocus(211)</visible>
 						</control>
 						<control type="image">
@@ -145,7 +145,7 @@
 					<width>539</width>
 					<height>750</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
-					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 				</control>
 				
 				<control type="grouplist">
@@ -199,7 +199,7 @@
                         <font>Reg24</font>
 						<scrollspeed>160</scrollspeed>
 						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-						<visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),customhub) | String.IsEqual(Window.Property(groupname),moviehub) | String.IsEqual(Window.Property(groupname),tvshowhub) | String.IsEqual(Window.Property(groupname),newhub) | String.IsEqual(Window.Property(groupname),musichub)</visible>
+						<visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),disneyhub) | String.IsEqual(Window.Property(groupname),primehub) | String.IsEqual(Window.Property(groupname),netflixhub) | String.IsEqual(Window.Property(groupname),appletvhub) | String.IsEqual(Window.Property(groupname),musichub)</visible>
 					</control>
 					<control type="fadelabel">
 						<left>5</left>
@@ -213,7 +213,7 @@
 						<pauseatend>2500</pauseatend>
 						<orientation>horizontal</orientation>
                         <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-						<visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),customhub) | String.IsEqual(Window.Property(groupname),moviehub) | String.IsEqual(Window.Property(groupname),tvshowhub) | String.IsEqual(Window.Property(groupname),newhub) | String.IsEqual(Window.Property(groupname),musichub)</visible>
+						<visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),disneyhub) | String.IsEqual(Window.Property(groupname),primehub) | String.IsEqual(Window.Property(groupname),netflixhub) | String.IsEqual(Window.Property(groupname),appletvhub) | String.IsEqual(Window.Property(groupname),musichub)</visible>
 					</control>
 					<!--Widget style label-->
 					<control type="label">
@@ -438,8 +438,8 @@
 					<height>58</height>
 					<align>center</align>
 					<label>$LOCALIZE[31379]</label>
-					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightmyhub.path)</onclick>
-					<visible>String.IsEqual(Window.Property(groupname),customhub)</visible>
+					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightdisney.path)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),disneyhub)</visible>
 					<visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
 				</control>
 				
@@ -449,8 +449,8 @@
 					<height>58</height>
 					<align>center</align>
 					<label>$LOCALIZE[31379]</label>
-					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightmovies.path)</onclick>
-					<visible>String.IsEqual(Window.Property(groupname),moviehub)</visible>
+					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightprime.path)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),primehub)</visible>
 					<visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
 				</control>
 				
@@ -460,8 +460,8 @@
 					<height>58</height>
 					<align>center</align>
 					<label>$LOCALIZE[31379]</label>
-					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlighttvshows.path)</onclick>
-					<visible>String.IsEqual(Window.Property(groupname),tvshowhub)</visible>
+					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightnetflix.path)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),netflixhub)</visible>
 					<visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
 				</control>
 				
@@ -471,8 +471,8 @@
 					<height>58</height>
 					<align>center</align>
 					<label>$LOCALIZE[31379]</label>
-					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightnew.path)</onclick>
-					<visible>String.IsEqual(Window.Property(groupname),newhub)</visible>
+					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightappletv.path)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),appletvhub)</visible>
 					<visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
 				</control>
 				

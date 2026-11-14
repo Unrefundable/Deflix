@@ -21,7 +21,7 @@
         <onclick>Skin.Reset(HomeMenuDefaults46)</onclick>
         <onclick>ClearProperty(startupDone,Home)</onclick>
         <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
-        <onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|moviehub|tvshowhub|newhub|customhub|somethinghub|mylisthub)</onclick>
+        <onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub)</onclick>
     </include>
   
   <!-- various default settings  -->
@@ -249,6 +249,7 @@
         <onload condition="!Skin.String(BingieProgressBarBackgroundColor.name)">Skin.SetString(BingieProgressBarBackgroundColor.name,$LOCALIZE[767])</onload>
 		<onload condition="!Skin.String(BingieHomeProgressBarTextColor)">Skin.SetString(BingieHomeProgressBarTextColor,a6ffffff)</onload>
         <onload condition="!Skin.String(BingieHomeProgressBarTextColor.name)">Skin.SetString(BingieHomeProgressBarTextColor.name,$LOCALIZE[766])</onload>
+		<onload condition="!Skin.String(DeflixRegion)">Skin.SetString(DeflixRegion,US)</onload>
 		<onload condition="!Skin.String(BackgroundColor)">Skin.SetString(BackgroundColor,ff000000)</onload>
         <onload condition="!Skin.String(BackgroundColor.name)">Skin.SetString(BackgroundColor.name,$LOCALIZE[353])</onload>
 		<onload condition="!Skin.String(SpinnerTextureColor)">Skin.SetString(SpinnerTextureColor,ffe50914)</onload>

@@ -19,11 +19,11 @@
             <bottom>160</bottom>
             <control type="image">
                 <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+                <colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
             </control>
             <control type="image">
                 <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+                <colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
             </control>
         </control>
 		<!--Header-->
@@ -92,7 +92,7 @@
 				<width>100%</width>
 				<height>100</height>
 				<texture>diffuse/panel2.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 			</control>
 			<control type="image">
 				<posx>0</posx>
@@ -100,7 +100,7 @@
 				<width>100%</width>
 				<height>100</height>
 				<texture>diffuse/panel2.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 			</control>
 			
 		<control type="grouplist" id="9001">

@@ -316,11 +316,11 @@
             </controls>
         </items>
     </submenu>
-	<submenu include="moviehub" name="moviehub">
+	<submenu include="primehub" name="primehub">
         <controls>
-            <skinshortcuts insert="moviehub">items</skinshortcuts>
+            <skinshortcuts insert="primehub">items</skinshortcuts>
         </controls>
-        <items insert="moviehub">       
+        <items insert="primehub">       
         <property name="submenuid" tag="property" attribute="name|submenuVisibility" />       
 		<property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
 		<property name="widgetTarget">videos</property>
@@ -340,7 +340,7 @@
         <property name="widgetSortBy" tag="property" attribute="name|widgetSortBy" />
         <property name="widgetSortOrder" tag="property" attribute="name|widgetSortOrder" />
         <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
-        <property name="widgetLimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>	
+        <property name="widgetLimit"/>	
 			<property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[1]">1</property>
             <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[2]">2</property>
             <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[3]">3</property>
@@ -387,11 +387,11 @@
         </controls>  
 		</items>		
 	 </submenu>
-	 <submenu include="tvshowhub" name="tvshowhub">
+	 <submenu include="netflixhub" name="netflixhub">
         <controls>
-            <skinshortcuts insert="tvshowhub">items</skinshortcuts>
+            <skinshortcuts insert="netflixhub">items</skinshortcuts>
         </controls>
-        <items insert="tvshowhub">       
+        <items insert="netflixhub">       
         <property name="submenuid" tag="property" attribute="name|submenuVisibility" />       
 		<property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
 		<property name="widgetTarget">videos</property>
@@ -411,7 +411,7 @@
         <property name="widgetSortBy" tag="property" attribute="name|widgetSortBy" />
         <property name="widgetSortOrder" tag="property" attribute="name|widgetSortOrder" />
         <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
-        <property name="widgetLimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>	
+        <property name="widgetLimit"/>	
 			<property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[1]">1</property>
             <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[2]">2</property>
             <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[3]">3</property>
@@ -458,11 +458,11 @@
         </controls>  
 		</items>		
 	 </submenu>
-	 <submenu include="newhub" name="newhub">
+	 <submenu include="appletvhub" name="appletvhub">
         <controls>
-            <skinshortcuts insert="newhub">items</skinshortcuts>
+            <skinshortcuts insert="appletvhub">items</skinshortcuts>
         </controls>
-        <items insert="newhub">       
+        <items insert="appletvhub">       
         <property name="submenuid" tag="property" attribute="name|submenuVisibility" />       
 		<property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
 		<property name="widgetTarget">videos</property>
@@ -482,7 +482,7 @@
         <property name="widgetSortBy" tag="property" attribute="name|widgetSortBy" />
         <property name="widgetSortOrder" tag="property" attribute="name|widgetSortOrder" />
         <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
-        <property name="widgetLimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>	
+        <property name="widgetLimit"/>	
 			<property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[1]">1</property>
             <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[2]">2</property>
             <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[3]">3</property>
@@ -529,11 +529,11 @@
         </controls>  
 		</items>		
 	 </submenu>
-	 <submenu include="customhub" name="customhub">
+	 <submenu include="disneyhub" name="disneyhub">
         <controls>
-            <skinshortcuts insert="customhub">items</skinshortcuts>
+            <skinshortcuts insert="disneyhub">items</skinshortcuts>
         </controls>
-        <items insert="customhub">       
+        <items insert="disneyhub">       
         <property name="submenuid" tag="property" attribute="name|submenuVisibility" />       
 		<property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
 		<property name="widgetTarget">videos</property>
@@ -553,7 +553,7 @@
         <property name="widgetSortBy" tag="property" attribute="name|widgetSortBy" />
         <property name="widgetSortOrder" tag="property" attribute="name|widgetSortOrder" />
         <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
-        <property name="widgetLimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>	
+        <property name="widgetLimit"/>	
 			<property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[1]">1</property>
             <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[2]">2</property>
             <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[3]">3</property>
@@ -600,97 +600,4 @@
         </controls>  
 		</items>		
 	 </submenu>
-	 <submenu include="mylisthub" name="mylisthub">
-        <controls>
-            <skinshortcuts insert="mylisthub">items</skinshortcuts>
-        </controls>
-        <items insert="mylisthub">       
-        <property name="submenuid" tag="property" attribute="name|submenuVisibility" />       
-		<property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
-		<property name="widgetTarget">videos</property>
-        <property name="contentStyle">normal</property>
-		<property name="container">panel</property>
-		<property name="position">vertical</property>
-		<property name="width">1804</property>
-		<property name="height">474</property>
-        <property name="widgetPath" tag="property" attribute="name|list" />
-        <property name="widgetPath"/>
-        <property name="widgetName" tag="label" />
-        <property name="widgetTags" tag="property" attribute="name|widgetTags" value="enable">WidgetTagOverlayEnable</property>
-        <property name="widgetTags" tag="property" attribute="name|widgetTags" value="disable">WidgetTagOverlayDisable</property>
-        <property name="widgetTags">WidgetTagOverlayDisable</property>
-        <property name="widgetStyle" tag="property" attribute="name|widgetstyle" />
-        <property name="widgetStyle">default</property>
-        <property name="widgetSortBy" tag="property" attribute="name|widgetSortBy" />
-        <property name="widgetSortOrder" tag="property" attribute="name|widgetSortOrder" />
-        <property name="widgetLimit" tag="property" attribute="name|widgetLimit" />
-        <property name="widgetLimit">$INFO[Skin.String(WidgetsGlobalLimit)]</property>	
-			<property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[1]">1</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[2]">2</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[3]">3</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[4]">4</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[5]">5</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[6]">6</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[7]">7</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[8]">8</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[9]">9</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[10]">10</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[11]">11</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[12]">12</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[13]">13</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[14]">14</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[15]">15</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[16]">16</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[17]">17</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[18]">18</property>
-            <property name="widgetid" tag="property" attribute="name|id" value="$NUMBER[19]">19</property>
-            <property name="widgetid">20</property>       
-        <controls>           
-            <include content="widget_base" condition="$PYTHON['true' if widgetPath else 'false']">
-                <param name="contentStyle" value="$SKINSHORTCUTS[contentStyle]" />
-                <param name="widgetid" value="1520" />
-				<param name="container" value="$SKINSHORTCUTS[container]" />
-				<param name="position" value="$SKINSHORTCUTS[position]" />
-				<param name="width" value="$SKINSHORTCUTS[width]" />
-				<param name="height" value="$SKINSHORTCUTS[height]" />
-                <param name="widgetName" value="$SKINSHORTCUTS[widgetName]" />
-                <param name="submenuid" value="$SKINSHORTCUTS[submenuid]" />
-                <param name="widgetTags" value="$SKINSHORTCUTS[widgetTags]" />
-                <param name="widgetTarget" value="$SKINSHORTCUTS[widgetTarget]" />
-                <param name="widgetPath" value="$SKINSHORTCUTS[widgetPath]" />
-                <param name="widgetStyle" value="widget_layout_$SKINSHORTCUTS[widgetStyle]" />
-                <param name="widgetSortBy" value="$SKINSHORTCUTS[widgetSortBy]" />
-                <param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder]" />
-                <param name="widgetLimit" value="$SKINSHORTCUTS[widgetLimit]" />
-            </include>		
-        </controls>  
-		</items>		
-	 </submenu>
-	 	<submenu include="somethinghub" name="somethinghub">
-        <controls>
-            <skinshortcuts insert="somethinghub">items</skinshortcuts>
-        </controls>
-        <items insert="somethinghub">
-            <property name="label" tag="label" />			
-            <property name="widgetpath" tag="property" attribute="name|list"/>			
-			<property name="widgetTarget" tag="property" attribute="name|widgetTarget" />
-			<property name="widgetTarget">videos</property>
-			<property name="widgetSortBy" tag="property" attribute="name|widgetSortBy" />
-			<property name="widgetSortBy">userpreference</property>
-			<property name="widgetSortOrder" tag="property" attribute="name|widgetSortOrder" />
-            <property name="widgetlimit" tag="property" attribute="name|widgetlimit"/>
-			<property name="widgetlimit">20</property>			
-            <controls>
-                <include content="Object_Something_Template">
-                    <param name="widgetid" value="1510" />
-                    <param name="widgetpath" value="$SKINSHORTCUTS[widgetpath]" />
-                    <param name="label" value="$SKINSHORTCUTS[label]" />
-					<param name="widgetSortBy" value="$SKINSHORTCUTS[widgetSortBy]" />
-					<param name="widgetSortOrder" value="$SKINSHORTCUTS[widgetSortOrder]" />
-                    <param name="widgetlimit" value="$SKINSHORTCUTS[widgetlimit]" />
-					<param name="widgetTarget" value="$SKINSHORTCUTS[widgetTarget]" />
-                </include>
-            </controls>
-        </items>
-    </submenu>
 </template>

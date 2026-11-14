@@ -20,7 +20,7 @@
                     <top>0</top>
                     <width>100%</width>
                     <height>80</height>
-                    <texture colordiffuse="$INFO[Skin.String(GeneralPanelsColor)]">diffuse/panel2.png</texture>
+                    <texture colordiffuse="$VAR[Theme_GeneralPanelsColor]">diffuse/panel2.png</texture>
                 </control>
                 <control type="group">
                     <top>12</top>

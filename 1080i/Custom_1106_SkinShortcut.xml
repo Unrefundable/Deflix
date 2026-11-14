@@ -22,7 +22,7 @@
 				<posy>0</posy>
 				<width>1800</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 			</control>
 
 			<!-- left panel -->
@@ -43,7 +43,7 @@
 							<width>571</width>
 							<height>79</height>
 							<aligny>center</aligny>
-							<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+							<texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
 						</control>
 						<!-- thumb -->
 						<control type="image">
@@ -77,7 +77,7 @@
 							<width>571</width>
 							<height>79</height>
 							<aligny>center</aligny>
-							<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+							<texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
 							<visible>!Control.HasFocus(211)</visible>
 						</control>
 						<control type="image">
@@ -265,7 +265,7 @@
 					<width>539</width>
 					<height>750</height>
 					<texture border="15">diffuse/bgpanel.png</texture>
-					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 				</control>
 				
 				<control type="grouplist">

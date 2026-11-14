@@ -22,14 +22,14 @@
                 <posx>60</posx>
                 <width>1800</width>
                 <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+                <colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
             </control>
             
             <control type="image">
                 <posx>60</posx>
                 <width>510</width>
                 <texture border="15">diffuse/bgpanel.png</texture>
-                <colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+                <colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
             </control>
             
             <control type="list" id="570">
@@ -47,7 +47,7 @@
                     <control type="image">
                         <height>80</height>
                         <width>1200</width>
-                        <texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+                        <texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
                     </control>
                     <control type="image">
                         <posx>20</posx>
@@ -144,7 +144,7 @@
                     <control type="image">
                         <height>80</height>
                         <width>1200</width>
-                        <texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+                        <texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
                     </control>
                     <control type="image">
                         <posx>20</posx>

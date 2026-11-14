@@ -627,7 +627,7 @@
                                 <height>8</height>
                                 <texturebg colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="0">diffuse/panel2.png</texturebg>
                                 <lefttexture/>
-                                <midtexture colordiffuse="$INFO[Skin.String(BingieProgressBarColor)]" border="4">diffuse/panel2.png</midtexture>
+                                <midtexture colordiffuse="$VAR[Theme_BingieProgressBarColor]" border="4">diffuse/panel2.png</midtexture>
                                 <righttexture/>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
@@ -767,11 +767,10 @@
                     <param name="widgetid" value="1508"/>
                 </include>
                 <include condition="Window.IsActive(Home)">skinshortcuts-template-Widgets</include>
-                <include condition="Window.IsActive(1110)">skinshortcuts-template-tvshowhub</include>
-                <include condition="Window.IsActive(1111)">skinshortcuts-template-moviehub</include>
-                <include condition="Window.IsActive(1112)">skinshortcuts-template-newhub</include>
-                <include condition="Window.IsActive(1113)">skinshortcuts-template-customhub</include>
-                <include condition="Window.IsActive(1114)">skinshortcuts-template-mylisthub</include>
+                <include condition="Window.IsActive(1110)">skinshortcuts-template-netflixhub</include>
+                <include condition="Window.IsActive(1111)">skinshortcuts-template-primehub</include>
+                <include condition="Window.IsActive(1112)">skinshortcuts-template-appletvhub</include>
+                <include condition="Window.IsActive(1113)">skinshortcuts-template-disneyhub</include>
             </control>
 			
 			<include condition="String.IsEqual(Skin.String(widgetstyle),poster) + !Skin.HasSetting(DisableDummySpotlight)">SpotlightDummyPosterWidget</include>
@@ -790,7 +789,7 @@
 			<control type="image">
 				<visible>!Skin.HasSetting(DisableBingieLogo) + [Window.IsActive(Home) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1120) | Window.IsActive(1114)]</visible> 
 				<description>diffuse behind Bingie logo</description>
-				<animation effect="slide" end="-66" time="0" condition="Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1114)">Conditional</animation>
+				<animation effect="slide" end="-66" time="0" condition="$EXP[IsBingieHubsActive2]">Conditional</animation>
 				<right>470</right>
 				<bottom>0</bottom>
 				<width>0</width>
@@ -802,7 +801,7 @@
 			</control>
 			<!--Bingie Logo-->
 			<control type="image">
-				<visible>!Skin.HasSetting(DisableBingieLogo) + !Window.IsActive(1110) + !Window.IsActive(1111) + !Window.IsActive(1114) + !Window.IsActive(1120)</visible>
+				<visible>!Skin.HasSetting(DisableBingieLogo) + !$EXP[IsBingieHubsActive2]</visible>
 				<description>Bingie logo</description>
 				<right>314</right>
 				<bottom>5</bottom>
@@ -814,7 +813,7 @@
 			</control>
 
 			<control type="grouplist">
-				<visible>!Skin.HasSetting(DisableBingieLogo) + [Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1120) | Window.IsActive(1114)]</visible>
+				<visible>!Skin.HasSetting(DisableBingieLogo) + $EXP[IsBingieHubsActive2]</visible>
 				<orientation>horizontal</orientation>
 				<height>56</height>
 				<width>300</width>
@@ -825,7 +824,7 @@
 			<control type="image">
 				<width>9</width>
 				<height>40</height>
-				<texture background="true" colordiffuse="ffE50914">bingie/line.png</texture>
+				<texture background="true" colordiffuse="$VAR[Theme_Accent]">bingie/line.png</texture>
 			</control>
 			<control type="label">
 				<width>auto</width>

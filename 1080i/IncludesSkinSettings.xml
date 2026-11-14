@@ -322,7 +322,7 @@
         <disabledcolor>$INFO[Skin.String(GeneralTextColor)]</disabledcolor>
         <pulseonselect>false</pulseonselect>
         <texturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf-2.png</texturefocus>
-        <texturenofocus colordiffuse="$INFO[Skin.String(ButtonColor)]" border="20">dialogs/keyboard/key-nf-2-trans.png</texturenofocus>
+        <texturenofocus colordiffuse="$VAR[Theme_ButtonColor]" border="20">dialogs/keyboard/key-nf-2-trans.png</texturenofocus>
         <alttexturefocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf-2.png</alttexturefocus>
         <alttexturenofocus colordiffuse="$INFO[Skin.String(ButtonFocusColor)]" border="20">dialogs/keyboard/key-nf-2-trans.png</alttexturenofocus>
     </include>
@@ -439,6 +439,13 @@
             <label>$LOCALIZE[31123]</label>
             <onclick>Skin.ToggleSetting(EnableFixedFrameWidgets)</onclick>
             <selected>!Skin.HasSetting(EnableFixedFrameWidgets)</selected>
+        </control>
+		<!-- country whose streaming catalogues the provider menus show -->
+        <control type="button" id="31605">
+            <include>SkinSettings_Button</include>
+            <label>$LOCALIZE[31605]</label>
+            <label2>$VAR[Provider_Region]</label2>
+            <onclick>Skin.SetString(DeflixRegion)</onclick>
         </control>
 		<!-- set global items limit -->
         <control type="button" id="31037">
@@ -1813,21 +1820,21 @@
             <height>5</height>
         </control>
 		<include content="SkinSettings_ActionButton">
-            <param name="id" value="31434" />
-            <param name="label" value="31434" />
-            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=moviehub)" />
+            <param name="id" value="31596" />
+            <param name="label" value="31596" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=primehub)" />
             <param name="visible" value="true" />
         </include>
 		<include content="SkinSettings_ActionButton">
-            <param name="id" value="31058" />
-            <param name="label" value="31058" />
-            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=tvshowhub)" />
+            <param name="id" value="31597" />
+            <param name="label" value="31597" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=netflixhub)" />
             <param name="visible" value="true" />
         </include>
 		<include content="SkinSettings_ActionButton">
-            <param name="id" value="31506" />
-            <param name="label" value="31506" />
-            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=newhub)" />
+            <param name="id" value="31598" />
+            <param name="label" value="31598" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=appletvhub)" />
             <param name="visible" value="true" />
         </include>
 		<include content="SkinSettings_ActionButton">
@@ -1837,27 +1844,15 @@
             <param name="visible" value="true" />
         </include>
 		<include content="SkinSettings_ActionButton">
-            <param name="id" value="31166" />
-            <param name="label" value="31166" />
-            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=mylisthub)" />
-            <param name="visible" value="true" />
-        </include>
-		<include content="SkinSettings_ActionButton">
             <param name="id" value="31472" />
             <param name="label" value="31472" />
             <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=musichub)" />
             <param name="visible" value="true" />
         </include>
 		<include content="SkinSettings_ActionButton">
-            <param name="id" value="31383" />
-            <param name="label" value="31383" />
-            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=somethinghub)" />
-            <param name="visible" value="true" />
-        </include>
-		<include content="SkinSettings_ActionButton">
-            <param name="id" value="31250" />
-            <param name="label" value="31250" />
-            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=customhub)" />
+            <param name="id" value="31599" />
+            <param name="label" value="31599" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=disneyhub)" />
             <param name="visible" value="true" />
         </include>		
         <control type="label" id="31170">

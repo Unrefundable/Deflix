@@ -18,10 +18,11 @@
 	<!-- Build Menu: once per boot; leaving Skin Settings rebuilds after edits.
 	     A skin update deletes the generated menu file, which leaves the main
 	     menu (900) empty, so rebuild then too. -->
-    <onload condition="String.IsEmpty(Window(Home).Property(DeflixMenusBuilt)) | Integer.IsEqual(Container(900).NumItems,0)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|moviehub|tvshowhub|newhub|customhub|somethinghub|mylisthub)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(DeflixMenusBuilt)) | Integer.IsEqual(Container(900).NumItems,0)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub)</onload>
     <onload>SetProperty(DeflixMenusBuilt,1,Home)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle,$INFO[Skin.String(widgetstyle)])</onload>
 	<onload>Skin.TimerStart(spotlightanimation)</onload>
+	<onload>ClearProperty(DeflixProvider,Home)</onload>
 
     <!-- First Run -->
 	<onload condition="$EXP[IsFirstRun]">ReplaceWindow($VAR[StartUpWindow])</onload>

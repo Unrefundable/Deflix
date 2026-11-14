@@ -2377,3 +2377,91 @@ msgstr "Widget"
 msgctxt "#31579"
 msgid "color for play icon"
 msgstr "Color para icono de reproducción"
+
+msgctxt "#31580"
+msgid "Watch Later"
+msgstr "Ver más tarde"
+
+msgctxt "#31581"
+msgid "Continue Watching"
+msgstr "Seguir viendo"
+
+msgctxt "#31582"
+msgid "Recently Watched"
+msgstr "Vistos recientemente"
+
+msgctxt "#31583"
+msgid "Recommended Movies"
+msgstr "Películas recomendadas"
+
+msgctxt "#31584"
+msgid "Top 100 Movies"
+msgstr "Top 100 películas"
+
+msgctxt "#31585"
+msgid "Top 100 Shows"
+msgstr "Top 100 series"
+
+msgctxt "#31586"
+msgid "New Movies"
+msgstr "Películas nuevas"
+
+msgctxt "#31587"
+msgid "New Shows"
+msgstr "Series nuevas"
+
+msgctxt "#31588"
+msgid "Action & Adventure"
+msgstr "Acción y aventura"
+
+msgctxt "#31589"
+msgid "Comedy"
+msgstr "Comedia"
+
+msgctxt "#31590"
+msgid "Animation"
+msgstr "Animación"
+
+msgctxt "#31591"
+msgid "Kids & Family"
+msgstr "Infantil y familiar"
+
+msgctxt "#31592"
+msgid "Documentaries"
+msgstr "Documentales"
+
+msgctxt "#31593"
+msgid "Drama Series"
+msgstr "Series dramáticas"
+
+msgctxt "#31594"
+msgid "Sci-Fi & Fantasy"
+msgstr "Ciencia ficción y fantasía"
+
+msgctxt "#31596"
+msgid "Customize Prime Video rows"
+msgstr "Personalizar filas de Prime Video"
+
+msgctxt "#31597"
+msgid "Customize Netflix rows"
+msgstr "Personalizar filas de Netflix"
+
+msgctxt "#31598"
+msgid "Customize Apple TV rows"
+msgstr "Personalizar filas de Apple TV"
+
+msgctxt "#31599"
+msgid "Customize Disney+ rows"
+msgstr "Personalizar filas de Disney+"
+
+msgctxt "#31603"
+msgid "Continue Watching Movies"
+msgstr "Seguir viendo películas"
+
+msgctxt "#31604"
+msgid "Recommended Shows"
+msgstr "Series recomendadas"
+
+msgctxt "#31605"
+msgid "Streaming catalogue country (two-letter code, e.g. US, GB, DE)"
+msgstr "País del catálogo de streaming (código de dos letras, p. ej. US, ES, MX)"

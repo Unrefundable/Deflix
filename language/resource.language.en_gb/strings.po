@@ -2377,3 +2377,91 @@ msgstr ""
 msgctxt "#31579"
 msgid "color for play icon"
 msgstr ""
+
+msgctxt "#31580"
+msgid "Watch Later"
+msgstr ""
+
+msgctxt "#31581"
+msgid "Continue Watching"
+msgstr ""
+
+msgctxt "#31582"
+msgid "Recently Watched"
+msgstr ""
+
+msgctxt "#31583"
+msgid "Recommended Movies"
+msgstr ""
+
+msgctxt "#31584"
+msgid "Top 100 Movies"
+msgstr ""
+
+msgctxt "#31585"
+msgid "Top 100 Shows"
+msgstr ""
+
+msgctxt "#31586"
+msgid "New Movies"
+msgstr ""
+
+msgctxt "#31587"
+msgid "New Shows"
+msgstr ""
+
+msgctxt "#31588"
+msgid "Action & Adventure"
+msgstr ""
+
+msgctxt "#31589"
+msgid "Comedy"
+msgstr ""
+
+msgctxt "#31590"
+msgid "Animation"
+msgstr ""
+
+msgctxt "#31591"
+msgid "Kids & Family"
+msgstr ""
+
+msgctxt "#31592"
+msgid "Documentaries"
+msgstr ""
+
+msgctxt "#31593"
+msgid "Drama Series"
+msgstr ""
+
+msgctxt "#31594"
+msgid "Sci-Fi & Fantasy"
+msgstr ""
+
+msgctxt "#31596"
+msgid "Customize Prime Video rows"
+msgstr ""
+
+msgctxt "#31597"
+msgid "Customize Netflix rows"
+msgstr ""
+
+msgctxt "#31598"
+msgid "Customize Apple TV rows"
+msgstr ""
+
+msgctxt "#31599"
+msgid "Customize Disney+ rows"
+msgstr ""
+
+msgctxt "#31603"
+msgid "Continue Watching Movies"
+msgstr ""
+
+msgctxt "#31604"
+msgid "Recommended Shows"
+msgstr ""
+
+msgctxt "#31605"
+msgid "Streaming catalogue country (two-letter code, e.g. US, GB, DE)"
+msgstr ""

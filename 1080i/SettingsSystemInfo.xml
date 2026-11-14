@@ -19,14 +19,14 @@
 			<posx>60</posx>
 			<width>1800</width>
 			<texture border="15">diffuse/bgpanel.png</texture>
-			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 		</control>
 		
 		<control type="image">
 			<posx>60</posx>
 			<width>510</width>
 			<texture border="15">diffuse/bgpanel.png</texture>
-			<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+			<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 		</control>
 		
         <!--Grouplist Buttons-->

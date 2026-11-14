@@ -21,7 +21,7 @@
 				<width>1800</width>
 				<height>718</height>
 				<texture border="15">diffuse/bgpanel.png</texture>				
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 			</control>
 			<control type="group">
 				<!--Start Left Panel-->
@@ -34,7 +34,7 @@
 					<width>850</width>
 					<height>520</height>
 					<texture border="10">diffuse/panel.png</texture>
-					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 				</control>
 				<control type="label" id="101">
 					<!--Header-->
@@ -220,7 +220,7 @@
 					<width>850</width>
 					<height>520</height>
 					<texture border="10">diffuse/panel.png</texture>					
-					<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+					<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 				</control>
 				<control type="label" id="102">
 					<!--Header-->

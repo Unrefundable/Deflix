@@ -94,7 +94,7 @@
 				<top>710</top>
 				<width>120</width>
 				<height>120</height>
-				<colordiffuse>$INFO[Skin.String(OSDBufferingSpinnerColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_OSDBufferingSpinnerColor]</colordiffuse>
 				<texture>dialogs/buffer-progress/p$INFO[Player.CacheLevel].png</texture>
 			</control>
 			<control type="label" id="25">

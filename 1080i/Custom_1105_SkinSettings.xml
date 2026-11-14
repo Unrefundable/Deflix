@@ -28,7 +28,7 @@
                 <width>1340</width>
                 <height>100%</height>
 				<texture>diffuse/panel2.png</texture>
-				<colordiffuse>$INFO[Skin.String(SideBladePanelColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_SideBladePanelColor]</colordiffuse>
             </control>
 			
            <!--Header-->

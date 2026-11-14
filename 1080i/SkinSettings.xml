@@ -3,7 +3,7 @@
 <window>
     <defaultcontrol always="true">100</defaultcontrol>
     <include>DefaultSkinSettings</include>
-	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|moviehub|tvshowhub|newhub|customhub|somethinghub|mylisthub)</onunload>
+	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub)</onunload>
 	<onunload condition="!Skin.HasSetting(EnableRatings)">Skin.SetBool(TMDbBingieHelper.DisableRatings)</onunload>
     <onunload condition="Skin.HasSetting(EnableRatings)">Skin.Reset(TMDbBingieHelper.DisableRatings)</onunload>
     <controls>
@@ -24,7 +24,7 @@
 				<posy>0</posy>
 				<width>1800</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 			</control>
 			
 			<control type="image">
@@ -32,7 +32,7 @@
 				<posy>0</posy>
 				<width>500</width>
 				<texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
 			</control>
 			
 			<!--List 100 Left Area-->

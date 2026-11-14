@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- BINGIE -->
+<!-- DEFLIX -->
 <window id="1113">
     <defaultcontrol always="true">77777</defaultcontrol>
     <menucontrol>900</menucontrol>
     <include>CustomBingieWinProps</include>
     <include>BingieViews_WindowOpen_Fade</include>
+	<onload>SetProperty(DeflixProvider,disney,Home)</onload>
 	<onload>Skin.TimerStart(spotlightanimation)</onload>
     <controls>
 		<include>Defs_TMDbBingieHelper_Loader</include>

@@ -1942,7 +1942,7 @@
                 <bottom>15</bottom>
 				<height>-7</height>
                 <texture>diffuse/panel2.png</texture>
-                <colordiffuse>$INFO[Skin.String(LineUnderMenuIconsColor)]</colordiffuse>
+                <colordiffuse>$VAR[Theme_LineUnderMenuIconsColor]</colordiffuse>
                 <aspectratio>stretch</aspectratio>
                 <animation effect="fade" start="0" end="100" delay="200" time="150">Visible</animation>				
             </control>
@@ -2121,7 +2121,7 @@
             <width>130</width>
             <aspectratio scalediffuse="true">scale</aspectratio>
             <texture border="2" background="true">bingie/sidediffuse.png</texture>
-            <colordiffuse>black</colordiffuse>  
+            <colordiffuse>$VAR[Theme_Background]</colordiffuse>  
 			<!-- Never Change or Remove / It will give everything a Grey Effect on Screen. It's very Hard to see on Smaller TV but Very Noticable on a Larger One -->
 			<visible>!$EXP[IsRecognizedVideoContent] + !$EXP[IsCurrentWidgetSpotlight]</visible>
 		</control>
@@ -2386,21 +2386,15 @@
         <!-- custom home spotlight -->
         <value condition="Window.IsActive(Home) + !String.IsEmpty(Skin.String(spotlighthome.path))">$INFO[Skin.String(spotlighthome.path)]</value>
         <value condition="Window.IsActive(Home)">$VAR[DefSpotlightWidgetContent]</value>
-        <!-- movies hub -->
-        <value condition="Window.IsActive(1111) + !String.IsEmpty(Skin.String(spotlightmovies.path))">$INFO[Skin.String(spotlightmovies.path)]</value>
-        <value condition="Window.IsActive(1111)">$VAR[DefSpotlightMovieHubContent]</value>
-        <!-- tvshows hub -->
-		<value condition="Window.IsActive(1110) + !String.IsEmpty(Skin.String(spotlighttvshows.path))">$INFO[Skin.String(spotlighttvshows.path)]</value>
-		<value condition="Window.IsActive(1110)">$VAR[DefSpotlightTVShowHubContent]</value>
-		<!-- new hub -->
-		<value condition="Window.IsActive(1112) + !String.IsEmpty(Skin.String(spotlightnew.path))">$INFO[Skin.String(spotlightnew.path)]</value>
-        <value condition="Window.IsActive(1112)">$VAR[DefSpotlightNewHubContent]</value>
-        <!-- my hub -->
-        <value condition="Window.IsActive(1113) + !String.IsEmpty(Skin.String(spotlightmyhub.path))">$INFO[Skin.String(spotlightmyhub.path)]</value>
-        <value condition="Window.IsActive(1113)"/>		
-		<!-- music hub -->
-        <value condition="Window.IsActive(1120) + !String.IsEmpty(Skin.String(spotlightmusic.path))">$INFO[Skin.String(spotlightmusic.path)]</value>
-        <value condition="Window.IsActive(1120)">special://skin/extras/widgetplaylists/randomsongs.xsp</value>
+        <!-- provider hubs: a custom spotlight if one was picked, else the provider's most popular titles -->
+        <value condition="Window.IsActive(1111) + !String.IsEmpty(Skin.String(spotlightprime.path))">$INFO[Skin.String(spotlightprime.path)]</value>
+        <value condition="Window.IsActive(1111)">$VAR[Provider_Prime_Spotlight]</value>
+        <value condition="Window.IsActive(1110) + !String.IsEmpty(Skin.String(spotlightnetflix.path))">$INFO[Skin.String(spotlightnetflix.path)]</value>
+        <value condition="Window.IsActive(1110)">$VAR[Provider_Netflix_Spotlight]</value>
+        <value condition="Window.IsActive(1112) + !String.IsEmpty(Skin.String(spotlightappletv.path))">$INFO[Skin.String(spotlightappletv.path)]</value>
+        <value condition="Window.IsActive(1112)">$VAR[Provider_AppleTV_Spotlight]</value>
+        <value condition="Window.IsActive(1113) + !String.IsEmpty(Skin.String(spotlightdisney.path))">$INFO[Skin.String(spotlightdisney.path)]</value>
+        <value condition="Window.IsActive(1113)">$VAR[Provider_Disney_Spotlight]</value>
     </variable>
 
 <!-- SPOTLIGHT IMAGE MAIN HOME--> 
@@ -2655,7 +2649,7 @@
 <!-- Bingie Basic Inc/Vars -->
 <!-- Bingie Panel Color - Home Background Color-->
     <variable name="BingiePanelColor">
-        <value>black</value>                           
+        <value>$VAR[Theme_Background]</value>                           
     <!-- This Above Should Never Be Changed -->
 	</variable>
 
@@ -2787,7 +2781,7 @@
                                 <height>8</height>
                                 <texturebg colordiffuse="$INFO[Skin.String(BingieDetailsFlagColor)]" border="0">diffuse/panel2.png</texturebg>
                                 <lefttexture/>
-                                <midtexture colordiffuse="$INFO[Skin.String(BingieProgressBarColor)]" border="4">diffuse/panel2.png</midtexture>
+                                <midtexture colordiffuse="$VAR[Theme_BingieProgressBarColor]" border="4">diffuse/panel2.png</midtexture>
                                 <righttexture/>
                                 <info>ListItem.PercentPlayed</info>
                             </control>
@@ -4075,10 +4069,10 @@
     </variable>
 	
 	<variable name="HubNames">
-        <value condition="Window.IsActive(1110)">$LOCALIZE[31566]</value>
-        <value condition="Window.IsActive(1111)">$LOCALIZE[342]</value>
-		<value condition="Window.IsActive(1114)">[CAPITALIZE]$LOCALIZE[31534][/CAPITALIZE]</value>
-		<value condition="Window.IsActive(1120)">$LOCALIZE[2]</value>
+        <value condition="Window.IsActive(1111)">Prime Video</value>
+        <value condition="Window.IsActive(1110)">Netflix</value>
+        <value condition="Window.IsActive(1112)">Apple TV</value>
+        <value condition="Window.IsActive(1113)">Disney+</value>
     </variable>
 	
 	<!-- View 527 SxxExx format -->

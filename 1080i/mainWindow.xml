@@ -27,7 +27,7 @@
                 <height>100%</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>
             </control>			
 			
 			<control type="image">
@@ -201,7 +201,7 @@
                                 <top>2</top>
                                 <width>1200</width>
                                 <height>45</height>
-								<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+								<texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
                             </control>
                             <control type="label">
                                 <left>40</left>
@@ -296,7 +296,7 @@
                                 <width>1200</width>
                                 <height>38</height>
 								<visible>!Control.HasFocus(1100)</visible>
-								<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+								<texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
                             </control>
                             <control type="label">
                                 <left>40</left>
@@ -413,7 +413,7 @@
                             <top>2</top>
                             <width>1200</width>
                             <height>98</height>
-                            <texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+                            <texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
                         </control>
 						<!-- Icon ethernet -->
                         <control type="image">
@@ -626,7 +626,7 @@
                             <top>2</top>
                             <width>1200</width>
                             <height>98</height>
-                           <texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+                           <texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
                         </control>
 						<!-- Icon ethernet -->
                         <control type="image">
@@ -754,7 +754,7 @@
                             <top>2</top>
                             <width>1200</width>
                             <height>68</height>
-							<texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+							<texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
                         </control>
                         <!-- default -->
                         <control type="image">
@@ -1117,7 +1117,7 @@
                             <top>2</top>
                             <width>1200</width>
                             <height>98</height>
-                            <texture border="10" colordiffuse="$INFO[Skin.String(ButtonColor)]">diffuse/panel.png</texture>
+                            <texture border="10" colordiffuse="$VAR[Theme_ButtonColor]">diffuse/panel.png</texture>
                         </control>
 						 <!-- default -->
                         <control type="image">

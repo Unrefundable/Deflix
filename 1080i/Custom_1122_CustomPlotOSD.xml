@@ -24,7 +24,7 @@
                 <width>1030</width>
                 <height>771</height>
                 <texture border="15">diffuse/bgpanel.png</texture>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>				
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>				
             </control>
 			
 			<control type="image">
@@ -35,7 +35,7 @@
                 <height>771</height>
 				<texture border="15">diffuse/bgpanel.png</texture>
 				<bordersize>10</bordersize>
-				<colordiffuse>$INFO[Skin.String(GeneralPanelsColor)]</colordiffuse>				
+				<colordiffuse>$VAR[Theme_GeneralPanelsColor]</colordiffuse>				
             </control>
 					
 			 <control type="label">

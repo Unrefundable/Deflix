@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- BINGIE -->
+<!-- DEFLIX -->
 <shortcuts>
 	<!-- Search -->
 	<shortcut>
@@ -19,61 +19,40 @@
 		<action>ActivateWindow(home,return)</action>
 	</shortcut>
 
-	<!-- New/Popular Hub -->
+	<!-- Prime Video -->
 	<shortcut>
-		<label>$LOCALIZE[31227]</label>
+		<label>Prime Video</label>
 		<label2 />
-		<icon>shortcuts/new.png</icon>
-		<thumb />
-		<action>ActivateWindow(1112,return)</action>
-	</shortcut>
-	
-	<!-- TV hub -->
-	<shortcut>
-		<label>$LOCALIZE[31566]</label>
-		<label2 />
-		<defaultID>shows</defaultID>
-		<icon>shortcuts/tv.png</icon>
-        <thumb />
-		<action>ActivateWindow(1110,return)</action>
-	</shortcut>
-
-	<!-- Movies hub -->
-	<shortcut>
-		<label>$LOCALIZE[342]</label>
-		<label2 />
-		<defaultID>movies</defaultID>
-		<icon>shortcuts/clapperboard.png</icon>
+		<icon>shortcuts/prime.png</icon>
 		<thumb />
 		<action>ActivateWindow(1111,return)</action>
 	</shortcut>
-	
-	<!-- Category hub -->
+
+	<!-- Netflix -->
 	<shortcut>
-		<label>$LOCALIZE[31025]</label>
+		<label>Netflix</label>
 		<label2 />
-		<icon>shortcuts/categories.png</icon>
-        <thumb />
-		<action>ActivateWindow(1119,return)</action>
+		<icon>shortcuts/netflix.png</icon>
+		<thumb />
+		<action>ActivateWindow(1110,return)</action>
 	</shortcut>
 
-	<!-- My List Hub -->
-    <shortcut>
-        <label>$LOCALIZE[31534]</label>
-        <label2 />
-        <icon>shortcuts/mylist.png</icon>
-        <thumb />
-        <action>ActivateWindow(1114,return)</action>
-    </shortcut>
+	<!-- Apple TV -->
+	<shortcut>
+		<label>Apple TV</label>
+		<label2 />
+		<icon>shortcuts/appletv.png</icon>
+		<thumb />
+		<action>ActivateWindow(1112,return)</action>
+	</shortcut>
 
-	<!-- Surprise Me Hub -->
-    <shortcut>
-        <label>$LOCALIZE[31385]</label>
-        <label2 />
-        <defaultID>31385</defaultID>
-        <icon>shortcuts/something.png</icon>
-        <thumb />
-        <action>ActivateWindow(1118,return)</action>
-    </shortcut>
+	<!-- Disney+ -->
+	<shortcut>
+		<label>Disney+</label>
+		<label2 />
+		<icon>shortcuts/disney.png</icon>
+		<thumb />
+		<action>ActivateWindow(1113,return)</action>
+	</shortcut>
 
 </shortcuts>

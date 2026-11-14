@@ -517,11 +517,6 @@
         <value condition="Skin.HasSetting(EnableTop250WhiteLabel)">bingie/top250white.png</value>
     </variable>
 	
-	<variable name="MyListLabel">
-        <value condition="!Skin.HasSetting(AddToFavorites) + [Library.HasContent(Movies) | Library.HasContent(TVShows)]">$LOCALIZE[31371]</value>
-        <value condition="Skin.HasSetting(AddToFavorites) | !Library.HasContent(Movies) + !Library.HasContent(TVShows)">$LOCALIZE[31543]</value>
-    </variable>
-	
 	<variable name="VideoResolutionTypeVar">
 		<value condition="String.IsEqual(ListItem.VideoResolution,480)">SD</value>
 		<value condition="String.IsEqual(ListItem.VideoResolution,540)">SD</value>
@@ -642,16 +637,16 @@
 	<!-- spotlight label -->
     <variable name="spotlight_label">
         <value condition="!String.IsEmpty(Skin.String(spotlighthome.path)) + String.EndsWith(Window.Property(groupname),.1)">$INFO[Skin.String(spotlighthome.path)]</value>
-		<value condition="!String.IsEmpty(Skin.String(spotlightmyhub.path)) + String.IsEqual(Window.Property(groupname),customhub)">$INFO[Skin.String(spotlightmyhub.path)]</value>
-		<value condition="!String.IsEmpty(Skin.String(spotlightmovies.path)) + String.IsEqual(Window.Property(groupname),moviehub)">$INFO[Skin.String(spotlightmovies.path)]</value>
-		<value condition="!String.IsEmpty(Skin.String(spotlighttvshows.path)) + String.IsEqual(Window.Property(groupname),tvshowhub)">$INFO[Skin.String(spotlighttvshows.path)]</value>
-		<value condition="!String.IsEmpty(Skin.String(spotlightnew.path)) + String.IsEqual(Window.Property(groupname),newhub)">$INFO[Skin.String(spotlightnew.path)]</value>
+		<value condition="!String.IsEmpty(Skin.String(spotlightdisney.path)) + String.IsEqual(Window.Property(groupname),disneyhub)">$INFO[Skin.String(spotlightdisney.path)]</value>
+		<value condition="!String.IsEmpty(Skin.String(spotlightprime.path)) + String.IsEqual(Window.Property(groupname),primehub)">$INFO[Skin.String(spotlightprime.path)]</value>
+		<value condition="!String.IsEmpty(Skin.String(spotlightnetflix.path)) + String.IsEqual(Window.Property(groupname),netflixhub)">$INFO[Skin.String(spotlightnetflix.path)]</value>
+		<value condition="!String.IsEmpty(Skin.String(spotlightappletv.path)) + String.IsEqual(Window.Property(groupname),appletvhub)">$INFO[Skin.String(spotlightappletv.path)]</value>
 		<value condition="!String.IsEmpty(Skin.String(spotlightmusic.path)) + String.IsEqual(Window.Property(groupname),musichub)">$INFO[Skin.String(spotlightmusic.path)]</value>
 		<value condition="String.IsEmpty(Skin.String(spotlighthome.path)) + String.EndsWith(Window.Property(groupname),.1)">$LOCALIZE[571]</value>
-		<value condition="String.IsEmpty(Skin.String(spotlightmyhub.path)) + String.IsEqual(Window.Property(groupname),customhub)">$LOCALIZE[571]</value>
-		<value condition="String.IsEmpty(Skin.String(spotlightmovies.path)) + String.IsEqual(Window.Property(groupname),moviehub)">$LOCALIZE[571]</value>
-		<value condition="String.IsEmpty(Skin.String(spotlighttvshows.path)) + String.IsEqual(Window.Property(groupname),tvshowhub)">$LOCALIZE[571]</value>
-		<value condition="String.IsEmpty(Skin.String(spotlightnew.path)) + String.IsEqual(Window.Property(groupname),newhub)">$LOCALIZE[571]</value>
+		<value condition="String.IsEmpty(Skin.String(spotlightdisney.path)) + String.IsEqual(Window.Property(groupname),disneyhub)">$LOCALIZE[571]</value>
+		<value condition="String.IsEmpty(Skin.String(spotlightprime.path)) + String.IsEqual(Window.Property(groupname),primehub)">$LOCALIZE[571]</value>
+		<value condition="String.IsEmpty(Skin.String(spotlightnetflix.path)) + String.IsEqual(Window.Property(groupname),netflixhub)">$LOCALIZE[571]</value>
+		<value condition="String.IsEmpty(Skin.String(spotlightappletv.path)) + String.IsEqual(Window.Property(groupname),appletvhub)">$LOCALIZE[571]</value>
 		<value condition="String.IsEmpty(Skin.String(spotlightmusic.path)) + String.IsEqual(Window.Property(groupname),musichub)">$LOCALIZE[571]</value>
     </variable>	
 	

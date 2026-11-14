@@ -417,7 +417,7 @@
     </variable>
 	
 	<variable name="ColorBackground">
-		<value condition="$EXP[AllBingieViews]">black</value>
+		<value condition="$EXP[AllBingieViews]">$VAR[Theme_Background]</value>
         <value>$INFO[Skin.String(BackgroundColor)]</value>
     </variable>
 	

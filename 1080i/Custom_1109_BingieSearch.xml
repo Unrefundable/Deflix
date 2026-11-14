@@ -3,6 +3,7 @@
 <window id="1109">
     <defaultcontrol always="true">77777</defaultcontrol>
     <menucontrol>900</menucontrol>
+	<onload>ClearProperty(DeflixProvider,Home)</onload>
 	<onload condition="!ControlGroup(77777).HasFocus()">SetFocus(101)</onload>
 	<onunload condition="!ControlGroup(77777).HasFocus()">SetFocus(1007, 0)</onunload>
 	<onunload condition="!String.IsEmpty(Window(Home).Property(BaseWindow)) + String.IsEmpty(Window(Home).Property(ListItem.TVShowID)) + !Player.HasVideo">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>

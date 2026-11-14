@@ -27,7 +27,7 @@
 				<top>-21</top>
 				<width>200</width>
 				<height>200</height>
-                <texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/mute.png</texture>
+                <texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/mute.png</texture>
             </control>
 			
 			<control type="image">
@@ -36,7 +36,7 @@
 				<top>-30</top>
 				<width>200</width>
 				<height>200</height>
-                <texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/muted.png</texture>
+                <texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/muted.png</texture>
             </control>
 			
             <control type="group">
@@ -86,7 +86,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,90)</visible>
 						<include>Fade100</include>
 					</control>
@@ -96,7 +96,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,80) + !Integer.IsGreater(Player.Volume,90)</visible>
 						<include>Fade90</include>
 					</control>
@@ -106,7 +106,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,70) + !Integer.IsGreater(Player.Volume,80)</visible>
 						<include>Fade80</include>
 					</control>
@@ -116,7 +116,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,60) + !Integer.IsGreater(Player.Volume,70)</visible>
 						<include>Fade70</include>
 					</control>
@@ -126,7 +126,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,50) + !Integer.IsGreater(Player.Volume,60)</visible>
 						<include>Fade60</include>
 					</control>
@@ -136,7 +136,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,40) + !Integer.IsGreater(Player.Volume,50)</visible>
 						<include>Fade50</include>
 					</control>
@@ -146,7 +146,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,30) + !Integer.IsGreater(Player.Volume,40)</visible>
 						<include>Fade40</include>
 					</control>
@@ -156,7 +156,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,20) + !Integer.IsGreater(Player.Volume,30)</visible>
 						<include>Fade30</include>
 					</control>
@@ -166,7 +166,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>Integer.IsGreater(Player.Volume,10) + !Integer.IsGreater(Player.Volume,20)</visible>
 						<include>Fade20</include>
 					</control>
@@ -176,7 +176,7 @@
 						<top>-30</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/modern/p$INFO[Control.GetLabel(1)].png</texture>
 						<visible>!Integer.IsGreater(Player.Volume,10)</visible>
 						<include>Fade10</include>
 					</control>
@@ -225,7 +225,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p1.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p1.png</texture>
 						<visible>Integer.IsGreater(player.volume,0)</visible>
 					</control>
 					
@@ -234,7 +234,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p2.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p2.png</texture>
 						<visible>Integer.IsGreater(player.volume,3)</visible>
 					</control>
 					
@@ -243,7 +243,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p3.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p3.png</texture>
 						<visible>Integer.IsGreater(player.volume,6)</visible>
 					</control>
 					
@@ -252,7 +252,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p4.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p4.png</texture>
 						<visible>Integer.IsGreater(player.volume,9)</visible>
 					</control>
 					
@@ -261,7 +261,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p5.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p5.png</texture>
 						<visible>Integer.IsGreater(player.volume,12)</visible>
 					</control>
 					
@@ -270,7 +270,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p6.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p6.png</texture>
 						<visible>Integer.IsGreater(player.volume,16)</visible>
 					</control>
 					
@@ -279,7 +279,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p7.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p7.png</texture>
 						<visible>Integer.IsGreater(player.volume,19)</visible>
 					</control>
 					
@@ -288,7 +288,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p8.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p8.png</texture>
 						<visible>Integer.IsGreater(player.volume,22)</visible>
 					</control>
 					
@@ -297,7 +297,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p9.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p9.png</texture>
 						<visible>Integer.IsGreater(player.volume,25)</visible>
 					</control>
 					
@@ -306,7 +306,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p10.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p10.png</texture>
 						<visible>Integer.IsGreater(player.volume,28)</visible>
 					</control>
 					
@@ -315,7 +315,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p11.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p11.png</texture>
 						<visible>Integer.IsGreater(player.volume,32)</visible>
 					</control>
 					
@@ -324,7 +324,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p12.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p12.png</texture>
 						<visible>Integer.IsGreater(player.volume,35)</visible>
 					</control>
 					
@@ -333,7 +333,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p13.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p13.png</texture>
 						<visible>Integer.IsGreater(player.volume,38)</visible>
 					</control>
 					
@@ -342,7 +342,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p14.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p14.png</texture>
 						<visible>Integer.IsGreater(player.volume,41)</visible>
 					</control>
 					
@@ -351,7 +351,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p15.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p15.png</texture>
 						<visible>Integer.IsGreater(player.volume,44)</visible>
 					</control>
 					
@@ -360,7 +360,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p16.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p16.png</texture>
 						<visible>Integer.IsGreater(player.volume,48)</visible>
 					</control>
 					
@@ -369,7 +369,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p17.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p17.png</texture>
 						<visible>Integer.IsGreater(player.volume,51)</visible>
 					</control>
 					
@@ -378,7 +378,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p18.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p18.png</texture>
 						<visible>Integer.IsGreater(player.volume,54)</visible>
 					</control>
 					
@@ -387,7 +387,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p19.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p19.png</texture>
 						<visible>Integer.IsGreater(player.volume,57)</visible>
 					</control>
 					
@@ -396,7 +396,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p20.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p20.png</texture>
 						<visible>Integer.IsGreater(player.volume,60)</visible>
 					</control>
 					
@@ -405,7 +405,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p21.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p21.png</texture>
 						<visible>Integer.IsGreater(player.volume,64)</visible>
 					</control>
 					
@@ -414,7 +414,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p22.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p22.png</texture>
 						<visible>Integer.IsGreater(player.volume,67)</visible>
 					</control>
 					
@@ -423,7 +423,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p23.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p23.png</texture>
 						<visible>Integer.IsGreater(player.volume,70)</visible>
 					</control>
 					
@@ -432,7 +432,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p24.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p24.png</texture>
 						<visible>Integer.IsGreater(player.volume,73)</visible>
 					</control>
 					
@@ -441,7 +441,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p25.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p25.png</texture>
 						<visible>Integer.IsGreater(player.volume,76)</visible>
 					</control>
 					
@@ -450,7 +450,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p26.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p26.png</texture>
 						<visible>Integer.IsGreater(player.volume,80)</visible>
 					</control>
 					
@@ -459,7 +459,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p27.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p27.png</texture>
 						<visible>Integer.IsGreater(player.volume,83)</visible>
 					</control>
 					
@@ -468,7 +468,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p28.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p28.png</texture>
 						<visible>Integer.IsGreater(player.volume,86)</visible>
 					</control>
 					
@@ -477,7 +477,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p29.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p29.png</texture>
 						<visible>Integer.IsGreater(player.volume,89)</visible>
 					</control>
 					
@@ -486,7 +486,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p30.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p30.png</texture>
 						<visible>Integer.IsGreater(player.volume,92)</visible>
 					</control>
 					
@@ -495,7 +495,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p31.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p31.png</texture>
 						<visible>Integer.IsGreater(player.volume,96)</visible>
 					</control>
 					
@@ -504,7 +504,7 @@
 						<top>-20</top>
 						<width>200</width>
 						<height>200</height>
-						<texture colordiffuse="$INFO[Skin.String(OSDVolumeButtonColor)]">dialogs/volume/classic/p32.png</texture>
+						<texture colordiffuse="$VAR[Theme_OSDVolumeButtonColor]">dialogs/volume/classic/p32.png</texture>
 						<visible>Integer.IsGreater(player.volume,99)</visible>
 					</control>
 					
