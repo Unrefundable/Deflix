@@ -5,7 +5,7 @@
     <menucontrol>900</menucontrol>
     <include>CustomBingieWinProps</include>
     <include>BingieViews_WindowOpen_Fade</include>
-	<onload>ClearProperty(DeflixProvider,Home)</onload>
+	<onload>SetProperty(DeflixProvider,netflix,Home)</onload>
 	<onload>Skin.TimerStart(spotlightanimation)</onload>
     <controls>
 		<include>Defs_TMDbBingieHelper_Loader</include>

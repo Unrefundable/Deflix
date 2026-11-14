@@ -74,6 +74,7 @@
 						<texturefocus border="10" colordiffuse="white">bingie/border/default_button_focus.png</texturefocus>
 						<alttexturefocus border="10" colordiffuse="white">bingie/border/default_button_focus.png</alttexturefocus>
 						<label>$LOCALIZE[31396]</label>
+						<onclick>RunScript(plugin.video.tmdb.bingie.helper,authenticate_trakt)</onclick>
 						<onclick>Skin.SetBool(BingieSecondStartupDone)</onclick>
 						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
 						<onclick>ClearProperty(StartupMask,Home)</onclick>

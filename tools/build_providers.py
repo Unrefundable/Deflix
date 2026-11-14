@@ -89,6 +89,8 @@ PROVIDERS = {
         ("Disney", LARGE, (31607, "movie", studio(2))),
         ("Pixar", LANDSCAPE, (31608, "movie", studio(3))),
         ("Marvel", LANDSCAPE, (31609, "movie", studio(420))),
+        # Lucasfilm (label 31610). The key stays "StarWars" so rows that users have
+        # already customised keep pointing at an existing path variable.
         ("StarWars", LANDSCAPE, (31610, "movie", studio(1))),
         ("NationalGeographic", LANDSCAPE, (31611, "movie", studio(7521))),
         ("Top100Movies", RANKED), ("Top100Shows", RANKED),

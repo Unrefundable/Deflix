@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import hashlib
+import os
 import shutil
 import tempfile
 import textwrap
+import urllib.request
 import zipfile
 from pathlib import Path
 from xml.etree import ElementTree as ET
@@ -17,7 +19,7 @@ DOCS = ROOT / "docs"
 REPO_DIR = DOCS / "repository"
 PAGES_BASE_URL = "https://unrefundable.github.io/Deflix"
 REPOSITORY_ID = "repository.deflix"
-REPOSITORY_VERSION = "1.0.2"
+REPOSITORY_VERSION = "1.0.3"
 
 # The skin depends on add-ons that only the Bingie repository publishes
 # (script.bingie.*, plugin.video.tmdb.bingie.helper, ...). Kodi resolves an
@@ -27,6 +29,19 @@ REPOSITORY_VERSION = "1.0.2"
 # in without the Bingie repository or skin being installed first.
 BINGIE_BASE_URL = "https://raw.githubusercontent.com/matke-84/repository.bingie/main/omega"
 BINGIE_MIN_KODI = "20.9.1"
+
+# KDMM plays what the skin lists, so the skin depends on it and this repository
+# provides it twice over:
+#   - as a third directory, KDMM's own repository, so devices get every new
+#     KDMM release without Deflix being republished;
+#   - as a copy of the current release in the Deflix directory itself, so
+#     devices that still have an older repository.deflix (which only knows the
+#     Deflix directory) can resolve the dependency when the skin updates.
+# Set KDMM_DOCS to a local checkout's docs/ folder to build against a KDMM
+# release that is not published yet.
+KDMM_ID = "plugin.video.kdmm"
+KDMM_BASE_URL = "https://unrefundable.github.io/kdmm"
+KDMM_MIN_KODI = "20.9.1"
 
 EXCLUDED_TOP_LEVEL = {".git", "docs", "tools", "__MACOSX"}
 EXCLUDED_NAMES = {".DS_Store"}
@@ -107,12 +122,20 @@ def repository_addon_xml() -> ET.Element:
     ET.SubElement(bingie, "checksum").text = f"{BINGIE_BASE_URL}/addons.xml.md5"
     ET.SubElement(bingie, "datadir", {"zip": "true"}).text = f"{BINGIE_BASE_URL}/"
 
+    kdmm = ET.SubElement(extension, "dir", {"minversion": KDMM_MIN_KODI})
+    ET.SubElement(kdmm, "info", {"compressed": "false"}).text = (
+        f"{KDMM_BASE_URL}/addons.xml"
+    )
+    ET.SubElement(kdmm, "checksum").text = f"{KDMM_BASE_URL}/addons.xml.md5"
+    ET.SubElement(kdmm, "datadir", {"zip": "true"}).text = f"{KDMM_BASE_URL}/"
+
     metadata = ET.SubElement(addon, "extension", {"point": "xbmc.addon.metadata"})
     ET.SubElement(metadata, "summary", {"lang": "en_GB"}).text = (
         "Install and update the Deflix Kodi skin."
     )
     ET.SubElement(metadata, "description", {"lang": "en_GB"}).text = (
-        "Repository for the Deflix Kodi skin and the add-ons it depends on."
+"Repository for the Deflix Kodi skin and the add-ons it depends on, "
+        "including the KDMM player."
     )
     ET.SubElement(metadata, "platform").text = "all"
     assets = ET.SubElement(metadata, "assets")
@@ -150,10 +173,56 @@ def zip_repository_addon(addon_xml: ET.Element) -> Path:
     return target
 
 
-def write_addons_xml(repository_addon: ET.Element) -> Path:
+def read_kdmm(relative: str) -> bytes:
+    """A file of KDMM's published repository, or of a local copy of it."""
+    local = os.environ.get("KDMM_DOCS")
+    if local:
+        return (Path(local) / relative).read_bytes()
+    with urllib.request.urlopen(f"{KDMM_BASE_URL}/{relative}", timeout=60) as response:
+        return response.read()
+
+
+def mirror_kdmm() -> ET.Element:
+    """Copy KDMM's current release into the Deflix directory; return its entry."""
+    for addon in ET.fromstring(read_kdmm("addons.xml")).iter("addon"):
+        if addon.attrib.get("id") == KDMM_ID:
+            break
+    else:
+        raise SystemExit(f"{KDMM_ID} is not listed in KDMM's addons.xml")
+
+    version = addon.attrib["version"]
+    target_dir = REPO_DIR / KDMM_ID
+    target_dir.mkdir(parents=True, exist_ok=True)
+    files = [f"{KDMM_ID}-{version}.zip"]
+    files += [asset.text for asset in addon.iter("icon") if asset.text]
+    for name in files:
+        target = target_dir / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(read_kdmm(f"{KDMM_ID}/{name}"))
+
+    with zipfile.ZipFile(target_dir / files[0]) as archive:
+        packaged = ET.fromstring(archive.read(f"{KDMM_ID}/addon.xml"))
+    if packaged.attrib.get("version") != version:
+        raise SystemExit(f"KDMM zip is {packaged.attrib.get('version')}, addons.xml says {version}")
+    return addon
+
+
+def required_version(addon_id: str) -> str:
+    for required in ET.parse(ROOT / "addon.xml").getroot().iter("import"):
+        if required.attrib.get("addon") == addon_id:
+            return required.attrib.get("version", "0")
+    raise SystemExit(f"addon.xml does not require {addon_id}")
+
+
+def version_tuple(version: str) -> tuple[int, ...]:
+    return tuple(int(part) for part in version.split("."))
+
+
+def write_addons_xml(repository_addon: ET.Element, kdmm_addon: ET.Element) -> Path:
     addons = ET.Element("addons")
     addons.append(ET.parse(ROOT / "addon.xml").getroot())
     addons.append(repository_addon)
+    addons.append(kdmm_addon)
     indent_xml(addons)
 
     target = REPO_DIR / "addons.xml"
@@ -316,10 +385,17 @@ def main() -> None:
     zip_skin(addon_id, version)
     repository_addon = repository_addon_xml()
     zip_repository_addon(repository_addon)
-    write_addons_xml(repository_addon)
+    kdmm_addon = mirror_kdmm()
+    kdmm_version, kdmm_needed = kdmm_addon.attrib["version"], required_version(KDMM_ID)
+    if version_tuple(kdmm_version) < version_tuple(kdmm_needed):
+        raise SystemExit(
+            f"The skin requires KDMM {kdmm_needed} but KDMM's repository has {kdmm_version}. "
+            "Publish KDMM first, or point KDMM_DOCS at its docs/ folder."
+        )
+    write_addons_xml(repository_addon, kdmm_addon)
     write_page(addon_id, version)
 
-    print(f"Built Deflix {version} Kodi repository in {DOCS}")
+    print(f"Built Deflix {version} Kodi repository in {DOCS} (with KDMM {kdmm_version})")
 
 
 if __name__ == "__main__":

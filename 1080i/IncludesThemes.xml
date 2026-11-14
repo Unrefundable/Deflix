@@ -3,10 +3,11 @@
 <includes>
 
 	<!-- Provider themes.
-	     Each provider hub sets Window(Home).Property(DeflixProvider) to prime, disney or apple
-	     (Home, Search and the Netflix hub clear it). These variables swap the accent and
-	     surface colours while it is set and otherwise return the user's own colour setting,
-	     so the default look is unchanged. -->
+	     Each provider hub sets Window(Home).Property(DeflixProvider) to prime, netflix, apple
+	     or disney (Home and Search clear it). These variables swap the accent and surface
+	     colours while it is set and otherwise return the user's own colour setting, so the
+	     default look is unchanged. Netflix keeps the user's accent colours (red by default)
+	     and only changes the surfaces. -->
 
 	<variable name="Theme_ActiveSpinControlColor">
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff1a98ff</value>
@@ -86,6 +87,7 @@
 	</variable>
 
 	<variable name="Theme_GeneralPanelsColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),netflix)">cc1c0a0b</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">cc1b2530</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">cc13172b</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">cc1c1c1e</value>
@@ -93,6 +95,7 @@
 	</variable>
 
 	<variable name="Theme_SideBladePanelColor">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),netflix)">fa140506</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">fa0b1218</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">fa02040d</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">fa0d0d0f</value>
@@ -108,6 +111,7 @@
 
 	<!-- Colours with no matching skin setting -->
 	<variable name="Theme_Background">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),netflix)">ff120304</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff0f171e</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff040714</value>
 		<value>black</value>
@@ -118,6 +122,15 @@
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff0063e5</value>
 		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ffffffff</value>
 		<value>ffe50914</value>
+	</variable>
+
+	<!-- Colour of the open sidebar's backdrop in a provider hub (see Dim_Overlay) -->
+	<variable name="Theme_Sidebar">
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),prime)">ff0c1d2c</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),netflix)">ff2b0508</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),apple)">ff161618</value>
+		<value condition="String.IsEqual(Window(Home).Property(DeflixProvider),disney)">ff080c2e</value>
+		<value>black</value>
 	</variable>
 
 </includes>

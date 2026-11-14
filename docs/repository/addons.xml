@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <addons>
-    <addon id="Deflix" version="3.0.0" name="Deflix" provider-name="Unrefundable">
+    <addon id="Deflix" version="3.1.0" name="Deflix" provider-name="Unrefundable">
         <requires>
             <import version="5.17.0" addon="xbmc.gui" />
             <import addon="script.bingie.helper" version="1.1.2" />
@@ -9,6 +9,7 @@
             <import addon="script.skinshortcuts" version="2.0.3" />
             <import addon="resource.images.studios.coloured" version="1.0.0" />
             <import addon="plugin.video.tmdb.bingie.helper" version="1.0.1" />
+            <import addon="plugin.video.kdmm" version="2.7.5" />
             <import addon="plugin.program.autocompletion" version="2.1.3" />
         </requires>
         <extension debugging="false" defaultthemename="Textures.xbt" effectslowdown="1" point="xbmc.gui.skin">
@@ -26,7 +27,13 @@
             <description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
             <description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
             <platform>all</platform>
-            <news>v3.0.0
+            <news>v3.1.0
+- KDMM, the add-on that plays movies and episodes, now installs with the skin and becomes TMDb Bingie Helper's default player
+- Netflix hub: its own dark red theme, like Prime Video and Disney+
+- The sidebar takes the colour of the provider hub that is open
+- Row names say what the rows hold: Lucasfilm, Walt Disney Pictures, Marvel Studios, Original Series, Action Movies and more
+- First-run screens rewritten for the provider hubs, Trakt and KDMM, with a Connect Trakt button
+v3.0.0
 - New sidebar: Search, Home, Prime Video, Netflix, Apple TV and Disney+, replacing the Movies, TV, New, Categories, My List and Surprise Me hubs
 - Each provider hub lists its catalogue from TMDb (Top 100 movies and shows, originals, new titles, genres) and has its own colour theme
 - New row styles: ranked rows with large numerals and large landscape cards
@@ -48,7 +55,7 @@ v2.2.1
             </assets>
         </extension>
     </addon>
-    <addon id="repository.deflix" version="1.0.2" name="Deflix Repository" provider-name="Unrefundable">
+    <addon id="repository.deflix" version="1.0.3" name="Deflix Repository" provider-name="Unrefundable">
         <requires>
             <import addon="xbmc.addon" version="12.0.0" />
         </requires>
@@ -63,14 +70,48 @@ v2.2.1
                 <checksum>https://raw.githubusercontent.com/matke-84/repository.bingie/main/omega/addons.xml.md5</checksum>
                 <datadir zip="true">https://raw.githubusercontent.com/matke-84/repository.bingie/main/omega/</datadir>
             </dir>
+            <dir minversion="20.9.1">
+                <info compressed="false">https://unrefundable.github.io/kdmm/addons.xml</info>
+                <checksum>https://unrefundable.github.io/kdmm/addons.xml.md5</checksum>
+                <datadir zip="true">https://unrefundable.github.io/kdmm/</datadir>
+            </dir>
         </extension>
         <extension point="xbmc.addon.metadata">
             <summary lang="en_GB">Install and update the Deflix Kodi skin.</summary>
-            <description lang="en_GB">Repository for the Deflix Kodi skin and the add-ons it depends on.</description>
+            <description lang="en_GB">Repository for the Deflix Kodi skin and the add-ons it depends on, including the KDMM player.</description>
             <platform>all</platform>
             <assets>
                 <icon>icon.png</icon>
                 <fanart>fanart.jpg</fanart>
+            </assets>
+        </extension>
+    </addon>
+    <addon id="plugin.video.kdmm" version="2.7.5" name="KDMM" provider-name="Unrefundable">
+        <requires>
+            <import addon="xbmc.python" version="3.0.0" />
+            <import addon="script.module.requests" version="2.9.1" />
+            <import addon="script.module.qrcode" version="5.1" optional="true" />
+        </requires>
+        <extension point="xbmc.python.pluginsource" library="default.py">
+            <provides>video</provides>
+        </extension>
+        <extension point="xbmc.service" library="service.py" start="login" />
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en_GB">Kodi Debrid Media Manager playback bridge</summary>
+            <description lang="en_GB">
+            Receives movie and episode play requests from TMDb Bingie Helper,
+            looks up torrents through Torrentio (or Debrid Media Manager with a
+            sponsor API key), resolves cached Real-Debrid and/or
+            AllDebrid streams, and passes direct playback URLs to Kodi. Includes
+            quality sorting, AV1 and preferred-audio probing, stream cleanup,
+            stream and TV pack caching, local resume progress, IntroDB-backed
+            skip buttons, next-episode overlays, a return to the title's page
+            when playback stops or ends, and remote keymaps for OSD on Up/Down
+            and seek-on-release FF/RW.
+        </description>
+            <platform>all</platform>
+            <assets>
+                <icon>resources/icon.png</icon>
             </assets>
         </extension>
     </addon>

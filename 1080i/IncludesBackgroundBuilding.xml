@@ -32,6 +32,16 @@
                 <animation time="300" effect="fade" start="0" end="100" reversible="true" easing="inout">Visible</animation>
 				<animation time="300" effect="fade" start="100" end="0" reversible="true" easing="inout">Hidden</animation>
             </control>
+            <!-- DEFLIX: the open sidebar takes the colour of the provider hub behind it -->
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <visible>$PARAM[visibility] + !String.IsEmpty(Window(Home).Property(DeflixProvider))</visible>
+                <texture>deflix/glow_left.png</texture>
+                <colordiffuse>$VAR[Theme_Sidebar]</colordiffuse>
+                <aspectratio>stretch</aspectratio>
+                <animation time="300" effect="fade" start="0" end="100" reversible="true" easing="inout">Visible</animation>
+                <animation time="300" effect="fade" start="100" end="0" reversible="true" easing="inout">Hidden</animation>
+            </control>
         </control>
     </include>
 

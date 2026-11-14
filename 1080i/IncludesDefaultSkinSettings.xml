@@ -18,6 +18,10 @@
         <onclick>RunScript(script.bingie.toolbox,action=setkodisetting,setting=videolibrary.tvshowsselectfirstunwatcheditem,value=2)</onclick>
         <onclick>RunScript(script.bingie.toolbox,action=setkodisetting,setting=videolibrary.flattentvshows,value=2)</onclick>
         <onclick>RunScript(script.bingie.toolbox,action=setkodisetting,setting=myvideos.selectaction,value=2)</onclick>
+        <!-- DEFLIX: KDMM plays the titles; make it TMDb Bingie Helper's default player -->
+        <onclick condition="System.AddonIsEnabled(plugin.video.kdmm)">RunPlugin(plugin://plugin.video.kdmm/?action=set_default_player)</onclick>
+        <!-- DEFLIX: "My List" has had no screen since 3.0; Watch Later replaces it -->
+        <onclick>Skin.Reset(videoinfo_button_mylist)</onclick>
         <onclick>Skin.Reset(HomeMenuDefaults46)</onclick>
         <onclick>ClearProperty(startupDone,Home)</onclick>
         <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
@@ -80,7 +84,6 @@
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_play_next)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_play_next_tmdb)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_trailer)</onload>
-	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_button_mylist)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_details_cast)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_details_director)</onload>
 	<onload condition="!Skin.HasSetting(HomeMenuDefaults46)">Skin.SetBool(videoinfo_details_creator)</onload>
