@@ -43,7 +43,7 @@ KDMM_ID = "plugin.video.kdmm"
 KDMM_BASE_URL = "https://unrefundable.github.io/kdmm"
 KDMM_MIN_KODI = "20.9.1"
 
-EXCLUDED_TOP_LEVEL = {".git", "docs", "tools", "__MACOSX"}
+EXCLUDED_TOP_LEVEL = {".git", ".github", "docs", "tools", "__MACOSX"}
 EXCLUDED_NAMES = {".DS_Store"}
 
 
@@ -182,16 +182,18 @@ def read_kdmm(relative: str) -> bytes:
         return response.read()
 
 
-def mirror_kdmm() -> ET.Element:
-    """Copy KDMM's current release into the Deflix directory; return its entry."""
+def kdmm_release() -> ET.Element:
+    """The entry of KDMM's current release in its own repository."""
     for addon in ET.fromstring(read_kdmm("addons.xml")).iter("addon"):
         if addon.attrib.get("id") == KDMM_ID:
-            break
-    else:
-        raise SystemExit(f"{KDMM_ID} is not listed in KDMM's addons.xml")
+            return addon
+    raise SystemExit(f"{KDMM_ID} is not listed in KDMM's addons.xml")
 
+
+def mirror_kdmm(addon: ET.Element, repo_dir: Path = REPO_DIR) -> ET.Element:
+    """Copy that KDMM release into a Deflix repository directory; return its entry."""
     version = addon.attrib["version"]
-    target_dir = REPO_DIR / KDMM_ID
+    target_dir = repo_dir / KDMM_ID
     target_dir.mkdir(parents=True, exist_ok=True)
     files = [f"{KDMM_ID}-{version}.zip"]
     files += [asset.text for asset in addon.iter("icon") if asset.text]
@@ -218,17 +220,21 @@ def version_tuple(version: str) -> tuple[int, ...]:
     return tuple(int(part) for part in version.split("."))
 
 
+def save_addons_xml(addons: ET.Element, repo_dir: Path = REPO_DIR) -> Path:
+    """Write addons.xml and its checksum the way Kodi expects to read them."""
+    indent_xml(addons)
+    target = repo_dir / "addons.xml"
+    ET.ElementTree(addons).write(target, encoding="utf-8", xml_declaration=True)
+    (repo_dir / "addons.xml.md5").write_text(md5_file(target), encoding="utf-8")
+    return target
+
+
 def write_addons_xml(repository_addon: ET.Element, kdmm_addon: ET.Element) -> Path:
     addons = ET.Element("addons")
     addons.append(ET.parse(ROOT / "addon.xml").getroot())
     addons.append(repository_addon)
     addons.append(kdmm_addon)
-    indent_xml(addons)
-
-    target = REPO_DIR / "addons.xml"
-    ET.ElementTree(addons).write(target, encoding="utf-8", xml_declaration=True)
-    (REPO_DIR / "addons.xml.md5").write_text(md5_file(target), encoding="utf-8")
-    return target
+    return save_addons_xml(addons)
 
 
 def write_page(addon_id: str, version: str) -> None:
@@ -385,7 +391,7 @@ def main() -> None:
     zip_skin(addon_id, version)
     repository_addon = repository_addon_xml()
     zip_repository_addon(repository_addon)
-    kdmm_addon = mirror_kdmm()
+    kdmm_addon = mirror_kdmm(kdmm_release())
     kdmm_version, kdmm_needed = kdmm_addon.attrib["version"], required_version(KDMM_ID)
     if version_tuple(kdmm_version) < version_tuple(kdmm_needed):
         raise SystemExit(
