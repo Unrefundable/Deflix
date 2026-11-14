@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- DEFLIX -->
-<addon id="Deflix" version="3.1.0" name="Deflix" provider-name="Unrefundable">
+<addon id="Deflix" version="3.1.1" name="Deflix" provider-name="Unrefundable">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.1.2"/>
@@ -27,7 +27,9 @@
 		<description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
 		<description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
 		<platform>all</platform>
-		<news>v3.1.0
+		<news>v3.1.1
+- Title pages: the Watch Later button now sits below More Episodes
+v3.1.0
 - KDMM, the add-on that plays movies and episodes, now installs with the skin and becomes TMDb Bingie Helper's default player
 - Netflix hub: its own dark red theme, like Prime Video and Disney+
 - The sidebar takes the colour of the provider hub that is open
