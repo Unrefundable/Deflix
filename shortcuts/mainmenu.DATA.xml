@@ -23,7 +23,7 @@
 	<shortcut>
 		<label>Prime Video</label>
 		<label2 />
-		<icon>shortcuts/prime.png</icon>
+		<icon>shortcuts/logo_prime.png</icon>
 		<thumb />
 		<action>ActivateWindow(1111,return)</action>
 	</shortcut>
@@ -32,7 +32,7 @@
 	<shortcut>
 		<label>Netflix</label>
 		<label2 />
-		<icon>shortcuts/netflix.png</icon>
+		<icon>shortcuts/logo_netflix.png</icon>
 		<thumb />
 		<action>ActivateWindow(1110,return)</action>
 	</shortcut>
@@ -41,7 +41,7 @@
 	<shortcut>
 		<label>Apple TV</label>
 		<label2 />
-		<icon>shortcuts/appletv.png</icon>
+		<icon>shortcuts/logo_appletv.png</icon>
 		<thumb />
 		<action>ActivateWindow(1112,return)</action>
 	</shortcut>
@@ -50,7 +50,7 @@
 	<shortcut>
 		<label>Disney+</label>
 		<label2 />
-		<icon>shortcuts/disney.png</icon>
+		<icon>shortcuts/logo_disney.png</icon>
 		<thumb />
 		<action>ActivateWindow(1113,return)</action>
 	</shortcut>

@@ -17,7 +17,16 @@ DOCS = ROOT / "docs"
 REPO_DIR = DOCS / "repository"
 PAGES_BASE_URL = "https://unrefundable.github.io/Deflix"
 REPOSITORY_ID = "repository.deflix"
-REPOSITORY_VERSION = "1.0.1"
+REPOSITORY_VERSION = "1.0.2"
+
+# The skin depends on add-ons that only the Bingie repository publishes
+# (script.bingie.*, plugin.video.tmdb.bingie.helper, ...). Kodi resolves an
+# add-on's dependencies from the repository it was installed from, then from
+# the official one, so the Deflix repository lists the Bingie directory as a
+# second source. Installing Deflix from this repository then pulls everything
+# in without the Bingie repository or skin being installed first.
+BINGIE_BASE_URL = "https://raw.githubusercontent.com/matke-84/repository.bingie/main/omega"
+BINGIE_MIN_KODI = "20.9.1"
 
 EXCLUDED_TOP_LEVEL = {".git", "docs", "tools", "__MACOSX"}
 EXCLUDED_NAMES = {".DS_Store"}
@@ -91,12 +100,19 @@ def repository_addon_xml() -> ET.Element:
         f"{PAGES_BASE_URL}/repository/"
     )
 
+    bingie = ET.SubElement(extension, "dir", {"minversion": BINGIE_MIN_KODI})
+    ET.SubElement(bingie, "info", {"compressed": "false"}).text = (
+        f"{BINGIE_BASE_URL}/addons.xml"
+    )
+    ET.SubElement(bingie, "checksum").text = f"{BINGIE_BASE_URL}/addons.xml.md5"
+    ET.SubElement(bingie, "datadir", {"zip": "true"}).text = f"{BINGIE_BASE_URL}/"
+
     metadata = ET.SubElement(addon, "extension", {"point": "xbmc.addon.metadata"})
     ET.SubElement(metadata, "summary", {"lang": "en_GB"}).text = (
         "Install and update the Deflix Kodi skin."
     )
     ET.SubElement(metadata, "description", {"lang": "en_GB"}).text = (
-        "Repository for the Deflix Kodi skin."
+        "Repository for the Deflix Kodi skin and the add-ons it depends on."
     )
     ET.SubElement(metadata, "platform").text = "all"
     assets = ET.SubElement(metadata, "assets")

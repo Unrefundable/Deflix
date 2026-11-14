@@ -7,6 +7,7 @@
     <include file="IncludesVariables.xml" />
     <include file="IncludesBingie.xml" />
     <include file="IncludesHomeWidgets.xml" />
+    <include file="IncludesRowStyles.xml" />
     <include file="IncludesFunctions.xml" />
     <include file="IncludesAnimations.xml" />
     <include file="IncludesNowPlaying.xml" />

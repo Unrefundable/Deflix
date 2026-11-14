@@ -626,6 +626,21 @@
             <filename>Netflix-sans-bold.ttf</filename>
             <size>75</size>
         </font>
+        <font>
+            <name>Rank1</name>
+            <filename>Netflix-sans-bold.ttf</filename>
+            <size>240</size>
+        </font>
+        <font>
+            <name>Rank2</name>
+            <filename>Netflix-sans-bold.ttf</filename>
+            <size>135</size>
+        </font>
+        <font>
+            <name>Rank3</name>
+            <filename>Netflix-sans-bold.ttf</filename>
+            <size>92</size>
+        </font>
 		<!-- ============== -->
 		<!--     Special    -->
 		<!-- ============== -->
@@ -1380,6 +1395,24 @@
             <filename>Arial.ttf</filename>
 			<style>bold</style>
             <size>74</size>
+        </font>
+        <font>
+            <name>Rank1</name>
+            <filename>Arial.ttf</filename>
+			<style>bold</style>
+            <size>240</size>
+        </font>
+        <font>
+            <name>Rank2</name>
+            <filename>Arial.ttf</filename>
+			<style>bold</style>
+            <size>135</size>
+        </font>
+        <font>
+            <name>Rank3</name>
+            <filename>Arial.ttf</filename>
+			<style>bold</style>
+            <size>92</size>
         </font>
 		<!-- ============== -->
 		<!--     Special    -->

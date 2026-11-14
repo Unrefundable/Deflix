@@ -16,6 +16,13 @@
         <action>$VAR[Provider_Prime_Top100Shows]</action>
     </shortcut>
     <shortcut>
+        <label>$LOCALIZE[31606]</label>
+        <label2 />
+        <icon />
+        <thumb />
+        <action>$VAR[Provider_Prime_Originals]</action>
+    </shortcut>
+    <shortcut>
         <label>$LOCALIZE[31586]</label>
         <label2 />
         <icon />

@@ -2374,8 +2374,8 @@ msgid "Watch Later"
 msgstr "稍后观看"
 
 msgctxt "#31581"
-msgid "Continue Watching"
-msgstr "继续观看"
+msgid "Continue Watching Shows"
+msgstr "继续观看剧集"
 
 msgctxt "#31582"
 msgid "Recently Watched"
@@ -2456,3 +2456,31 @@ msgstr "推荐剧集"
 msgctxt "#31605"
 msgid "Streaming catalogue country (two-letter code, e.g. US, GB, DE)"
 msgstr "流媒体片库国家/地区（两位字母代码，如 US、GB）"
+
+msgctxt "#31606"
+msgid "Originals"
+msgstr "原创"
+
+msgctxt "#31607"
+msgid "Disney"
+msgstr "Disney"
+
+msgctxt "#31608"
+msgid "Pixar"
+msgstr "Pixar"
+
+msgctxt "#31609"
+msgid "Marvel"
+msgstr "Marvel"
+
+msgctxt "#31610"
+msgid "Star Wars"
+msgstr "Star Wars"
+
+msgctxt "#31611"
+msgid "National Geographic"
+msgstr "National Geographic"
+
+msgctxt "#31612"
+msgid "Remove from Watch Later"
+msgstr "从稍后观看中移除"

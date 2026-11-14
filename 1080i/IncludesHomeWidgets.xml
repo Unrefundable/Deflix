@@ -542,7 +542,7 @@
 
     <include name="widget_base_normal">
         <control type="$PARAM[container]" id="$PARAM[widgetid]">
-            <visible>Container($PARAM[widgetid]).IsUpdating + Control.IsVisible($PARAM[widgetid]) | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
+            <visible>Container($PARAM[widgetid]).IsUpdating + Control.IsVisible($PARAM[widgetid]) | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0) | Skin.TimerIsRunning(rowswake)</visible>
             <orientation>$PARAM[position]</orientation>
             <width>$PARAM[width]</width>
             <include>ScrollTime</include>

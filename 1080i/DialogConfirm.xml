@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<!-- Watch Later asks for a quiet sync: close the helper's "added to watchlist" notice unseen -->
+	<onload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">Dialog.Close(okdialog,true)</onload>
+	<onunload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">ClearProperty(DeflixQuietSync,Home)</onunload>
 	<onload condition="Control.IsVisible(12)">SetFocus(12)</onload>
     <controls>
 	<control type="group">
+		<visible>String.IsEmpty(Window(Home).Property(DeflixQuietSync)) | !Window.IsActive(okdialog)</visible>
 		<visible>!Window.IsActive(DialogButtonMenu.xml)</visible>
 		<visible>!Window.IsActive(DialogKeyboard.xml)</visible>
 		<visible>!Window.IsActive(DialogNumeric.xml)</visible>

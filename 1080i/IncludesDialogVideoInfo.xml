@@ -51,6 +51,17 @@
 					<content sortorder="ascending" sortby="playcount" limit="1">$VAR[InfoDialogNextUpContent]</content>
 				</control>
 
+				<!-- hiddenlist: has one item when this title is on the Trakt watchlist -->
+				<control type="list" id="5630">
+					<visible>$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback]</visible>
+					<top>0</top>
+					<left>0</left>
+					<width>0</width>
+					<height>0</height>
+					<itemlayout>-</itemlayout>
+					<focusedlayout>-</focusedlayout>
+					<content limit="1">$VAR[Path_WatchLaterState]</content>
+				</control>
 				<!-- hiddenlist to get first/next episode with tmdb helper -->
 				<control type="list" id="1234">
 					<visible>Skin.HasSetting(videoinfo_button_play_next_tmdb)</visible>
@@ -519,14 +530,17 @@
 							<!-- Watch Later: adds the title to, or removes it from, the Trakt watchlist shown on Home -->
                             <control type="radiobutton" id="563">
 								<visible>$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback]</visible>
-								<include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/plus.png"/>
-                                </include>
+								<!-- a radio button draws its "on" icon while selected: minus when on the watchlist, plus when not -->
+								<selected>Integer.IsGreater(Container(5630).NumItems,0)</selected>
+								<textureradioonfocus colordiffuse="$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]">dialogs/videoinfo/info/minus.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]">dialogs/videoinfo/info/plus.png</textureradioofffocus>
+								<textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/videoinfo/info/minus.png</textureradioonnofocus>
+								<textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/videoinfo/info/plus.png</textureradiooffnofocus>
 								<textcolor>$INFO[Skin.String(BingieButtonTextColor)]</textcolor>
 								<focusedcolor>$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]</focusedcolor>
 								<texturefocus border="10" background="true" colordiffuse="$INFO[Skin.String(ViewDetailsBorderFocusColor)]">bingie/border/default_button_focus.png</texturefocus>
 								<texturenofocus/>
-                                <label>$LOCALIZE[31580]</label>
+                                <label>$VAR[WatchLaterLabel]</label>
                              	<height>52</height>
 								<width>224</width>
 								<textwidth>161</textwidth>
@@ -537,6 +551,8 @@
                                 <radioposx>14</radioposx>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
+                                <onclick>SetProperty(DeflixQuietSync,1,Home)</onclick>
+                                <onclick>AlarmClock(DeflixQuietSync,ClearProperty(DeflixQuietSync,Home),00:15,silent)</onclick>
                                 <onclick condition="!String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
 								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[Container(17195).ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
                             </control>
@@ -1202,6 +1218,17 @@
 					<content sortorder="ascending" sortby="playcount" limit="1">$VAR[InfoDialogNextUpContent]</content>
 				</control>
 
+				<!-- hiddenlist: has one item when this title is on the Trakt watchlist -->
+				<control type="list" id="5630">
+					<visible>$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback]</visible>
+					<top>0</top>
+					<left>0</left>
+					<width>0</width>
+					<height>0</height>
+					<itemlayout>-</itemlayout>
+					<focusedlayout>-</focusedlayout>
+					<content limit="1">$VAR[Path_WatchLaterState]</content>
+				</control>
 				<!-- hiddenlist to get first/next episode with tmdb helper -->
 				<control type="list" id="1234">
 					<visible>Skin.HasSetting(videoinfo_button_play_next_tmdb)</visible>
@@ -1253,6 +1280,7 @@
 				<!-- fanart background image -->
 				<include content="BingieSpotlightCornerImage">
 					<include>DialogInfoFanart_Animation</include>
+					<include>VideoInfo_PageScroll</include>
 					<param name="visibility" value="![Player.HasVideo + ![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv) | Pvr.IsPlayingRecording] | String.IsEqual(ListItem.Property(tmdb_type),person)]" />
 					<param name="image" value="$VAR[fanartBackground]" />
 					<param name="fadetime" default="0"/>
@@ -1282,7 +1310,8 @@
 					<visible>!String.IsEqual(ListItem.Property(tmdb_type),person)</visible>
                     <width>1500</width>
                     <include>BingieLeftDefs</include>
-                    <top>24</top>
+                    <top>10</top>
+                    <include>VideoInfo_PageScroll</include>
                     <orientation>vertical</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
                     <itemgap>10</itemgap>
@@ -1320,7 +1349,7 @@
 					</control>
 				</control>
 				<control type="grouplist">
-					<top>218</top>
+					<top>198</top>
 					<include>Animation_Right_Delay</include>
 					<usecontrolcoords>true</usecontrolcoords>
 					<orientation>vertical</orientation>
@@ -1379,7 +1408,6 @@
 					<!-- more details -->
 					<control type="grouplist">
 						<animation effect="fade" start="100" end="0" time="300" condition="!String.IsEmpty(Window.Property(AdditionalInfo))">Conditional</animation>
-						<visible>!String.IsEqual(Window.Property(AdditionalInfo),set)</visible>
 						<orientation>vertical</orientation>
 						<height max="255">auto</height>
 						<width>800</width>
@@ -1394,11 +1422,10 @@
 
 					<!-- buttons -->
 					<control type="group">
-						<top>38</top>
+						<top>18</top>
 						<width>550</width>
 						<posx>1</posx>
 						<animation effect="fade" start="100" end="0" time="300" condition="String.IsEqual(Window.Property(AdditionalInfo), trailers) | String.IsEqual(Window.Property(AdditionalInfo), plot) | String.IsEqual(Window.Property(AdditionalInfo),similar) | String.IsEqual(Window.Property(AdditionalInfo),cast)">Conditional</animation>
-						<animation effect="slide" start="0,0" end="0,41" time="0" delay="0" condition="String.IsEqual(Window.Property(AdditionalInfo),set)">Conditional</animation>
 						<animation type="WindowClose" reversible="false" condition="String.IsEmpty(Window(Home).Property(NoFadeOut))">
 						  <effect type="fade" start="100" end="0" time="0" tween="sine" easing="out" />
 						  <effect type="slide" start="0" end="-150" time="300" tween="cubic" easing="out" />
@@ -1761,14 +1788,19 @@
                             <control type="radiobutton" id="563">
 								<visible>$EXP[IsTvShowDBTypeNoFallback] | $EXP[IsMovieDBTypeNoFallback]</visible>
 								<include>Bingie_InfoDialog_Button_Default_Defs</include>
-                                <include content="Bingie_InfoDialog_Button_Texture">
-                                    <param name="radiotexture" value="dialogs/videoinfo/info/plus.png"/>
-                                </include>
-                                <label>[CAPITALIZE]$LOCALIZE[31580][/CAPITALIZE]</label>
+								<!-- a radio button draws its "on" icon while selected: minus when on the watchlist, plus when not -->
+								<selected>Integer.IsGreater(Container(5630).NumItems,0)</selected>
+								<textureradioonfocus colordiffuse="$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]">dialogs/videoinfo/info/minus.png</textureradioonfocus>
+								<textureradioofffocus colordiffuse="$INFO[Skin.String(BingieSecondaryButtonFocusTextColor)]">dialogs/videoinfo/info/plus.png</textureradioofffocus>
+								<textureradioonnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/videoinfo/info/minus.png</textureradioonnofocus>
+								<textureradiooffnofocus colordiffuse="$INFO[Skin.String(BingieButtonTextColor)]">dialogs/videoinfo/info/plus.png</textureradiooffnofocus>
+                                <label>$VAR[WatchLaterLabel]</label>
                                 <radioposx>19</radioposx>
 								<radioposy>22</radioposy>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
+                                <onclick>SetProperty(DeflixQuietSync,1,Home)</onclick>
+                                <onclick>AlarmClock(DeflixQuietSync,ClearProperty(DeflixQuietSync,Home),00:15,silent)</onclick>
                                 <onclick condition="!String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
 								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[Container(17195).ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
                             </control>
@@ -2156,25 +2188,12 @@
 			<animation effect="fade" start="0" end="100" time="300" delay="600">WindowOpen</animation>
 			<animation effect="fade" start="0" end="100" time="300" delay="600">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="0">WindowClose</animation>
-			<animation effect="slide" start="0,0" end="0,-300" time="300" delay="0" condition="Control.HasFocus(353) | Control.HasFocus(356)">Conditional</animation>
-			<animation effect="slide" start="0,0" end="0,-590" time="300" delay="0" condition="Control.HasFocus(355)">Conditional</animation>
-				<control type="group">
-					<visible>[!String.IsEmpty(ListItem.Set) + [Integer.IsGreater(Container(353).NumItems,0) | Integer.IsGreater(Container(355).NumItems,0)]] | [String.IsEmpty(ListItem.Set) + [Integer.IsGreater(Container(356).NumItems,0) | Container(356).IsUpdating]]</visible>
-					<top>790</top>
-                    <posx>0</posx>
-                    <height>930</height>
-                    <width>100%</width>
-				<control type="image">
-                    <height>930</height>
-                    <width>100%</width>
-					<aspectratio>scale</aspectratio>
-					<texture>colors/color_black.png</texture>
-				</control>
-				</control>
+			<include>VideoInfo_RowsOffset</include>
+			<include>VideoInfo_PageScroll</include>
 				<!--Collection Button-->
 				<control type="group">
 					<visible>!String.IsEmpty(ListItem.Set) + Integer.IsGreater(Container(353).NumItems,0)</visible>
-					<top>786</top>
+					<top>797</top>
                     <posx>139</posx>
                     <height>65</height>
                     <width>auto</width>
@@ -2249,7 +2268,7 @@
 				<control type="group">
 					<visible>String.IsEmpty(ListItem.Set)</visible>
 					<visible>Integer.IsGreater(Container(356).NumItems,0) | Container(356).IsUpdating</visible>
-					<top>786</top>
+					<top>797</top>
                     <posx>139</posx>
                     <height>50</height>
                     <width>auto</width>
@@ -3618,6 +3637,75 @@
     <include name="More_Details_Label_Posx_No_Icon">
         <posx>0</posx>
     </include>
+
+	<!-- Moving down into the collection / "more like this" rows scrolls the whole page up,
+	     the way Home scrolls its rows, instead of sliding a panel over the details.
+	     Used by the fanart, the details column and the rows themselves. -->
+	<include name="VideoInfo_PageScroll">
+		<!-- Moving down into the collection / "more like this" rows scrolls the whole page up
+		     (fanart, details column and rows all use this include) instead of sliding a panel
+		     over the details. The amount is whatever puts the LAST row just above the bottom
+		     edge, so there is never an empty band under it:
+		       one row:  64 x visible buttons - 151   (the row ends at y=1050)
+		       two rows: 410 more, which also leaves the first row near the middle -->
+		<animation effect="slide" end="0,151" time="300" tween="cubic" easing="out" condition="Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(700)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(701)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(51)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(8181)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(80)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(90)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(52)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(563)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(53)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(541)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(56)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(57)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(561)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(562)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(60)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(61)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(611)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(62)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(14)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(10)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(1040)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(6)">Conditional</animation>
+		<animation effect="slide" end="0,-64" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + Control.IsVisible(612)">Conditional</animation>
+		<animation effect="slide" end="0,-410" time="300" tween="cubic" easing="out" condition="[Control.HasFocus(353) | Control.HasFocus(356) | Control.HasFocus(355)] + !String.IsEmpty(ListItem.Set) + Integer.IsGreater(Container(353).NumItems,0) + Integer.IsGreater(Container(355).NumItems,0)">Conditional</animation>
+		<animation effect="slide" end="0,-417" time="300" tween="cubic" easing="out" condition="Control.HasFocus(355) + !Integer.IsGreater(Container(353).NumItems,0)">Conditional</animation>
+	</include>
+
+	<!-- The rows are laid out for a heading at y=797. Pull them up to just under the
+	     first button, then push them down one button height (64) for every button
+	     row of list 8000 that is showing, so the heading always sits 10px under the
+	     last button. -->
+	<include name="VideoInfo_RowsOffset">
+		<animation effect="slide" end="0,-292" time="0" condition="true">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(700)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(701)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(51)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(8181)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(80)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(90)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(52)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(563)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(53)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(541)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(56)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(57)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(561)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(562)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(60)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(61)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(611)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(62)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(14)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(10)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(1040)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(6)">Conditional</animation>
+		<animation effect="slide" end="0,64" time="0" condition="Control.IsVisible(612)">Conditional</animation>
+	</include>
 
     <include name="Bingie_InfoDialog_Button_Default_Defs">
         <width>550</width>

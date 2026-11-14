@@ -2383,7 +2383,7 @@ msgid "Watch Later"
 msgstr ""
 
 msgctxt "#31581"
-msgid "Continue Watching"
+msgid "Continue Watching Shows"
 msgstr ""
 
 msgctxt "#31582"
@@ -2464,4 +2464,32 @@ msgstr ""
 
 msgctxt "#31605"
 msgid "Streaming catalogue country (two-letter code, e.g. US, GB, DE)"
+msgstr ""
+
+msgctxt "#31606"
+msgid "Originals"
+msgstr ""
+
+msgctxt "#31607"
+msgid "Disney"
+msgstr ""
+
+msgctxt "#31608"
+msgid "Pixar"
+msgstr ""
+
+msgctxt "#31609"
+msgid "Marvel"
+msgstr ""
+
+msgctxt "#31610"
+msgid "Star Wars"
+msgstr ""
+
+msgctxt "#31611"
+msgid "National Geographic"
+msgstr ""
+
+msgctxt "#31612"
+msgid "Remove from Watch Later"
 msgstr ""

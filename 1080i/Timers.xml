@@ -6,4 +6,13 @@
         <start reset="true">Control.HasFocus(1508)</start>
         <reset>!Control.HasFocus(1508)</reset>
     </timer>
+    <timer>
+        <name>rowswake</name>
+        <description>Kodi never reloads a hidden list, and an empty row is hidden. When the helper bumps
+            Widgets.Reload this runs for a second so rows count as visible (see widget_base_normal)
+            and can fetch again, e.g. the Watch Later row after its first title is added.</description>
+        <start reset="true">Window.IsActive(home) + !Window.IsActive(movieinformation) + !String.IsEqual(Window(Home).Property(TMDbBingieHelper.Widgets.Reload),Window(Home).Property(DeflixRowsReloaded))</start>
+        <stop>Integer.IsGreater(Skin.TimerElapsedSecs(rowswake),0)</stop>
+        <onstop>SetProperty(DeflixRowsReloaded,$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)],Home)</onstop>
+    </timer>
 </timers>

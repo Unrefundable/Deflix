@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- DEFLIX -->
-<addon id="Deflix" version="2.3.0" name="Deflix" provider-name="Unrefundable">
+<addon id="Deflix" version="3.0.0" name="Deflix" provider-name="Unrefundable">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.1.2"/>
@@ -26,22 +26,19 @@
 		<description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
 		<description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
 		<platform>all</platform>
-		<news>v2.3.0
+		<news>v3.0.0
+- New sidebar: Search, Home, Prime Video, Netflix, Apple TV and Disney+, replacing the Movies, TV, New, Categories, My List and Surprise Me hubs
+- Each provider hub lists its catalogue from TMDb (Top 100 movies and shows, originals, new titles, genres) and has its own colour theme
+- New row styles: ranked rows with large numerals and large landscape cards
+- Home now shows your Trakt rows: continue watching, watch later, recently watched and recommendations
+- Watch Later button on title pages (your Trakt watchlist)
+- Title pages scroll as one page into the collection and "More like this" rows
+- Menus and rows customised in 2.x are reset to the new defaults once
+- The Deflix repository now also provides the Bingie add-ons the skin needs
+v2.3.0
 - Remove the unused Inter font set and its 10 MB of font files; the Default (Netflix Sans) and Arial font sets remain
 v2.2.1
-- Fix empty Home menu after a skin update: rebuild menus when the main menu has no items
-v2.2.0
-- Remove Live TV, music, pictures, games and weather; Kodi's built-in windows for them are now small placeholders that return Home
-- Remove the Live TV and Music hubs, the Live TV and Square views, and the Music menu group
-- Remove the LibreELEC/OpenELEC settings-screen copies and unused timer/record dialogs
-- Remove spotlight auto-trailers and the trailer settings
-v2.1.0
-- Build menus once per boot instead of on every return to Home
-- Only save skin settings on Home load when a value changes
-- Keep only the Bingie Poster, Seasons, Episodes and List views (plus Live TV and Square until they are removed)
-- Turn off TMDb Helper Live TV lookups
-- Remove the info-screen Trailer button and unused auto-trailer code
-- Fix the invalid new-episode tag include in search results</news>
+- Fix empty Home menu after a skin update: rebuild menus when the main menu has no items</news>
 		<license>GPL v2.0</license>
 		<forum></forum>
 		<source></source>

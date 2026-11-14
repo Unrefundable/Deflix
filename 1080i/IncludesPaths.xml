@@ -10,6 +10,17 @@
         <value>$INFO[ListItem.Label,&amp;query=,]</value>
     </variable>
 	
+	<!-- The Trakt watchlist filtered down to the title on the info page: one item if it is on the list.
+	     The helper bumps Widgets.Reload after a sync, so this refreshes when the button is pressed. -->
+	<variable name="Path_WatchLaterState">
+		<value condition="!String.IsEmpty(ListItem.Property(tmdb_id))">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_watchlist&amp;$VAR[Path_Param_Type]&amp;filter_key=tmdb_id&amp;filter_value=$INFO[ListItem.Property(tmdb_id)]&amp;nextpage=false&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value condition="!String.IsEmpty(Container(17195).ListItem.Property(tmdb_id))">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_watchlist&amp;$VAR[Path_Param_Type]&amp;filter_key=tmdb_id&amp;filter_value=$INFO[Container(17195).ListItem.Property(tmdb_id)]&amp;nextpage=false&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+	</variable>
+	<variable name="WatchLaterLabel">
+		<value condition="Integer.IsGreater(Container(5630).NumItems,0)">$LOCALIZE[31612]</value>
+		<value>$LOCALIZE[31580]</value>
+	</variable>
+
 	<variable name="Path_Param_Type">
         <value condition="String.IsEqual(ListItem.Property(tmdb_type),movie)">tmdb_type=movie</value>
         <value condition="String.IsEqual(ListItem.Property(tmdb_type),tv)">tmdb_type=tv</value>
@@ -459,19 +470,19 @@
 	</variable>
 	
 	<variable name="DefWidgetContent">
-		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
-	</variable>
-	
-	<variable name="DefWidgetName">
-		<value>$LOCALIZE[31581]</value>
-	</variable>
-	
-	<variable name="DefWidget1Content">
 		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_inprogress&amp;tmdb_type=movie&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
 	</variable>
 	
-	<variable name="DefWidget1Name">
+	<variable name="DefWidgetName">
 		<value>$LOCALIZE[31603]</value>
+	</variable>
+	
+	<variable name="DefWidget1Content">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_inprogress&amp;tmdb_type=tv&amp;sort_by=watched&amp;sort_how=desc&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+	</variable>
+	
+	<variable name="DefWidget1Name">
+		<value>$LOCALIZE[31581]</value>
 	</variable>
 	
 	<variable name="DefWidget2Content">

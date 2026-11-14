@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DEFLIX -->
+<includes>
+
+	<!-- Extra row styles for Home and the provider hubs, chosen per row with the
+	     "widgetstyle" shortcut property (see widget_layout_poster for the originals).
+	     Every style keeps the 340px row height: Fixed_Focus_Navigation scrolls the
+	     rows by a fixed step, so a taller or shorter row would drift out of place.
+	     Each style also needs a frame in Bingie_Screens_Fixed_Focus_Frame. -->
+
+	<!-- Rank numeral drawn left of a poster; smaller fonts for two and three digits -->
+	<include name="Widget_Rank_Number">
+		<control type="label">
+			<width>178</width>
+			<height>340</height>
+			<align>right</align>
+			<aligny>bottom</aligny>
+			<font>Rank1</font>
+			<textcolor>66ffffff</textcolor>
+			<label>$INFO[ListItem.CurrentItem]</label>
+			<visible>Integer.IsLess(ListItem.CurrentItem,10)</visible>
+		</control>
+		<control type="label">
+			<width>166</width>
+			<height>330</height>
+			<align>right</align>
+			<aligny>bottom</aligny>
+			<font>Rank2</font>
+			<textcolor>66ffffff</textcolor>
+			<label>$INFO[ListItem.CurrentItem]</label>
+			<visible>Integer.IsGreater(ListItem.CurrentItem,9) + Integer.IsLess(ListItem.CurrentItem,100)</visible>
+		</control>
+		<control type="label">
+			<width>162</width>
+			<height>326</height>
+			<align>right</align>
+			<aligny>bottom</aligny>
+			<font>Rank3</font>
+			<textcolor>66ffffff</textcolor>
+			<label>$INFO[ListItem.CurrentItem]</label>
+			<visible>Integer.IsGreater(ListItem.CurrentItem,99)</visible>
+		</control>
+	</include>
+
+	<!-- Poster and its overlays, shared by the three ranked layouts -->
+	<include name="Widget_Ranked_Poster">
+		<include>PosterPanelBingieLayout</include>
+		<include>PosterTagOverlayBingieNoOverride</include>
+		<control type="group">
+			<description>widget label overlay</description>
+			<include>PosterTagOverlayBingie</include>
+			<include content="$PARAM[widgetTags]">
+				<param name="prefix" value="Poster"/>
+			</include>
+		</control>
+	</include>
+
+	<!-- Ranked: a poster row with its position in the list shown as a large numeral -->
+	<include name="widget_layout_ranked">
+		<height>$PARAM[height]</height>
+		<itemlayout height="339" width="399">
+			<control type="group">
+				<include content="left">
+					<param name="left" value="bingie_no_circular_posx"/>
+				</include>
+				<width>400</width>
+				<height>340</height>
+				<include>Widget_Rank_Number</include>
+				<control type="group">
+					<left>160</left>
+					<width>240</width>
+					<height>340</height>
+					<include content="Widget_Ranked_Poster">
+						<param name="widgetTags" value="$PARAM[widgetTags]"/>
+					</include>
+				</control>
+			</control>
+		</itemlayout>
+		<focusedlayout height="339" width="399" condition="Control.HasFocus($PARAM[widgetid])">
+			<control type="group">
+				<include content="left">
+					<param name="left" value="bingie_no_circular_posx"/>
+				</include>
+				<width>400</width>
+				<height>340</height>
+				<include>Widget_Rank_Number</include>
+				<control type="group">
+					<left>160</left>
+					<width>240</width>
+					<height>340</height>
+					<control type="image">
+						<visible>![Skin.HasSetting(EnableFixedFrameWidgets) + [Window.IsActive(Home) | $EXP[IsBingieHubsActive]]]</visible>
+						<include>PosterThumbFO_DefsBingie</include>
+						<include>thumbsborder_focused</include>
+					</control>
+					<include content="Widget_Ranked_Poster">
+						<param name="widgetTags" value="$PARAM[widgetTags]"/>
+					</include>
+				</control>
+				<include content="HiddenWidgetButton">
+					<param name="widgetstyle" value="ranked"/>
+					<param name="widgetid" value="$PARAM[widgetid]"/>
+				</include>
+			</control>
+		</focusedlayout>
+		<focusedlayout height="339" width="399" condition="!Control.HasFocus($PARAM[widgetid])">
+			<control type="group">
+				<include content="left">
+					<param name="left" value="bingie_no_circular_posx"/>
+				</include>
+				<width>400</width>
+				<height>340</height>
+				<include>Widget_Rank_Number</include>
+				<control type="group">
+					<left>160</left>
+					<width>240</width>
+					<height>340</height>
+					<include content="Widget_Ranked_Poster">
+						<param name="widgetTags" value="$PARAM[widgetTags]"/>
+					</include>
+				</control>
+				<include content="HiddenWidgetButton">
+					<param name="widgetstyle" value="ranked"/>
+					<param name="widgetid" value="$PARAM[widgetid]"/>
+				</include>
+			</control>
+		</focusedlayout>
+	</include>
+
+	<!-- Artwork of a large card: landscape art, or fanart with the title logo over it -->
+	<include name="Widget_Large_Card">
+		<include>ThumbsViewItemBingieLayout</include>
+		<control type="image">
+			<description>title logo when the artwork has no title on it</description>
+			<left>0</left>
+			<top>0</top>
+			<width>570</width>
+			<height>320</height>
+			<bordersize>110</bordersize>
+			<texture background="true">$VAR[ClearLogoFallback]</texture>
+			<aspectratio scalediffuse="false" align="center" aligny="center">keep</aspectratio>
+			<visible>String.IsEmpty(Listitem.Art(landscape)) + String.IsEmpty(ListItem.Property(landscape)) + !String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEqual(ListItem.Property(DBTYPE),episode) + !Container.Content(episodes)</visible>
+		</control>
+	</include>
+
+	<!-- Large: 16:9 cards that fill the whole row height -->
+	<include name="widget_layout_large">
+		<height>$PARAM[height]</height>
+		<itemlayout height="339" width="569">
+			<control type="group">
+				<include content="left">
+					<param name="left" value="bingie_no_circular_posx"/>
+				</include>
+				<width>570</width>
+				<height>320</height>
+				<include>Widget_Large_Card</include>
+			</control>
+		</itemlayout>
+		<focusedlayout height="339" width="569" condition="Control.HasFocus($PARAM[widgetid])">
+			<control type="group">
+				<include content="left">
+					<param name="left" value="bingie_no_circular_posx"/>
+				</include>
+				<width>570</width>
+				<height>320</height>
+				<control type="image">
+					<visible>![Skin.HasSetting(EnableFixedFrameWidgets) + [Window.IsActive(Home) | $EXP[IsBingieHubsActive]]]</visible>
+					<include>ThumbsFO_DefsBingie</include>
+					<include>thumbsborder_focused</include>
+				</control>
+				<include>Widget_Large_Card</include>
+				<include content="HiddenWidgetButton">
+					<param name="widgetstyle" value="large"/>
+					<param name="widgetid" value="$PARAM[widgetid]"/>
+				</include>
+			</control>
+		</focusedlayout>
+		<focusedlayout height="339" width="569" condition="!Control.HasFocus($PARAM[widgetid])">
+			<control type="group">
+				<include content="left">
+					<param name="left" value="bingie_no_circular_posx"/>
+				</include>
+				<width>570</width>
+				<height>320</height>
+				<include>Widget_Large_Card</include>
+				<include content="HiddenWidgetButton">
+					<param name="widgetstyle" value="large"/>
+					<param name="widgetid" value="$PARAM[widgetid]"/>
+				</include>
+			</control>
+		</focusedlayout>
+	</include>
+
+</includes>
