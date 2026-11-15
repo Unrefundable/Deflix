@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <addons>
-    <addon id="Deflix" version="3.1.1" name="Deflix" provider-name="Unrefundable">
+    <addon id="Deflix" version="3.2.0" name="Deflix" provider-name="Unrefundable">
         <requires>
             <import version="5.17.0" addon="xbmc.gui" />
             <import addon="script.bingie.helper" version="1.1.2" />
@@ -27,7 +27,11 @@
             <description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
             <description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
             <platform>all</platform>
-            <news>v3.1.1
+            <news>v3.2.0
+- New startup intro: the provider logos circle the screen faster and faster, burst into their colours and reveal the Deflix name
+- The loading circle no longer shows over the intro
+- Sidebar: new HBO Max, Paramount+ and Crunchyroll hubs, each with its own theme and rows
+v3.1.1
 - Title pages: the Watch Later button now sits below More Episodes
 v3.1.0
 - KDMM, the add-on that plays movies and episodes, now installs with the skin and becomes TMDb Bingie Helper's default player
@@ -88,7 +92,7 @@ v2.2.1
             </assets>
         </extension>
     </addon>
-    <addon id="plugin.video.kdmm" version="2.7.5" name="KDMM" provider-name="Unrefundable">
+    <addon id="plugin.video.kdmm" version="2.7.7" name="KDMM" provider-name="Unrefundable">
         <requires>
             <import addon="xbmc.python" version="3.0.0" />
             <import addon="script.module.requests" version="2.9.1" />
