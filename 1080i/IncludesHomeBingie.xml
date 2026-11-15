@@ -7,7 +7,7 @@
         </include>
 
         <control type="group" id="9000">
-			<visible>!String.Contains(VideoPlayer.Title,bingie_intro)</visible>
+			<visible>!String.Contains(VideoPlayer.Title,deflix_intro)</visible>
             <include>HideWindowOnStartupAndDialogInfoLoad</include>
             <!-- Spotlight BG -->
             <control type="group">

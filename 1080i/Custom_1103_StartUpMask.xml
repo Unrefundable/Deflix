@@ -3,7 +3,7 @@
 <window type="dialog" id="1103">
 	<defaultcontrol always="true">10</defaultcontrol>
 	<zorder>999</zorder>
-	<onload condition="String.IsEqual(Skin.String(splash_screen),bingie_default)">PlayMedia($INFO[Skin.String(SplashAnimationResolution),special://skin/extras/media/bingie_intro_,.mp4],1)</onload>
+	<onload condition="String.IsEqual(Skin.String(splash_screen),bingie_default)">PlayMedia($INFO[Skin.String(SplashAnimationResolution),special://skin/extras/media/deflix_intro_,.mp4],1)</onload>
 	<onload condition="String.IsEqual(Skin.String(splash_screen),bingie_image)">AlarmClock(startup,ClearProperty(StartupMask,home),00:10,silent)</onload>
 	<onload condition="String.IsEqual(Skin.String(splash_screen),none)">AlarmClock(startup,ClearProperty(StartupMask,home),00:00,silent)</onload>	
 	<visible>!String.IsEmpty(Window(Home).Property(StartupMask))</visible>	
@@ -25,7 +25,7 @@
 			<animation effect="fade" end="0" time="500">WindowClose</animation>
             <include>FullscreenDimensions</include>
             <aspectratio>scale</aspectratio>
-            <texture background="true">special://skin/extras/media/bingie_splash.png</texture>
+            <texture background="true">special://skin/extras/media/deflix_splash.png</texture>
 			<fadetime>1000</fadetime>
         </control>
 		<!-- block input button -->
@@ -35,15 +35,7 @@
 				<param name="action" value="noop" />
 			</include>
 		</control>
-		<!-- busy spinner -->
-		<include content="Busy_Spinner">
-			<animation delay="300" time="500" effect="fade" start="0" end="100">Visible</animation>
-			<param name="centerleft" value="50%" />
-			<param name="centertop" value="85%"/>
-			<param name="visibility" value="String.Contains(VideoPlayer.Title,bingie_intro) + !Integer.IsLess(Player.TimeRemaining(ss),6)"/>
-			<param name="size" value="80"/>
-		</include>
-		<!-- busy spinner -->
+		<!-- busy spinner (still image splash only; the intro video has none) -->
 		<include content="Busy_Spinner">
 			<animation delay="300" time="500" effect="fade" start="0" end="100">Visible</animation>
 			<param name="centerleft" value="50%" />

@@ -637,8 +637,8 @@ msgid "Background overlay color"
 msgstr "Color de superposición de fondo"
 
 msgctxt "#31152"
-msgid "Bingie animation"
-msgstr "Animación de Bingie"
+msgid "Deflix animation"
+msgstr "Animación de Deflix"
 
 msgctxt "#31153"
 msgid "Trakt"
