@@ -25,7 +25,7 @@
         <onclick>Skin.Reset(HomeMenuDefaults46)</onclick>
         <onclick>ClearProperty(startupDone,Home)</onclick>
         <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
-        <onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub)</onclick>
+        <onclick>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub|hbomaxhub|paramounthub|crunchyrollhub)</onclick>
     </include>
   
   <!-- various default settings  -->

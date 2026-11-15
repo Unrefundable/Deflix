@@ -1711,6 +1711,8 @@
 			<!--Main Menu Items 900-->
             <control type="list" id="900">
                 <top>205</top>
+				<!-- nine or more entries: start closer to the profile so nine fit above the power menu -->
+				<animation effect="slide" end="0,-55" condition="Integer.IsGreater(Container(900).NumItems,8)">Conditional</animation>
 				<animation effect="slide" end="0,41" condition="Integer.IsEqual(Container(900).NumItems,7)">Conditional</animation>
 				<animation effect="slide" end="0,82" condition="Integer.IsEqual(Container(900).NumItems,6)">Conditional</animation>
 				<animation effect="slide" end="0,123" condition="Integer.IsEqual(Container(900).NumItems,5)">Conditional</animation>
@@ -1719,7 +1721,7 @@
 				<animation effect="slide" end="0,246" condition="Integer.IsEqual(Container(900).NumItems,2)">Conditional</animation>
 				<animation effect="slide" end="0,287" condition="Integer.IsEqual(Container(900).NumItems,1)">Conditional</animation>
 				<width>bingie_menu_width</width>
-                <height>656</height>
+                <height>738</height>
                 <orientation>vertical</orientation>
                 <itemgap>0</itemgap>
 				<onfocus>ClearProperty(StartupMask,Home)</onfocus>
@@ -1840,6 +1842,7 @@
         <control type="group">
             <posx>378</posx>
             <posy>156</posy>
+			<animation effect="slide" end="0,-55" condition="Integer.IsGreater(Container(900).NumItems,8)">Conditional</animation>
 			<animation effect="slide" end="0,41" condition="Integer.IsEqual(Container(900).NumItems,7)">Conditional</animation>
 			<animation effect="slide" end="0,82" condition="Integer.IsEqual(Container(900).NumItems,6)">Conditional</animation>
 			<animation effect="slide" end="0,123" condition="Integer.IsEqual(Container(900).NumItems,5)">Conditional</animation>
@@ -2436,6 +2439,12 @@
         <value condition="Window.IsActive(1112)">$VAR[Provider_AppleTV_Spotlight]</value>
         <value condition="Window.IsActive(1113) + !String.IsEmpty(Skin.String(spotlightdisney.path))">$INFO[Skin.String(spotlightdisney.path)]</value>
         <value condition="Window.IsActive(1113)">$VAR[Provider_Disney_Spotlight]</value>
+        <value condition="Window.IsActive(1123) + !String.IsEmpty(Skin.String(spotlighthbomax.path))">$INFO[Skin.String(spotlighthbomax.path)]</value>
+        <value condition="Window.IsActive(1123)">$VAR[Provider_HBOMax_Spotlight]</value>
+        <value condition="Window.IsActive(1124) + !String.IsEmpty(Skin.String(spotlightparamount.path))">$INFO[Skin.String(spotlightparamount.path)]</value>
+        <value condition="Window.IsActive(1124)">$VAR[Provider_Paramount_Spotlight]</value>
+        <value condition="Window.IsActive(1125) + !String.IsEmpty(Skin.String(spotlightcrunchyroll.path))">$INFO[Skin.String(spotlightcrunchyroll.path)]</value>
+        <value condition="Window.IsActive(1125)">$VAR[Provider_Crunchyroll_Spotlight]</value>
     </variable>
 
 <!-- SPOTLIGHT IMAGE MAIN HOME--> 
@@ -4114,6 +4123,9 @@
         <value condition="Window.IsActive(1110)">Netflix</value>
         <value condition="Window.IsActive(1112)">Apple TV</value>
         <value condition="Window.IsActive(1113)">Disney+</value>
+        <value condition="Window.IsActive(1123)">HBO Max</value>
+        <value condition="Window.IsActive(1124)">Paramount+</value>
+        <value condition="Window.IsActive(1125)">Crunchyroll</value>
     </variable>
 	
 	<!-- View 527 SxxExx format -->

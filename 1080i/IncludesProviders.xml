@@ -236,4 +236,167 @@
 		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=337&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=99&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
 	</variable>
 
+	<!-- HBOMax -->
+	<variable name="Provider_HBOMax_Spotlight">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;vote_count.gte=50&amp;limit=5&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_Originals">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_networks=49%7C3186&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_Top100Shows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;length=5&amp;limit=100&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_Top100Movies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;length=5&amp;limit=100&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_WarnerBros">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_companies=174&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_DC">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_companies=429&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_NewMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=primary_release_date.desc&amp;primary_release_date.lte=t-0&amp;vote_count.gte=20&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_NewShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=first_air_date.desc&amp;first_air_date.lte=t-0&amp;vote_count.gte=20&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_ActionMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=28&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_ComedyMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=35&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_DramaShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=18&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_SciFiFantasyShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=10765&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_AnimationMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=16&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_FamilyMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=10751&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_HBOMax_Documentaries">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=1899%7C384&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=99&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<!-- Paramount -->
+	<variable name="Provider_Paramount_Spotlight">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;vote_count.gte=50&amp;limit=5&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_Top100Shows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;length=5&amp;limit=100&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_Top100Movies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;length=5&amp;limit=100&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_Originals">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_networks=4330&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_ParamountPictures">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_companies=4&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_Nickelodeon">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_networks=13&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_NewMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=primary_release_date.desc&amp;primary_release_date.lte=t-0&amp;vote_count.gte=20&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_NewShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=first_air_date.desc&amp;first_air_date.lte=t-0&amp;vote_count.gte=20&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_ActionMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=28&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_ComedyMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=35&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_DramaShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=18&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_SciFiFantasyShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=10765&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_AnimationMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=16&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_FamilyMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=10751&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Paramount_Documentaries">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=531%7C2303%7C2616&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=99&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<!-- Crunchyroll -->
+	<variable name="Provider_Crunchyroll_Spotlight">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;vote_count.gte=50&amp;limit=5&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_Top100Shows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;length=5&amp;limit=100&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_NewShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=first_air_date.desc&amp;first_air_date.lte=t-0&amp;vote_count.gte=20&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_ActionAdventureShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=10759&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_ComedyShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=35&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_DramaShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=18&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_SciFiFantasyShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=10765&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_MysteryShows">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=tv&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;with_genres=9648&amp;vote_count.gte=50&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_Top100Movies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=popularity.desc&amp;length=5&amp;limit=100&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
+	<variable name="Provider_Crunchyroll_NewMovies">
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;tmdb_type=movie&amp;with_watch_providers=283&amp;watch_region=$VAR[Provider_Region]&amp;with_watch_monetization_types=flatrate&amp;with_id=True&amp;sort_by=primary_release_date.desc&amp;primary_release_date.lte=t-0&amp;vote_count.gte=20&amp;limit=20&amp;nextpage=false&amp;widget=true</value>
+	</variable>
+
 </includes>

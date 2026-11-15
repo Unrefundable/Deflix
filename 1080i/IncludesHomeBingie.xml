@@ -771,6 +771,9 @@
                 <include condition="Window.IsActive(1111)">skinshortcuts-template-primehub</include>
                 <include condition="Window.IsActive(1112)">skinshortcuts-template-appletvhub</include>
                 <include condition="Window.IsActive(1113)">skinshortcuts-template-disneyhub</include>
+                <include condition="Window.IsActive(1123)">skinshortcuts-template-hbomaxhub</include>
+                <include condition="Window.IsActive(1124)">skinshortcuts-template-paramounthub</include>
+                <include condition="Window.IsActive(1125)">skinshortcuts-template-crunchyrollhub</include>
             </control>
 			
 			<include condition="String.IsEqual(Skin.String(widgetstyle),poster) + !Skin.HasSetting(DisableDummySpotlight)">SpotlightDummyPosterWidget</include>
@@ -787,7 +790,7 @@
 	
 			<!--Bingie Logo Diffuse-->
 			<control type="image">
-				<visible>!Skin.HasSetting(DisableBingieLogo) + [Window.IsActive(Home) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1120) | Window.IsActive(1114)]</visible> 
+				<visible>!Skin.HasSetting(DisableBingieLogo) + [Window.IsActive(Home) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1123) | Window.IsActive(1124) | Window.IsActive(1125) | Window.IsActive(1120) | Window.IsActive(1114)]</visible> 
 				<description>diffuse behind Bingie logo</description>
 				<animation effect="slide" end="-66" time="0" condition="$EXP[IsBingieHubsActive2]">Conditional</animation>
 				<right>470</right>

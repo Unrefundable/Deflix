@@ -36,7 +36,7 @@ def genre(genre_id: int) -> dict:
     return {"sort_by": "popularity.desc", "with_genres": genre_id, "vote_count.gte": 50, **ONE_PAGE}
 
 
-def network(network_id: int) -> dict:
+def network(network_id) -> dict:
     return {"sort_by": "popularity.desc", "with_networks": network_id, **ONE_PAGE}
 
 
@@ -73,7 +73,12 @@ def rows(first: list, genre_style) -> list:
     return first + [(key, genre_style) for key in ROWS if key not in {row[0] for row in first}]
 
 
-# key: (hub group, TMDb watch-provider id, media type of the spotlight, rows)
+# TMDb lists some services under more than one watch-provider id (one per plan or
+# per era of the brand). "a|b" matches titles on any of them.
+HBO_MAX = "1899|384"
+PARAMOUNT = "531|2303|2616"
+
+# key: (hub group, TMDb watch-provider id(s), media type of the spotlight, rows)
 # A row is (key from ROWS, style) or (own key, style, (label id, TMDb type, parameters)).
 PROVIDERS = {
     "Prime": ("primehub", 9, "tv", rows([
@@ -95,12 +100,32 @@ PROVIDERS = {
         ("NationalGeographic", LANDSCAPE, (31611, "movie", studio(7521))),
         ("Top100Movies", RANKED), ("Top100Shows", RANKED),
         ("NewMovies", POSTER), ("NewShows", POSTER)], POSTER)),
+    "HBOMax": ("hbomaxhub", HBO_MAX, "tv", rows([
+        ("Originals", LARGE, (31606, "tv", network("49|3186"))),  # HBO and HBO Max
+        ("Top100Shows", RANKED), ("Top100Movies", RANKED),
+        ("WarnerBros", LANDSCAPE, (31616, "movie", studio(174))),
+        ("DC", LANDSCAPE, (31617, "movie", studio(429))),
+        ("NewMovies", LANDSCAPE), ("NewShows", LANDSCAPE)], LANDSCAPE)),
+    "Paramount": ("paramounthub", PARAMOUNT, "tv", rows([
+        ("Top100Shows", RANKED), ("Top100Movies", RANKED), originals(4330),
+        ("ParamountPictures", LANDSCAPE, (31618, "movie", studio(4))),
+        ("Nickelodeon", LANDSCAPE, (31619, "tv", network(13))),
+        ("NewMovies", POSTER), ("NewShows", POSTER)], POSTER)),
+    # Crunchyroll is nearly all anime series, so it gets series genres instead of the
+    # shared movie genre rows.
+    "Crunchyroll": ("crunchyrollhub", 283, "tv", [
+        ("Top100Shows", RANKED), ("NewShows", LARGE),
+        ("ActionAdventureShows", POSTER, (31620, "tv", genre(10759))),
+        ("ComedyShows", POSTER, (31621, "tv", genre(35))),
+        ("DramaShows", POSTER), ("SciFiFantasyShows", POSTER),
+        ("MysteryShows", POSTER, (31622, "tv", genre(9648))),
+        ("Top100Movies", RANKED), ("NewMovies", POSTER)]),
 }
 
 SPOTLIGHT = {"sort_by": "popularity.desc", "vote_count.gte": 50, "limit": 5}
 
 
-def discover_path(provider_id: int, tmdb_type: str, params: dict) -> str:
+def discover_path(provider_id, tmdb_type: str, params: dict) -> str:
     query = {
         "info": "discover",
         "tmdb_type": tmdb_type,
@@ -112,7 +137,8 @@ def discover_path(provider_id: int, tmdb_type: str, params: dict) -> str:
         "nextpage": "false",
         "widget": "true",
     }
-    return HELPER + "?" + "&".join(f"{key}={value}" for key, value in query.items())
+    # "|" has to be percent-encoded: Kodi cuts a path off at a bare "|".
+    return HELPER + "?" + "&".join(f"{key}={str(value).replace('|', '%7C')}" for key, value in query.items())
 
 
 def variable(name: str, value: str) -> str:

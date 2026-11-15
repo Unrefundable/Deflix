@@ -1854,6 +1854,24 @@
             <param name="label" value="31599" />
             <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=disneyhub)" />
             <param name="visible" value="true" />
+        </include>
+		<include content="SkinSettings_ActionButton">
+            <param name="id" value="31613" />
+            <param name="label" value="31613" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=hbomaxhub)" />
+            <param name="visible" value="true" />
+        </include>
+		<include content="SkinSettings_ActionButton">
+            <param name="id" value="31614" />
+            <param name="label" value="31614" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=paramounthub)" />
+            <param name="visible" value="true" />
+        </include>
+		<include content="SkinSettings_ActionButton">
+            <param name="id" value="31615" />
+            <param name="label" value="31615" />
+            <param name="action" value="RunScript(script.skinshortcuts,type=manage&amp;group=crunchyrollhub)" />
+            <param name="visible" value="true" />
         </include>		
         <control type="label" id="31170">
             <include>SkinSettings_Header</include>

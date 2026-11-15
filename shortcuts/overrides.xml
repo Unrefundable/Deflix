@@ -14,6 +14,9 @@
 			<shortcut label="Netflix" grouping="32029" icon="shortcuts/logo_netflix.png">ActivateWindow(1110,return)</shortcut>
 			<shortcut label="Apple TV" grouping="32029" icon="shortcuts/logo_appletv.png">ActivateWindow(1112,return)</shortcut>
 			<shortcut label="Disney+" grouping="32029" icon="shortcuts/logo_disney.png">ActivateWindow(1113,return)</shortcut>
+			<shortcut label="HBO Max" grouping="32029" icon="shortcuts/logo_hbomax.png">ActivateWindow(1123,return)</shortcut>
+			<shortcut label="Paramount+" grouping="32029" icon="shortcuts/logo_paramount.png">ActivateWindow(1124,return)</shortcut>
+			<shortcut label="Crunchyroll" grouping="32029" icon="shortcuts/logo_crunchyroll.png">ActivateWindow(1125,return)</shortcut>
 			<shortcut label="12600" grouping="32029" icon="shortcuts/weather.png">ActivateWindow(Weather)</shortcut>					
 		</node>
 
@@ -281,6 +284,43 @@
 	<propertydefault labelID="31590" group="disneyhub" property="widgetstyle">poster</propertydefault>
 	<propertydefault labelID="31591" group="disneyhub" property="widgetstyle">poster</propertydefault>
 	<propertydefault labelID="31592" group="disneyhub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31606" group="hbomaxhub" property="widgetstyle">large</propertydefault>
+	<propertydefault labelID="31585" group="hbomaxhub" property="widgetstyle">ranked</propertydefault>
+	<propertydefault labelID="31584" group="hbomaxhub" property="widgetstyle">ranked</propertydefault>
+	<propertydefault labelID="31616" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31617" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31586" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31587" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31588" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31589" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31593" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31594" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31590" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31591" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31592" group="hbomaxhub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31585" group="paramounthub" property="widgetstyle">ranked</propertydefault>
+	<propertydefault labelID="31584" group="paramounthub" property="widgetstyle">ranked</propertydefault>
+	<propertydefault labelID="31606" group="paramounthub" property="widgetstyle">large</propertydefault>
+	<propertydefault labelID="31618" group="paramounthub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31619" group="paramounthub" property="widgetstyle">landscape</propertydefault>
+	<propertydefault labelID="31586" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31587" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31588" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31589" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31593" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31594" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31590" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31591" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31592" group="paramounthub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31585" group="crunchyrollhub" property="widgetstyle">ranked</propertydefault>
+	<propertydefault labelID="31587" group="crunchyrollhub" property="widgetstyle">large</propertydefault>
+	<propertydefault labelID="31620" group="crunchyrollhub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31621" group="crunchyrollhub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31593" group="crunchyrollhub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31594" group="crunchyrollhub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31622" group="crunchyrollhub" property="widgetstyle">poster</propertydefault>
+	<propertydefault labelID="31584" group="crunchyrollhub" property="widgetstyle">ranked</propertydefault>
+	<propertydefault labelID="31586" group="crunchyrollhub" property="widgetstyle">poster</propertydefault>
 	<!-- end provider row styles -->
 
 	<!-- Default Widgets Set for Search -->

@@ -55,4 +55,31 @@
 		<action>ActivateWindow(1113,return)</action>
 	</shortcut>
 
+	<!-- HBO Max -->
+	<shortcut>
+		<label>HBO Max</label>
+		<label2 />
+		<icon>shortcuts/logo_hbomax.png</icon>
+		<thumb />
+		<action>ActivateWindow(1123,return)</action>
+	</shortcut>
+
+	<!-- Paramount+ -->
+	<shortcut>
+		<label>Paramount+</label>
+		<label2 />
+		<icon>shortcuts/logo_paramount.png</icon>
+		<thumb />
+		<action>ActivateWindow(1124,return)</action>
+	</shortcut>
+
+	<!-- Crunchyroll -->
+	<shortcut>
+		<label>Crunchyroll</label>
+		<label2 />
+		<icon>shortcuts/logo_crunchyroll.png</icon>
+		<thumb />
+		<action>ActivateWindow(1125,return)</action>
+	</shortcut>
+
 </shortcuts>

@@ -19,13 +19,13 @@
 	     point at the wrong places. Reset them to the bundled defaults once, then rebuild after
 	     the reset has had time to finish. A first run has nothing to reset. -->
 	<onload condition="!Skin.HasSetting(DeflixMenusV3) + !$EXP[IsFirstRun]">RunScript(script.skinshortcuts,type=resetall&amp;warning=false)</onload>
-	<onload condition="!Skin.HasSetting(DeflixMenusV3) + !$EXP[IsFirstRun]">AlarmClock(deflixmenus,RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub),00:04,silent)</onload>
+	<onload condition="!Skin.HasSetting(DeflixMenusV3) + !$EXP[IsFirstRun]">AlarmClock(deflixmenus,RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub|hbomaxhub|paramounthub|crunchyrollhub),00:04,silent)</onload>
 	<onload condition="!Skin.HasSetting(DeflixMenusV3)">Skin.SetBool(DeflixMenusV3)</onload>
 
 	<!-- Build Menu: once per boot; leaving Skin Settings rebuilds after edits.
 	     A skin update deletes the generated menu file, which leaves the main
 	     menu (900) empty, so rebuild then too. -->
-    <onload condition="String.IsEmpty(Window(Home).Property(DeflixMenusBuilt)) | Integer.IsEqual(Container(900).NumItems,0)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(DeflixMenusBuilt)) | Integer.IsEqual(Container(900).NumItems,0)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=900&amp;levels=1&amp;group=mainmenu|powermenu|searchmenu|tmdbsearchmenu|primehub|netflixhub|appletvhub|disneyhub|hbomaxhub|paramounthub|crunchyrollhub)</onload>
     <onload>SetProperty(DeflixMenusBuilt,1,Home)</onload>
     <onload condition="String.IsEmpty(Window(Home).Property(widgetstyle))">SetProperty(widgetstyle,$INFO[Skin.String(widgetstyle)])</onload>
 	<onload>Skin.TimerStart(spotlightanimation)</onload>

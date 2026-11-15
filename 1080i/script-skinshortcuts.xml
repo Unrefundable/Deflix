@@ -199,7 +199,7 @@
                         <font>Reg24</font>
 						<scrollspeed>160</scrollspeed>
 						<textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-						<visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),disneyhub) | String.IsEqual(Window.Property(groupname),primehub) | String.IsEqual(Window.Property(groupname),netflixhub) | String.IsEqual(Window.Property(groupname),appletvhub) | String.IsEqual(Window.Property(groupname),musichub)</visible>
+						<visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),disneyhub) | String.IsEqual(Window.Property(groupname),primehub) | String.IsEqual(Window.Property(groupname),netflixhub) | String.IsEqual(Window.Property(groupname),appletvhub) | String.IsEqual(Window.Property(groupname),hbomaxhub) | String.IsEqual(Window.Property(groupname),paramounthub) | String.IsEqual(Window.Property(groupname),crunchyrollhub) | String.IsEqual(Window.Property(groupname),musichub)</visible>
 					</control>
 					<control type="fadelabel">
 						<left>5</left>
@@ -213,7 +213,7 @@
 						<pauseatend>2500</pauseatend>
 						<orientation>horizontal</orientation>
                         <textcolor>$INFO[Skin.String(GeneralTextColor)]</textcolor>
-						<visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),disneyhub) | String.IsEqual(Window.Property(groupname),primehub) | String.IsEqual(Window.Property(groupname),netflixhub) | String.IsEqual(Window.Property(groupname),appletvhub) | String.IsEqual(Window.Property(groupname),musichub)</visible>
+						<visible>String.EndsWith(Window.Property(groupname),.1) | String.IsEqual(Window.Property(groupname),disneyhub) | String.IsEqual(Window.Property(groupname),primehub) | String.IsEqual(Window.Property(groupname),netflixhub) | String.IsEqual(Window.Property(groupname),appletvhub) | String.IsEqual(Window.Property(groupname),hbomaxhub) | String.IsEqual(Window.Property(groupname),paramounthub) | String.IsEqual(Window.Property(groupname),crunchyrollhub) | String.IsEqual(Window.Property(groupname),musichub)</visible>
 					</control>
 					<!--Widget style label-->
 					<control type="label">
@@ -473,6 +473,39 @@
 					<label>$LOCALIZE[31379]</label>
 					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightappletv.path)</onclick>
 					<visible>String.IsEqual(Window.Property(groupname),appletvhub)</visible>
+					<visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
+				</control>
+				
+				<!--Spotlight HBO Max Hub-->
+				<control type="button" id="31377">
+					<width>510</width>
+					<height>58</height>
+					<align>center</align>
+					<label>$LOCALIZE[31379]</label>
+					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlighthbomax.path)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),hbomaxhub)</visible>
+					<visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
+				</control>
+				
+				<!--Spotlight Paramount+ Hub-->
+				<control type="button" id="31378">
+					<width>510</width>
+					<height>58</height>
+					<align>center</align>
+					<label>$LOCALIZE[31379]</label>
+					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightparamount.path)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),paramounthub)</visible>
+					<visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
+				</control>
+				
+				<!--Spotlight Crunchyroll Hub-->
+				<control type="button" id="31381">
+					<width>510</width>
+					<height>58</height>
+					<align>center</align>
+					<label>$LOCALIZE[31379]</label>
+					<onclick>RunScript(script.skinshortcuts,type=widgets&amp;showNone=true&amp;skinWidgetPath=spotlightcrunchyroll.path)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),crunchyrollhub)</visible>
 					<visible>!Skin.HasSetting(DisableSpotlightContent)</visible>
 				</control>
 				
