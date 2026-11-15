@@ -107,7 +107,7 @@
                         <label>$LOCALIZE[20077]</label>
                         <label2>$LOCALIZE[31407]</label2>
                         <onclick>activatewindow(skinsettings)</onclick>
-                        <icon>special://skin/extras/media/backgrounds/settings_bingie.jpg</icon>
+                        <icon>special://skin/extras/media/backgrounds/settings_deflix.jpg</icon>
                         <thumb>addonskin.png</thumb>
                     </item>
                     <item id="1">

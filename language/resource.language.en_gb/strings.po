@@ -1,5 +1,5 @@
 # Kodi Media Center language file
-# Addon Name: Bingie
+# Addon Name: Deflix
 # Addon id: Deflix
 # Addon Provider: matke
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# BINGIE Strings
+# DEFLIX Strings
 
 #. first letter of 'Season'
 msgctxt "#31000"
@@ -86,7 +86,7 @@ msgid "Button text color"
 msgstr ""
 
 msgctxt "#31016"
-msgid "Bingie playback & OSD"
+msgid "Deflix playback & OSD"
 msgstr ""
 
 msgctxt "#31017"
@@ -95,7 +95,7 @@ msgstr ""
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31018"
-msgid "Bingie Landscape"
+msgid "Deflix Landscape"
 msgstr ""
 
 msgctxt "#31019"
@@ -132,7 +132,7 @@ msgstr ""
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31027"
-msgid "Bingie Poster"
+msgid "Deflix Poster"
 msgstr ""
 
 msgctxt "#31028"
@@ -188,7 +188,7 @@ msgid "Now playing"
 msgstr ""
 
 msgctxt "#31041"
-msgid "Bingie splash image"
+msgid "Deflix splash image"
 msgstr ""
 
 msgctxt "#31042"
@@ -406,7 +406,7 @@ msgstr ""
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31095"
-msgid "Bingie Seasons"
+msgid "Deflix Seasons"
 msgstr ""
 
 msgctxt "#31096"
@@ -516,7 +516,7 @@ msgstr ""
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31122"
-msgid "Bingie Square"
+msgid "Deflix Square"
 msgstr ""
 
 msgctxt "#31123"
@@ -669,7 +669,7 @@ msgid "Documentaries"
 msgstr ""
 
 msgctxt "#31160"
-msgid "Exit Bingie"
+msgid "Exit Deflix"
 msgstr ""
 
 msgctxt "#31161"
@@ -717,7 +717,7 @@ msgid "If you see weird behavior on your home menu or you just want to start fre
 msgstr ""
 
 msgctxt "#31172"
-msgid "Who's watching Bingie?"
+msgid "Who's watching Deflix?"
 msgstr ""
 
 msgctxt "#31173"
@@ -1078,7 +1078,7 @@ msgid "There are no matches for your search."
 msgstr ""
 
 msgctxt "#31262"
-msgid "In the Bingie skin, the content is organized into dedicated hubs. This layout makes it easy to navigate between categories and find what you’re looking for. Just like on the home screen, you have the ability to add new widgets, remove existing ones, and fully customize their appearance and behavior."
+msgid "In the Deflix skin, the content is organized into dedicated hubs. This layout makes it easy to navigate between categories and find what you’re looking for. Just like on the home screen, you have the ability to add new widgets, remove existing ones, and fully customize their appearance and behavior."
 msgstr ""
 
 msgctxt "#31263"
@@ -1130,7 +1130,7 @@ msgid "Reset skin to default settings"
 msgstr ""
 
 msgctxt "#31275"
-msgid "Disable Bingie logo on home"
+msgid "Disable Deflix logo on home"
 msgstr ""
 
 msgctxt "#31276"
@@ -1166,7 +1166,7 @@ msgid "Prefer white icon on Top 250 sublabel"
 msgstr ""
 
 msgctxt "#31284"
-msgid "Enable Top 250 sublabel on home and Bingie views"
+msgid "Enable Top 250 sublabel on home and Deflix views"
 msgstr ""
 
 msgctxt "#31285"
@@ -1303,7 +1303,7 @@ msgstr ""
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31318"
-msgid "Bingie Episodes"
+msgid "Deflix Episodes"
 msgstr ""
 
 msgctxt "#31319"
@@ -1315,7 +1315,7 @@ msgid "Enable Top 250 sublabel on video info"
 msgstr ""
 
 msgctxt "#31321"
-msgid "Bingie views"
+msgid "Deflix views"
 msgstr ""
 
 msgctxt "#31322"
@@ -1339,7 +1339,7 @@ msgid "Trakt Popular Movies"
 msgstr ""
 
 msgctxt "#31327"
-msgid "Clearlogo/title position (except Bingie views)"
+msgid "Clearlogo/title position (except Deflix views)"
 msgstr ""
 
 msgctxt "#31328"
@@ -1656,7 +1656,7 @@ msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR][CR]Configure display and audio · En
 msgstr ""
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup Bingie · Configure home screen and hubs"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup Deflix · Configure home screen and hubs"
 msgstr ""
 
 msgctxt "#31408"
@@ -1829,7 +1829,7 @@ msgid "Fantasy"
 msgstr ""
 
 msgctxt "#31447"
-msgid "Bingie landscape tag sublabel"
+msgid "Deflix landscape tag sublabel"
 msgstr ""
 
 msgctxt "#31448"
@@ -1898,7 +1898,7 @@ msgid "Select a color theme"
 msgstr ""
 
 msgctxt "#31464"
-msgid "Bingie skin allows you to customize almost every color manually. You can save your customizations as a color theme or reset everything to default."
+msgid "Deflix skin allows you to customize almost every color manually. You can save your customizations as a color theme or reset everything to default."
 msgstr ""
 
 msgctxt "#31465"
@@ -2234,7 +2234,7 @@ msgid "OSD progress bar border color"
 msgstr ""
 
 msgctxt "#31548"
-msgid "Bingie Top 250 icon color"
+msgid "Deflix Top 250 icon color"
 msgstr ""
 
 msgctxt "#31549"

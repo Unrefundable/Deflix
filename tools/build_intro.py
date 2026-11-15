@@ -16,6 +16,7 @@ Usage:
   python3 tools/build_intro.py                  render the videos and splash
   python3 tools/build_intro.py --frame 3.0      write one preview frame (PNG)
   python3 tools/build_intro.py --sheet          write a contact sheet (PNG)
+  python3 tools/build_intro.py --logos          write the skin's logo images only
   options: --config PATH, --out PATH (for --frame/--sheet), --height N
 """
 
@@ -1258,6 +1259,44 @@ def encode(config: dict) -> list[Path]:
     return paths + [splash]
 
 
+# The skin's logo images, drawn with the intro's wordmark. Each is
+# (path, canvas size, box the wordmark is fitted into, background or None for
+# transparent). Canvas and box match the Bingie images they replaced, so the
+# logos sit where the old ones did.
+LOGOS = [
+    (ROOT / "media" / "deflix" / "logo.png", (512, 288), (17, 75, 495, 213), None),
+    (ROOT / "media" / "deflix" / "logo_home.png", (290, 170), (29, 56, 262, 123), None),
+    (MEDIA_DIR / "backgrounds" / "settings_deflix.jpg", (1000, 600), (201, 216, 800, 386), "#000000"),
+]
+
+
+def write_logos(config: dict) -> list[Path]:
+    """Render the wordmark large, then fit it into each logo image."""
+    scene = Scene(config, 3840, 2160)
+    band = scene.new_band()
+    for index, mask in enumerate(scene.letters):
+        scene.draw_letter(band, mask, index)
+    mask = scene.warp(band)
+    mask = mask.crop(mask.getbbox())
+    paths = []
+    for path, size, (x0, y0, x1, y1), background in LOGOS:
+        box_w, box_h = x1 - x0, y1 - y0
+        scale = min(box_w / mask.width, box_h / mask.height)
+        fitted = mask.resize((round(mask.width * scale), round(mask.height * scale)), Image.LANCZOS)
+        left = x0 + (box_w - fitted.width) // 2
+        top = y0 + (box_h - fitted.height) // 2
+        image = Image.new("RGBA", size, (*scene.color, 0))
+        image.paste((*scene.color, 255), (left, top), fitted)
+        if background:
+            flat = Image.new("RGB", size, hex_rgb(background))
+            flat.paste(image, (0, 0), image)
+            flat.save(path, quality=92)
+        else:
+            image.save(path, optimize=True)
+        paths.append(path)
+    return paths
+
+
 def contact_sheet(scene: Scene, columns: int = 5, rows: int = 6) -> Image.Image:
     cell_w, cell_h = scene.width // 3, scene.height // 3
     sheet = Image.new("RGB", (cell_w * columns, cell_h * rows))
@@ -1277,9 +1316,16 @@ def main() -> int:
                         help="write a contact sheet of the whole animation instead of the videos")
     parser.add_argument("--out", type=Path, help="where to write the --frame/--sheet image")
     parser.add_argument("--height", type=int, default=1080, help="preview height (default 1080)")
+    parser.add_argument("--logos", action="store_true",
+                        help="write only the skin's logo images (see LOGOS)")
     args = parser.parse_args()
 
     config = json.loads(args.config.read_text())
+
+    if args.logos:
+        for path in write_logos(config):
+            print(f"wrote {path.relative_to(ROOT)}  ({path.stat().st_size // 1024} KB)")
+        return 0
 
     if args.frame is not None or args.sheet:
         scene = Scene(config, args.height * 16 // 9, args.height)

@@ -50,14 +50,14 @@
 		<control type="image">
 			<visible>!Container(1297).IsUpdating</visible>
 			<visible>!Skin.HasSetting(DisableBingieLogo)</visible>
-			<description>Bingie logo</description>
+			<description>Deflix logo</description>
 			<right>314</right>
 			<bottom>5</bottom>
 			<width>0</width>
 			<height>165</height>
 			<align>right</align>
 			<aspectratio align="right">keep</aspectratio>
-			<texture>home/bingie_logo.png</texture>
+			<texture>deflix/logo_home.png</texture>
 			<fadetime>1000</fadetime>
 			<animation effect="slide" start="1,-1" end="0,0" time="60000" tween="linear" pulse="true" condition="!Container(1297).IsUpdating">Conditional</animation>
 		</control>

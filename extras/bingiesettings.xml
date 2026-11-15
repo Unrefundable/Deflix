@@ -109,7 +109,7 @@
     </setting>
 
     <!-- Global Background -->
-	<setting id="CustomBackgroundSetting" value="special://skin/extras/media/backgrounds/background.jpg" label="Bingie" condition="" icon="special://skin/extras/media/backgrounds/background.jpg" description=""/>
+	<setting id="CustomBackgroundSetting" value="special://skin/extras/media/backgrounds/background.jpg" label="Deflix" condition="" icon="special://skin/extras/media/backgrounds/background.jpg" description=""/>
 
 	<!-- Trailer source -->
     <setting id="trailersource" value="youtube" label="$LOCALIZE[31062]"/>

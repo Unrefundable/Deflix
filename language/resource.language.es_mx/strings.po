@@ -1,5 +1,5 @@
 ﻿# Kodi Media Center language file
-# Addon Name: Bingie
+# Addon Name: Deflix
 # Addon id: Deflix
 # Addon Provider: matke
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Language: es_MX\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-# BINGIE Strings
+# DEFLIX Strings
 
 #. first letter of 'Season'
 msgctxt "#31000"
@@ -86,8 +86,8 @@ msgid "Button text color"
 msgstr "Color del texto del botón"
 
 msgctxt "#31016"
-msgid "Bingie playback & OSD"
-msgstr "Reproducción y OSD de Bingie"
+msgid "Deflix playback & OSD"
+msgstr "Reproducción y OSD de Deflix"
 
 msgctxt "#31017"
 msgid "Use alternative video OSD layout"
@@ -95,7 +95,7 @@ msgstr "Usar diseño alternativo de OSD de video"
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31018"
-msgid "Bingie Landscape"
+msgid "Deflix Landscape"
 msgstr ""
 
 msgctxt "#31019"
@@ -132,7 +132,7 @@ msgstr "Panel de color MPAA"
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31027"
-msgid "Bingie Poster"
+msgid "Deflix Poster"
 msgstr ""
 
 msgctxt "#31028"
@@ -188,8 +188,8 @@ msgid "Now playing"
 msgstr "Reproduciendo ahora"
 
 msgctxt "#31041"
-msgid "Bingie splash image"
-msgstr "Imagen de bienvenida de Bingie"
+msgid "Deflix splash image"
+msgstr "Imagen de bienvenida de Deflix"
 
 msgctxt "#31042"
 msgid "Enable studio logo"
@@ -406,7 +406,7 @@ msgstr "Wikipedia"
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31095"
-msgid "Bingie Seasons"
+msgid "Deflix Seasons"
 msgstr ""
 
 msgctxt "#31096"
@@ -516,7 +516,7 @@ msgstr "para ti"
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31122"
-msgid "Bingie Square"
+msgid "Deflix Square"
 msgstr ""
 
 msgctxt "#31123"
@@ -669,8 +669,8 @@ msgid "Documentaries"
 msgstr "Documentales"
 
 msgctxt "#31160"
-msgid "Exit Bingie"
-msgstr "Salir de Bingie"
+msgid "Exit Deflix"
+msgstr "Salir de Deflix"
 
 msgctxt "#31161"
 msgid "Watch Season 1 Now"
@@ -717,8 +717,8 @@ msgid "If you see weird behavior on your home menu or you just want to start fre
 msgstr "Si ves un comportamiento extraño en tu menú de inicio o simplemente quieres empezar de nuevo y aprovechar al máximo esta apariencia, puedes restablecer las estructuras del menú a la configuración predeterminada de la apariencia con el siguiente botón."
 
 msgctxt "#31172"
-msgid "Who's watching Bingie?"
-msgstr "¿Quién está viendo Bingie?"
+msgid "Who's watching Deflix?"
+msgstr "¿Quién está viendo Deflix?"
 
 msgctxt "#31173"
 msgid "Auto play trailers in home & hubs"
@@ -1078,8 +1078,8 @@ msgid "There are no matches for your search."
 msgstr "No hay coincidencias para tu búsqueda."
 
 msgctxt "#31262"
-msgid "In the Bingie skin, the content is organized into dedicated hubs. This layout makes it easy to navigate between categories and find what you’re looking for. Just like on the home screen, you have the ability to add new widgets, remove existing ones, and fully customize their appearance and behavior."
-msgstr "En la apariencia Bingie, el contenido se organiza en centros dedicados. Este diseño facilita la navegación entre categorías y encontrar lo que buscas. Al igual que en la pantalla de inicio, tienes la capacidad de agregar nuevos widgets, eliminar los existentes y personalizar completamente su apariencia y comportamiento."
+msgid "In the Deflix skin, the content is organized into dedicated hubs. This layout makes it easy to navigate between categories and find what you’re looking for. Just like on the home screen, you have the ability to add new widgets, remove existing ones, and fully customize their appearance and behavior."
+msgstr "En la apariencia Deflix, el contenido se organiza en centros dedicados. Este diseño facilita la navegación entre categorías y encontrar lo que buscas. Al igual que en la pantalla de inicio, tienes la capacidad de agregar nuevos widgets, eliminar los existentes y personalizar completamente su apariencia y comportamiento."
 
 msgctxt "#31263"
 msgid "Recommended by TMDb"
@@ -1130,8 +1130,8 @@ msgid "Reset skin to default settings"
 msgstr "Restablecer la apariencia a la configuración predeterminada"
 
 msgctxt "#31275"
-msgid "Disable Bingie logo on home"
-msgstr "Desactivar logo de Bingie en inicio"
+msgid "Disable Deflix logo on home"
+msgstr "Desactivar logo de Deflix en inicio"
 
 msgctxt "#31276"
 msgid "Auto hide menu"
@@ -1166,8 +1166,8 @@ msgid "Prefer white icon on Top 250 sublabel"
 msgstr "Preferir icono blanco en subetiqueta Top 250"
 
 msgctxt "#31284"
-msgid "Enable Top 250 sublabel on home and Bingie views"
-msgstr "Habilitar subetiqueta Top 250 en inicio y vistas Bingie"
+msgid "Enable Top 250 sublabel on home and Deflix views"
+msgstr "Habilitar subetiqueta Top 250 en inicio y vistas Deflix"
 
 msgctxt "#31285"
 msgid "Overview"
@@ -1303,7 +1303,7 @@ msgstr "Desactivar colecciones"
 
 # DO NOT TRANSLATE THIS STRING!!!
 msgctxt "#31318"
-msgid "Bingie Episodes"
+msgid "Deflix Episodes"
 msgstr ""
 
 msgctxt "#31319"
@@ -1315,8 +1315,8 @@ msgid "Enable Top 250 sublabel on video info"
 msgstr "Habilitar subetiqueta Top 250 en información de video"
 
 msgctxt "#31321"
-msgid "Bingie views"
-msgstr "Vistas de Bingie"
+msgid "Deflix views"
+msgstr "Vistas de Deflix"
 
 msgctxt "#31322"
 msgid "Enable Top 250 sublabel on spotlight"
@@ -1339,8 +1339,8 @@ msgid "Trakt Popular Movies"
 msgstr "Películas populares en Trakt"
 
 msgctxt "#31327"
-msgid "Clearlogo/title position (except Bingie views)"
-msgstr "Posición de clearlogo/título (excepto vistas Bingie)"
+msgid "Clearlogo/title position (except Deflix views)"
+msgstr "Posición de clearlogo/título (excepto vistas Deflix)"
 
 msgctxt "#31328"
 msgid "Trakt Trending TV Shows"
@@ -1656,8 +1656,8 @@ msgid "[B]CONFIGURE SYSTEM SETTINGS[/B][CR][CR]Configure display and audio · En
 msgstr "[B]CONFIGURAR AJUSTES DEL SISTEMA[/B][CR][CR]Configurar pantalla y audio · Habilitar depuración"
 
 msgctxt "#31407"
-msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup Bingie · Configure home screen and hubs"
-msgstr "[B]CONFIGURAR AJUSTES DE APARIENCIA[/B][CR][CR]Configurar Bingie · Configurar pantalla de inicio y centros"
+msgid "[B]CONFIGURE SKIN SETTINGS[/B][CR][CR]Setup Deflix · Configure home screen and hubs"
+msgstr "[B]CONFIGURAR AJUSTES DE APARIENCIA[/B][CR][CR]Configurar Deflix · Configurar pantalla de inicio y centros"
 
 msgctxt "#31408"
 msgid "[B]CONFIGURE ADD-ONS[/B][CR][CR]Browse, install and manage add-ons"
@@ -1829,8 +1829,8 @@ msgid "Fantasy"
 msgstr "Fantasía"
 
 msgctxt "#31447"
-msgid "Bingie landscape tag sublabel"
-msgstr "Subetiqueta de etiqueta de paisaje de Bingie"
+msgid "Deflix landscape tag sublabel"
+msgstr "Subetiqueta de etiqueta de paisaje de Deflix"
 
 msgctxt "#31448"
 msgid "Crime"
@@ -1898,8 +1898,8 @@ msgid "Select a color theme"
 msgstr "Seleccionar un tema de color"
 
 msgctxt "#31464"
-msgid "Bingie skin allows you to customize almost every color manually. You can save your customizations as a color theme or reset everything to default."
-msgstr "La apariencia Bingie te permite personalizar casi todos los colores manualmente. Puedes guardar tus personalizaciones como un tema de color o restablecer todo a los valores predeterminados."
+msgid "Deflix skin allows you to customize almost every color manually. You can save your customizations as a color theme or reset everything to default."
+msgstr "La apariencia Deflix te permite personalizar casi todos los colores manualmente. Puedes guardar tus personalizaciones como un tema de color o restablecer todo a los valores predeterminados."
 
 msgctxt "#31465"
 msgid "Customize submenu"
@@ -2234,8 +2234,8 @@ msgid "OSD progress bar border color"
 msgstr "Color del borde de la barra de progreso OSD"
 
 msgctxt "#31548"
-msgid "Bingie Top 250 icon color"
-msgstr "Color de icono Top 250 de Bingie"
+msgid "Deflix Top 250 icon color"
+msgstr "Color de icono Top 250 de Deflix"
 
 msgctxt "#31549"
 msgid "Play next episode (local library)"

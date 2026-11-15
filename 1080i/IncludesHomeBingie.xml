@@ -788,31 +788,17 @@
                 <include>Bingie_Left_Gradient</include>
 			</control>
 	
-			<!--Bingie Logo Diffuse-->
-			<control type="image">
-				<visible>!Skin.HasSetting(DisableBingieLogo) + [Window.IsActive(Home) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1123) | Window.IsActive(1124) | Window.IsActive(1125) | Window.IsActive(1120) | Window.IsActive(1114)]</visible> 
-				<description>diffuse behind Bingie logo</description>
-				<animation effect="slide" end="-66" time="0" condition="$EXP[IsBingieHubsActive2]">Conditional</animation>
-				<right>470</right>
-				<bottom>0</bottom>
-				<width>0</width>
-				<height>223</height>
-				<align>right</align>
-				<aspectratio align="right">keep</aspectratio>
-				<colordiffuse>80000000</colordiffuse>
-                <texture background="true">home/bingie_diffuse.png</texture>
-			</control>
 			<!--Bingie Logo-->
 			<control type="image">
 				<visible>!Skin.HasSetting(DisableBingieLogo) + !$EXP[IsBingieHubsActive2]</visible>
-				<description>Bingie logo</description>
+				<description>Deflix logo</description>
 				<right>314</right>
 				<bottom>5</bottom>
 				<width>0</width>
 				<height>165</height>
 				<align>right</align>
 				<aspectratio align="right">keep</aspectratio>
-				<texture>home/bingie_logo.png</texture>
+				<texture>deflix/logo_home.png</texture>
 			</control>
 
 			<control type="grouplist">
