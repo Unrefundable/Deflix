@@ -2509,8 +2509,10 @@
     <include name="Bingie_Headline_Item">
         <param name="genre_adjust" default="false" />
         <definition>
+            <!-- top + height = 185: the logo starts inside the TV title-safe area (5% from the top) so overscanning TVs don't crop tall logos -->
             <control type="image" id="$PARAM[id]5">
-                <height>185</height>
+                <top>44</top>
+                <height>141</height>
                 <width>477</width>
                 <align>left</align>
                 <fadetime>350</fadetime>
@@ -2520,8 +2522,8 @@
 <!-- Movie Title with no Clearlogo -->
 			<control type="textbox" id="$PARAM[id]6">
                 <visible>String.EndsWith(Control.GetLabel($PARAM[id]5),color_transparent.png)</visible>
-                <top>-194</top>
-                <height>194</height>
+                <top>-141</top>
+                <height>141</height>
                 <width max="648">auto</width>
                 <font>title</font> 
                 <align>left</align>

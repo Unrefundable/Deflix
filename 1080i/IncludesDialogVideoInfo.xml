@@ -109,7 +109,8 @@
 					<usecontrolcoords>true</usecontrolcoords>
 					<orientation>vertical</orientation>
 					<control type="image" id="90005">
-						<height>145</height>
+						<top>30</top>
+						<height>115</height>
 						<width>430</width>
 						<align>left</align>
 						<aspectratio align="left" aligny="center">keep</aspectratio>
@@ -118,8 +119,8 @@
 					<!-- Movie Title with no Clearlogo -->
 					<control type="textbox" id="90006">
 						<visible>String.EndsWith(Control.GetLabel(90005),color_transparent.png)</visible>
-						<top>-159</top>
-						<height>154</height>
+						<top>-115</top>
+						<height>115</height>
 						<width max="650">auto</width>
 						<font>title</font>
 						<align>left</align>
@@ -1329,7 +1330,8 @@
 					<usecontrolcoords>true</usecontrolcoords>
 					<orientation>vertical</orientation>
 					<control type="image" id="90005">
-						<height>145</height>
+						<top>30</top>
+						<height>115</height>
 						<width>430</width>
 						<align>left</align>
 						<aspectratio align="left" aligny="center">keep</aspectratio>
@@ -1338,8 +1340,8 @@
 					<!-- Movie Title with no Clearlogo -->
 					<control type="textbox" id="90006">
 						<visible>String.EndsWith(Control.GetLabel(90005),color_transparent.png)</visible>
-						<top>-159</top>
-						<height>154</height>
+						<top>-115</top>
+						<height>115</height>
 						<width max="650">auto</width>
 						<font>title</font>
 						<align>left</align>

@@ -416,10 +416,10 @@
                 <!-- clearlogo title -->
                 <control type="image" id="987767">
                     <left>15</left>
-					<height>185</height>
+					<height>141</height>
                     <width>477</width>
                     <align>left</align>
-                    <top>0</top>
+                    <top>44</top>
                     <fadetime>350</fadetime>
                     <aspectratio align="left" aligny="center">keep</aspectratio>
                     <texture background="true" fallback="colors/color_transparent.png">$VAR[BingieInfoClearlogo]</texture>
@@ -428,10 +428,10 @@
                 <!-- text title -->
                 <control type="textbox">
                     <visible>String.EndsWith(Control.GetLabel(987767),color_transparent.png)</visible>
-                    <top>-199</top>
+                    <top>-141</top>
 					<left>15</left>
                     <width max="648">auto</width>
-                    <height>194</height>
+                    <height>141</height>
                     <font>title</font> 
                     <align>left</align>
                     <aligny>center</aligny>

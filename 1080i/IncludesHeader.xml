@@ -85,9 +85,9 @@
 		<control type="image" id="881">
 			<include>animation_window_open_close</include>
 			<right>60</right>
-			<top>10</top>
+			<top>40</top>
 			<width>335</width>
-			<height>130</height>
+			<height>100</height>
 			<fadetime>350</fadetime>
 			<aspectratio align="right" aligny="center">keep</aspectratio>
 			<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
@@ -103,9 +103,9 @@
 					<control type="textbox">
                         <visible>String.EndsWith(Control.GetLabel(881),color_transparent.png) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Window.IsActive(tvchannels) |  Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | String.IsEqual(ListItem.Property(tmdb_type),person)]</visible>
 						<right>60</right>
-						<top>15</top>
+						<top>40</top>
 						<width>430</width>
-						<height>115</height>
+						<height>100</height>
 						<fadetime>350</fadetime>
 						<font>title3</font> 
 						<align>right</align>
@@ -127,9 +127,9 @@
 		<control type="image" id="882">
 			<include>animation_window_open_close</include>
 			<left>60</left>
-			<top>10</top>
+			<top>40</top>
 			<width>335</width>
-			<height>130</height>
+			<height>100</height>
 			<fadetime>350</fadetime>
 			<aspectratio align="left" aligny="center">keep</aspectratio>
 			<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
@@ -141,9 +141,9 @@
 					<control type="textbox">
                         <visible>String.EndsWith(Control.GetLabel(882),color_transparent.png) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Window.IsActive(tvchannels) |  Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | String.IsEqual(ListItem.Property(tmdb_type),person)]</visible>
 						<left>60</left>
-						<top>15</top>
+						<top>40</top>
 						<width>430</width>
-						<height>115</height>
+						<height>100</height>
 						<fadetime>350</fadetime>
 						<font>title3</font> 
 						<align>left</align>
@@ -161,9 +161,9 @@
 		<control type="image" id="883">
 			<include>animation_window_open_close</include>
 			<left>792</left>
-			<top>10</top>
+			<top>40</top>
 			<width>335</width>
-			<height>130</height>
+			<height>100</height>
 			<fadetime>350</fadetime>
 			<aspectratio align="center" aligny="center">keep</aspectratio>
 			<texture background="true" fallback="colors/color_transparent.png">$VAR[ListItemClearLogo]</texture>
@@ -175,9 +175,9 @@
 					<control type="textbox">
                         <visible>String.EndsWith(Control.GetLabel(883),color_transparent.png) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Window.IsActive(tvchannels) |  Window.IsActive(tvguide) | Window.IsActive(tvrecordings) | Window.IsActive(tvtimers) | Window.IsActive(tvsearch) | String.IsEqual(ListItem.Property(tmdb_type),person)]</visible>
 						<left>744</left>
-						<top>15</top>
+						<top>40</top>
 						<width>430</width>
-						<height>115</height>
+						<height>100</height>
 						<fadetime>350</fadetime>
 						<font>title3</font> 
 						<align>center</align>
