@@ -63,7 +63,8 @@
       {"name": "Prime Video", "logo": "tools/intro_logos/prime.png", "logo_scale": 0.76, "background": "#FFFFFF", "glow": "#1399FF"},
       {"name": "Apple TV+", "logo": "tools/intro_logos/appletv.png", "logo_scale": 0.7, "background": "#000000", "glow": "#C8C8D0"},
       {"name": "HBO Max", "logo": "tools/intro_logos/hbomax.png", "logo_scale": 0.76, "background": ["#2B0A6B", "#7B2FF7"], "glow": "#6A1EE6"},
-      {"name": "Paramount+", "logo": "tools/intro_logos/paramount_emblem.png", "logo_scale": 0.7, "background": "#0064FF", "glow": "#0064FF"}
+      {"name": "Paramount+", "logo": "tools/intro_logos/paramount_emblem.png", "logo_scale": 0.7, "background": "#0064FF", "glow": "#0064FF"},
+      {"name": "Crunchyroll", "logo": "tools/intro_logos/crunchyroll.png", "logo_scale": 0.62, "logo_color": "#FFFFFF", "background": "#F47521", "glow": "#F47521"}
     ],
     "finale": {
       "time": 4.2,
