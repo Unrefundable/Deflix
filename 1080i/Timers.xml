@@ -15,4 +15,24 @@
         <stop>Integer.IsGreater(Skin.TimerElapsedSecs(rowswake),0)</stop>
         <onstop>SetProperty(DeflixRowsReloaded,$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)],Home)</onstop>
     </timer>
+    <timer>
+        <name>watchlaterbusy</name>
+        <description>Runs from a Watch Later press until the helper has changed Trakt and the button's
+            state list (5630) has reloaded, then lets the button take the next press. At least two
+            seconds, so two changes never share a Trakt timestamp; eight at most, in case the helper
+            never reports back.</description>
+        <start reset="true">!String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))</start>
+        <stop>[Integer.IsGreater(Skin.TimerElapsedSecs(watchlaterbusy),1) + !String.IsEqual(Window(Home).Property(TMDbBingieHelper.Widgets.Reload),Window(Home).Property(DeflixWatchLaterReload)) + !Container(5630).IsUpdating + !Window.IsActive(busydialognocancel) + !Window.IsActive(okdialog)] | Integer.IsGreater(Skin.TimerElapsedSecs(watchlaterbusy),7)</stop>
+        <onstop>ClearProperty(DeflixWatchLaterBusy,Home)</onstop>
+    </timer>
+    <timer>
+        <name>widgetsreload</name>
+        <description>Copies the helper's Widgets.Reload counter into DeflixWidgetsReload, which every list
+            except the watchlist ones uses in its address. A bump that arrives while a Watch Later press
+            is in flight is not copied, so that press reloads only the watchlist lists.</description>
+        <start reset="true">!String.IsEqual(Window(Home).Property(TMDbBingieHelper.Widgets.Reload),Window(Home).Property(DeflixReloadSeen))</start>
+        <stop>String.IsEqual(Window(Home).Property(TMDbBingieHelper.Widgets.Reload),Window(Home).Property(DeflixReloadSeen))</stop>
+        <onstart condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">SetProperty(DeflixWidgetsReload,$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)],Home)</onstart>
+        <onstart>SetProperty(DeflixReloadSeen,$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)],Home)</onstart>
+    </timer>
 </timers>

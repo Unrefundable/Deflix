@@ -11,7 +11,10 @@
     </variable>
 	
 	<!-- The Trakt watchlist filtered down to the title on the info page: one item if it is on the list.
-	     The helper bumps Widgets.Reload after a sync, so this refreshes when the button is pressed. -->
+	     The helper bumps Widgets.Reload after a sync, so this refreshes when the button is pressed.
+	     Only the watchlist lists read the helper's counter directly. Every other list reads
+	     DeflixWidgetsReload, a copy that skips the bump a Watch Later press causes (see the
+	     widgetsreload timer), so adding or removing a title reloads nothing but the watchlist. -->
 	<variable name="Path_WatchLaterState">
 		<value condition="!String.IsEmpty(ListItem.Property(tmdb_id))">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_watchlist&amp;$VAR[Path_Param_Type]&amp;filter_key=tmdb_id&amp;filter_value=$INFO[ListItem.Property(tmdb_id)]&amp;nextpage=false&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
 		<value condition="!String.IsEmpty(Container(17195).ListItem.Property(tmdb_id))">plugin://plugin.video.tmdb.bingie.helper/?info=trakt_watchlist&amp;$VAR[Path_Param_Type]&amp;filter_key=tmdb_id&amp;filter_value=$INFO[Container(17195).ListItem.Property(tmdb_id)]&amp;nextpage=false&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
@@ -51,7 +54,7 @@
     </variable>
 	
 	 <variable name="Path_FromGenre">
-        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[135]) + !String.IsEmpty(Container(17195).ListItem.Property(Genre.1.TMDb_ID))">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;with_genres=$INFO[Container(17195).ListItem.Property(Genre.1.TMDb_ID)]&amp;with_id=True$VAR[Path_Param_Type,&amp;,]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[135]) + !String.IsEmpty(Container(17195).ListItem.Property(Genre.1.TMDb_ID))">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;with_genres=$INFO[Container(17195).ListItem.Property(Genre.1.TMDb_ID)]&amp;with_id=True$VAR[Path_Param_Type,&amp;,]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
 	<variable name="Path_FromDirector_Name">
@@ -71,7 +74,7 @@
     </variable>
 	
 	<variable name="Path_FromDirector">
-        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[20339]) + String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_both&amp;tmdb_type=person&amp;filter_key=job&amp;filter_value=Director$VAR[Path_FromDirector_TMDb,&amp;query=,]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[20339]) + String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,episode)">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_both&amp;tmdb_type=person&amp;filter_key=job&amp;filter_value=Director$VAR[Path_FromDirector_TMDb,&amp;query=,]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
 	<variable name="Path_FromCreator_Name">
@@ -87,7 +90,7 @@
     </variable>
 	
 	<variable name="Path_FromCreator">
-        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[31530]) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)]">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_both&amp;tmdb_type=person&amp;filter_key=job&amp;filter_value=Creator$VAR[Path_FromCreator_TMDb,&amp;query=,]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[31530]) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)]">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_both&amp;tmdb_type=person&amp;filter_key=job&amp;filter_value=Creator$VAR[Path_FromCreator_TMDb,&amp;query=,]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
 	<variable name="Path_Posters">
@@ -113,21 +116,21 @@
     </variable>
 	
 	<variable name="Path_FromWriter">
-        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[31488]) + String.IsEqual(ListItem.DBType,movie)">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_both&amp;tmdb_type=person&amp;filter_key=job&amp;filter_value=Writer$VAR[Path_FromWriter_TMDb,&amp;query=,]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[31488]) + String.IsEqual(ListItem.DBType,movie)">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_both&amp;tmdb_type=person&amp;filter_key=job&amp;filter_value=Writer$VAR[Path_FromWriter_TMDb,&amp;query=,]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
     <variable name="Path_FromStudio">
-        <value condition="[String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[572]) | String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[705])] + String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container(17195).ListItem.Property(Studio.1.TMDB_ID))">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;tmdb_type=movie&amp;with_companies=$INFO[Container(17195).ListItem.Property(Studio.1.TMDB_ID)]&amp;with_id=True$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
-        <value condition="[String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[572]) | String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[705])] + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(Container(17195).ListItem.Property(Network.1.TMDB_ID))">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;tmdb_type=tv&amp;with_networks=$INFO[Container(17195).ListItem.Property(Network.1.TMDB_ID)]&amp;with_id=True$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="[String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[572]) | String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[705])] + String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container(17195).ListItem.Property(Studio.1.TMDB_ID))">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;tmdb_type=movie&amp;with_companies=$INFO[Container(17195).ListItem.Property(Studio.1.TMDB_ID)]&amp;with_id=True$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
+        <value condition="[String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[572]) | String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[705])] + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(Container(17195).ListItem.Property(Network.1.TMDB_ID))">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;tmdb_type=tv&amp;with_networks=$INFO[Container(17195).ListItem.Property(Network.1.TMDB_ID)]&amp;with_id=True$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
 	<variable name="Path_FromYear">
-        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[345]) + String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;tmdb_type=movie&amp;primary_release_year=$INFO[ListItem.Year]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
-        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[345]) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;tmdb_type=tv&amp;first_air_date_year=$INFO[ListItem.Year]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[345]) + String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;tmdb_type=movie&amp;primary_release_year=$INFO[ListItem.Year]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
+        <value condition="String.IsEqual(Container(8999).ListItem.Label,$LOCALIZE[345]) + [String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)] + !String.IsEmpty(ListItem.Year)">plugin://plugin.video.tmdb.bingie.helper?info=discover&amp;tmdb_type=tv&amp;first_air_date_year=$INFO[ListItem.Year]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;length=1&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
 	<variable name="Path_Similar">
-        <value condition="Control.HasFocus(62) | Control.IsVisible(355) | Control.IsVisible(356) | String.IsEqual(Window.Property(AdditionalInfo),similar)">plugin://plugin.video.tmdb.bingie.helper?info=recommendations&amp;nextpage=false&amp;length=1$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="Control.HasFocus(62) | Control.IsVisible(355) | Control.IsVisible(356) | String.IsEqual(Window.Property(AdditionalInfo),similar)">plugin://plugin.video.tmdb.bingie.helper?info=recommendations&amp;nextpage=false&amp;length=1$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
 	<variable name="Path_Reviews">
@@ -135,8 +138,8 @@
     </variable>
 	
 	<variable name="Path_Collection">
-		<value condition="!String.IsEqual(ListItem.Path,plugin://plugin.video.tmdb.bingie.helper/) + String.IsEqual(ListItem.DBType,movie) + [!String.IsEmpty(ListItem.Set) | !String.IsEmpty(Container(17195).ListItem.Set)] + !Skin.HasSetting(VideoInfoButtonCollection)">plugin://plugin.video.tmdb.bingie.helper?info=collection&amp;tmdb_type=collection&amp;query=$VAR[Path_Set]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
-        <value condition="String.IsEqual(ListItem.Path,plugin://plugin.video.tmdb.bingie.helper/) + String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Set) + !Skin.HasSetting(VideoInfoButtonCollection)">plugin://plugin.video.tmdb.bingie.helper?info=collection&amp;tmdb_type=collection&amp;tmdb_id=$INFO[ListItem.Property(set.tmdb_id)]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value condition="!String.IsEqual(ListItem.Path,plugin://plugin.video.tmdb.bingie.helper/) + String.IsEqual(ListItem.DBType,movie) + [!String.IsEmpty(ListItem.Set) | !String.IsEmpty(Container(17195).ListItem.Set)] + !Skin.HasSetting(VideoInfoButtonCollection)">plugin://plugin.video.tmdb.bingie.helper?info=collection&amp;tmdb_type=collection&amp;query=$VAR[Path_Set]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
+        <value condition="String.IsEqual(ListItem.Path,plugin://plugin.video.tmdb.bingie.helper/) + String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(ListItem.Set) + !Skin.HasSetting(VideoInfoButtonCollection)">plugin://plugin.video.tmdb.bingie.helper?info=collection&amp;tmdb_type=collection&amp;tmdb_id=$INFO[ListItem.Property(set.tmdb_id)]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
 	<variable name="Path_Set">
@@ -145,19 +148,19 @@
     </variable>
 	
 	<variable name="Path_CastInMovies">
-        <value condition="String.IsEqual(Container(2999).ListItem.Label,$LOCALIZE[31519])">plugin://plugin.video.tmdb.bingie.helper?info=stars_in_movies&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(2999).ListItem.Label,$LOCALIZE[31519])">plugin://plugin.video.tmdb.bingie.helper?info=stars_in_movies&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
     <variable name="Path_CastInShows">
-        <value condition="String.IsEqual(Container(2999).ListItem.Label,$LOCALIZE[31508])">plugin://plugin.video.tmdb.bingie.helper?info=stars_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(2999).ListItem.Label,$LOCALIZE[31508])">plugin://plugin.video.tmdb.bingie.helper?info=stars_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
     <variable name="Path_CrewInMovies">
-        <value condition="String.IsEqual(Container(2999).ListItem.Label,$LOCALIZE[31509])">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_movies&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(2999).ListItem.Label,$LOCALIZE[31509])">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_movies&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
     <variable name="Path_CrewInShows">
-        <value condition="String.IsEqual(Container(2999).ListItem.Label,$LOCALIZE[31510])">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+        <value condition="String.IsEqual(Container(2999).ListItem.Label,$LOCALIZE[31510])">plugin://plugin.video.tmdb.bingie.helper?info=crew_in_tvshows&amp;limit=$INFO[Skin.String(cast_number)]$VAR[Path_Param_Type,&amp;,]$VAR[Path_Param_Query]&amp;nextpage=false&amp;cacheonly=true&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
     </variable>
 	
 	<variable name="Path_Wikipedia_Title">
@@ -192,7 +195,7 @@
 	
 	<variable name="ActionAdvantureMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/actionadventure.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=28%20%2f%2012&amp;with_id=True&amp;with_separator=OR&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=28%20%2f%2012&amp;with_id=True&amp;with_separator=OR&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="ActionAdvantureTVShowsWidget">
@@ -202,7 +205,7 @@
 	
 	<variable name="ActionAdvantureTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvactionadventure.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10759&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16%20%2f%2010766&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10759&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16%20%2f%2010766&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="DramaMoviesWidget">
@@ -212,7 +215,7 @@
 	
 	<variable name="DramaMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/dramas.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=18&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=18&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="DramaTVShowsWidget">
@@ -222,7 +225,7 @@
 	
 	<variable name="DramaTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvdramas.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=18&amp;with_id=True&amp;with_separator=AND&amp;without_genres=10766&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=18&amp;with_id=True&amp;with_separator=AND&amp;without_genres=10766&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="ComedyMoviesWidget">
@@ -232,7 +235,7 @@
 	
 	<variable name="ComedyMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/comedies.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=35&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=35&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="ComedyTVShowsWidget">
@@ -242,7 +245,7 @@
 	
 	<variable name="ComedyTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvcomedies.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=35&amp;with_id=True&amp;with_separator=AND&amp;without_genres=10766&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=35&amp;with_id=True&amp;with_separator=AND&amp;without_genres=10766&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="HorrorMoviesWidget">
@@ -252,7 +255,7 @@
 	
 	<variable name="HorrorMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/horror.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=27&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=27&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="DocumentaryMoviesWidget">
@@ -262,7 +265,7 @@
 	
 	<variable name="DocumentaryMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/documentaries.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=99&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=99&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="DocumentaryTVShowsWidget">
@@ -272,7 +275,7 @@
 	
 	<variable name="DocumentaryTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvdocumentaries.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=99&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=99&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="CrimeMoviesWidget">
@@ -282,7 +285,7 @@
 	
 	<variable name="CrimeMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/crime.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=80&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=80&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="CrimeTVShowsWidget">
@@ -292,7 +295,7 @@
 	
 	<variable name="CrimeTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvcrime.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=80&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=80&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="FantasyMoviesWidget">
@@ -302,7 +305,7 @@
 	
 	<variable name="FantasyMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/fantasy.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=14&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=14&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="SciFiFantasyTVShowsWidget">
@@ -312,7 +315,7 @@
 	
 	<variable name="SciFiFantasyTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvscififantasy.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10765&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10765&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="MusicMoviesWidget">
@@ -322,7 +325,7 @@
 	
 	<variable name="MusicMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/musicandmusical.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10402&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10402&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="RomanceMoviesWidget">
@@ -332,7 +335,7 @@
 	
 	<variable name="RomanceMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/romance.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10749&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10749&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;without_keywords=155477&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="SciFiMoviesWidget">
@@ -342,7 +345,7 @@
 	
 	<variable name="SciFiMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/scifi.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=878&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=878&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="ThrillerMoviesWidget">
@@ -352,7 +355,7 @@
 	
 	<variable name="ThrillerMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/thriller.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=53&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=53&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="WesternMoviesWidget">
@@ -362,7 +365,7 @@
 	
 	<variable name="WesternMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/westerns.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=37&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=37&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="WesternTVShowsWidget">
@@ -372,7 +375,7 @@
 	
 	<variable name="WesternTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvwesterns.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=37&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16%20%2f%2010762&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=37&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16%20%2f%2010762&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="AnimationMoviesWidget">
@@ -382,7 +385,7 @@
 	
 	<variable name="AnimationMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/animations.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=16&amp;without_keywords=210024&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=16&amp;without_keywords=210024&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="AnimationTVShowsWidget">
@@ -392,7 +395,7 @@
 	
 	<variable name="AnimationTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvanimations.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=16&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=16&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="AnimeMoviesWidget">
@@ -402,7 +405,7 @@
 	
 	<variable name="AnimeMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/anime.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_id=True&amp;with_keywords=210024&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_id=True&amp;with_keywords=210024&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="FamilyMoviesWidget">
@@ -412,7 +415,7 @@
 	
 	<variable name="FamilyMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/kidsandfamily.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10751&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=10751&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="FamilyTVShowsWidget">
@@ -422,7 +425,7 @@
 	
 	<variable name="FamilyTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvkidsandfamily.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10751%20%2f%2010762&amp;with_id=True&amp;with_separator=OR&amp;without_genres=10766&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10751%20%2f%2010762&amp;with_id=True&amp;with_separator=OR&amp;without_genres=10766&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="HistoryWarMoviesWidget">
@@ -432,7 +435,7 @@
 	
 	<variable name="HistoryWarMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/historywar.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=36%20%2f%2010752&amp;with_id=True&amp;with_separator=OR&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=36%20%2f%2010752&amp;with_id=True&amp;with_separator=OR&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="WarPoliticsTVShowsWidget">
@@ -442,7 +445,7 @@
 	
 	<variable name="WarPoliticsTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvwarpolitics.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10768&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=10768&amp;with_id=True&amp;with_separator=AND&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="MysteryMoviesWidget">
@@ -452,7 +455,7 @@
 	
 	<variable name="MysteryMovies">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/mysteries.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=9648&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=movie&amp;with_genres=9648&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="MysteryTVShowsWidget">
@@ -462,15 +465,15 @@
 	
 	<variable name="MysteryTVShows">
 		<value condition="[Library.HasContent(Movies) | Library.HasContent(TVShows)]">special://skin/extras/categories/tvmysteries.xsp</value>
-        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=9648&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]$VAR[Path_Param_Limit]</value>
+        <value condition="!Library.HasContent(Movies) + !Library.HasContent(TVShows)">plugin://plugin.video.tmdb.bingie.helper/?info=discover&amp;sort_by=popularity.desc&amp;tmdb_id=None&amp;tmdb_type=tv&amp;with_genres=9648&amp;with_id=True&amp;with_separator=AND&amp;without_genres=16&amp;vote_count.gte=50&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]$VAR[Path_Param_Limit]</value>
     </variable>
 	
 	<variable name="DefSpotlightWidgetContent">
-		<value>plugin://plugin.video.tmdb.bingie.helper/?info=random_popular&amp;tmdb_type=both&amp;widget=true&amp;limit=5&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=random_popular&amp;tmdb_type=both&amp;widget=true&amp;limit=5&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
 	</variable>
 	
 	<variable name="DefWidgetContent">
-		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_inprogress&amp;tmdb_type=movie&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_inprogress&amp;tmdb_type=movie&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
 	</variable>
 	
 	<variable name="DefWidgetName">
@@ -478,7 +481,7 @@
 	</variable>
 	
 	<variable name="DefWidget1Content">
-		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_inprogress&amp;tmdb_type=tv&amp;sort_by=watched&amp;sort_how=desc&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_inprogress&amp;tmdb_type=tv&amp;sort_by=watched&amp;sort_how=desc&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
 	</variable>
 	
 	<variable name="DefWidget1Name">
@@ -494,7 +497,7 @@
 	</variable>
 	
 	<variable name="DefWidget3Content">
-		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_history&amp;tmdb_type=both&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_history&amp;tmdb_type=both&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
 	</variable>
 	
 	<variable name="DefWidget3Name">
@@ -502,7 +505,7 @@
 	</variable>
 	
 	<variable name="DefWidget4Content">
-		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=movie&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=movie&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
 	</variable>
 	
 	<variable name="DefWidget4Name">
@@ -510,7 +513,7 @@
 	</variable>
 	
 	<variable name="DefWidget5Content">
-		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=tv&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)]</value>
+		<value>plugin://plugin.video.tmdb.bingie.helper/?info=trakt_becauseyouwatched&amp;tmdb_type=tv&amp;widget=true&amp;limit=25&amp;reload=$INFO[Window(Home).Property(DeflixWidgetsReload)]</value>
 	</variable>
 	
 	<variable name="DefWidget5Name">

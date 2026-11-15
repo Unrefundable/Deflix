@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- Watch Later asks for a quiet sync: close the helper's "added to watchlist" notice unseen -->
+	<!-- This notice is up after Trakt has changed and before the helper reloads the watchlist. Drop the helper's
+	     3-second sync lock here, or a reload inside that window is skipped and the button keeps its old label. -->
+	<onload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">ClearProperty(TMDbBingieHelper.syncdecorators.timerlock.sync_data.movie.watchlist,Home)</onload>
+	<onload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">ClearProperty(TMDbBingieHelper.syncdecorators.timerlock.sync_data.show.watchlist,Home)</onload>
 	<onload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">Dialog.Close(okdialog,true)</onload>
 	<onunload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">ClearProperty(DeflixQuietSync,Home)</onunload>
 	<onload condition="Control.IsVisible(12)">SetFocus(12)</onload>

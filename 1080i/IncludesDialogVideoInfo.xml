@@ -597,10 +597,18 @@
                                 <radioposx>14</radioposx>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
-                                <onclick>SetProperty(DeflixQuietSync,1,Home)</onclick>
-                                <onclick>AlarmClock(DeflixQuietSync,ClearProperty(DeflixQuietSync,Home),00:15,silent)</onclick>
-                                <onclick condition="!String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
-								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[Container(17195).ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
+                                <!-- One press at a time: a press is ignored until the last one has finished (see the watchlaterbusy
+                                     timer), or presses overlap, act on an out-of-date list and show the helper's notice.
+                                     Also, the helper skips a watchlist re-sync for 3 seconds after the last one yet still marks it done,
+                                     so a second press inside that window left the label stuck; drop its lock first -->
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">ClearProperty(TMDbBingieHelper.syncdecorators.timerlock.sync_data.movie.watchlist,Home)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">ClearProperty(TMDbBingieHelper.syncdecorators.timerlock.sync_data.show.watchlist,Home)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">SetProperty(DeflixQuietSync,1,Home)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">AlarmClock(DeflixQuietSync,ClearProperty(DeflixQuietSync,Home),00:15,silent)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy)) + !String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
+								<onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy)) + String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[Container(17195).ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">SetProperty(DeflixWatchLaterReload,$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)],Home)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">SetProperty(DeflixWatchLaterBusy,1,Home)</onclick>
                             </control>
 
 							<!-- Trailer -->
@@ -1841,10 +1849,18 @@
 								<radioposy>22</radioposy>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
-                                <onclick>SetProperty(DeflixQuietSync,1,Home)</onclick>
-                                <onclick>AlarmClock(DeflixQuietSync,ClearProperty(DeflixQuietSync,Home),00:15,silent)</onclick>
-                                <onclick condition="!String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
-								<onclick condition="String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[Container(17195).ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
+                                <!-- One press at a time: a press is ignored until the last one has finished (see the watchlaterbusy
+                                     timer), or presses overlap, act on an out-of-date list and show the helper's notice.
+                                     Also, the helper skips a watchlist re-sync for 3 seconds after the last one yet still marks it done,
+                                     so a second press inside that window left the label stuck; drop its lock first -->
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">ClearProperty(TMDbBingieHelper.syncdecorators.timerlock.sync_data.movie.watchlist,Home)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">ClearProperty(TMDbBingieHelper.syncdecorators.timerlock.sync_data.show.watchlist,Home)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">SetProperty(DeflixQuietSync,1,Home)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">AlarmClock(DeflixQuietSync,ClearProperty(DeflixQuietSync,Home),00:15,silent)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy)) + !String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
+								<onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy)) + String.IsEmpty(ListItem.Property(tmdb_id))">RunScript(plugin.video.tmdb.bingie.helper,sync_trakt,tmdb_id=$INFO[Container(17195).ListItem.Property(tmdb_id)],$VAR[Path_Param_Type],sync_type=watchlist)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">SetProperty(DeflixWatchLaterReload,$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)],Home)</onclick>
+                                <onclick condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">SetProperty(DeflixWatchLaterBusy,1,Home)</onclick>
                             </control>
 
 							<!-- Trailer -->
