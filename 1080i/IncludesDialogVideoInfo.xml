@@ -412,10 +412,15 @@
                                 <radioposx>13</radioposx>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
-                                <onclick condition="Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
-								<onclick condition="Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Container(1234).ListItem.FileNameAndPath],resume),00:01,silent)</onclick>
-								<onclick condition="Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">RunScript(plugin.video.tmdb.bingie.helper,close_dialog=1190)</onclick>
-                                <onclick condition="Integer.IsGreater(Container(5050).NumItems,0) + !Container(5050).IsUpdating + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Container(1234).ListItem.FileNameAndPath],resume),00:04,silent)</onclick>
+								<onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
+								<onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Container(1234).ListItem.FileNameAndPath],resume),00:01,silent)</onclick>
+								<onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">RunScript(plugin.video.tmdb.bingie.helper,close_dialog=1190)</onclick>
+								<onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Container(1234).ListItem.FileNameAndPath],resume),00:04,silent)</onclick>
+								<!-- DEFLIX: pressed before the helper's list loaded: play what the label shows -->
+								<onclick condition="[Container(1234).IsUpdating | Integer.IsEqual(Container(1234).NumItems,0)] + $EXP[KDMMUpNextRemembered] + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
+								<onclick condition="[Container(1234).IsUpdating | Integer.IsEqual(Container(1234).NumItems,0)] + $EXP[KDMMUpNextRemembered] + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Window(Home).Property(kdmm.upnext.path)],resume),00:01,silent)</onclick>
+								<onclick condition="[Container(1234).IsUpdating | Integer.IsEqual(Container(1234).NumItems,0)] + $EXP[KDMMUpNextRemembered] + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">RunScript(plugin.video.tmdb.bingie.helper,close_dialog=1190)</onclick>
+								<onclick condition="[Container(1234).IsUpdating | Integer.IsEqual(Container(1234).NumItems,0)] + $EXP[KDMMUpNextRemembered] + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Window(Home).Property(kdmm.upnext.path)],resume),00:04,silent)</onclick>
                             </control>
 
                             <!-- Play -->
@@ -1705,10 +1710,15 @@
 								<radioposy>22</radioposy>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
-                                <onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
+								<onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
 								<onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Container(1234).ListItem.FileNameAndPath],resume),00:01,silent)</onclick>
 								<onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">RunScript(plugin.video.tmdb.bingie.helper,close_dialog=1190)</onclick>
-                                <onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Container(1234).ListItem.FileNameAndPath],resume),00:04,silent)</onclick>
+								<onclick condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Container(1234).ListItem.FileNameAndPath],resume),00:04,silent)</onclick>
+								<!-- DEFLIX: pressed before the helper's list loaded: play what the label shows -->
+								<onclick condition="[Container(1234).IsUpdating | Integer.IsEqual(Container(1234).NumItems,0)] + $EXP[KDMMUpNextRemembered] + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
+								<onclick condition="[Container(1234).IsUpdating | Integer.IsEqual(Container(1234).NumItems,0)] + $EXP[KDMMUpNextRemembered] + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Window(Home).Property(kdmm.upnext.path)],resume),00:01,silent)</onclick>
+								<onclick condition="[Container(1234).IsUpdating | Integer.IsEqual(Container(1234).NumItems,0)] + $EXP[KDMMUpNextRemembered] + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">RunScript(plugin.video.tmdb.bingie.helper,close_dialog=1190)</onclick>
+								<onclick condition="[Container(1234).IsUpdating | Integer.IsEqual(Container(1234).NumItems,0)] + $EXP[KDMMUpNextRemembered] + Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia($ESCINFO[Window(Home).Property(kdmm.upnext.path)],resume),00:04,silent)</onclick>
                             </control>
 
                             <!-- Play -->
@@ -3949,12 +3959,18 @@
 	<variable name="PlayOrResumeSeasonEpisodeLabel3">
         <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Container(1234).ListItem.IsResumable">$LOCALIZE[13404]$INFO[Container(1234).ListItem.Season, $LOCALIZE[31000],: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[31002]. ,]</value>
         <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)">$LOCALIZE[208]$INFO[Container(1234).ListItem.Season, $LOCALIZE[20373] ,: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[20359] ,]</value>
+        <!-- DEFLIX: what KDMM remembers for this show, until the helper's list has loaded -->
+        <value condition="$EXP[KDMMUpNextRemembered] + !String.IsEmpty(Window(Home).Property(kdmm.upnext.resumable))">$LOCALIZE[13404]$INFO[Window(Home).Property(kdmm.upnext.season), $LOCALIZE[31000],: ]$INFO[Window(Home).Property(kdmm.upnext.episode),$LOCALIZE[31002]. ,]</value>
+        <value condition="$EXP[KDMMUpNextRemembered]">$LOCALIZE[208]$INFO[Window(Home).Property(kdmm.upnext.season), $LOCALIZE[20373] ,: ]$INFO[Window(Home).Property(kdmm.upnext.episode),$LOCALIZE[20359] ,]</value>
 		<value>$LOCALIZE[31209]</value>
     </variable>
 
 	<variable name="PlayOrResumeSeasonEpisodeLabel4">
         <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Container(1234).ListItem.IsResumable">$LOCALIZE[13404]$INFO[Container(1234).ListItem.Season, $LOCALIZE[31000],: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[31001],]</value>
         <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)">$LOCALIZE[208]$INFO[Container(1234).ListItem.Season, $LOCALIZE[31000],: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[31001],]</value>
+        <!-- DEFLIX: what KDMM remembers for this show, until the helper's list has loaded -->
+        <value condition="$EXP[KDMMUpNextRemembered] + !String.IsEmpty(Window(Home).Property(kdmm.upnext.resumable))">$LOCALIZE[13404]$INFO[Window(Home).Property(kdmm.upnext.season), $LOCALIZE[31000],: ]$INFO[Window(Home).Property(kdmm.upnext.episode),$LOCALIZE[31001],]</value>
+        <value condition="$EXP[KDMMUpNextRemembered]">$LOCALIZE[208]$INFO[Window(Home).Property(kdmm.upnext.season), $LOCALIZE[31000],: ]$INFO[Window(Home).Property(kdmm.upnext.episode),$LOCALIZE[31001],]</value>
 		<value>$LOCALIZE[31209]</value>
 	</variable>
 
