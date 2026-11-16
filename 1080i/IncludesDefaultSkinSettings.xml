@@ -393,9 +393,10 @@
 		<onload condition="!Skin.String(skin.forcedview.tvshows)">Skin.SetString(skin.forcedview.tvshows,$LOCALIZE[31027])</onload>
 		<onload condition="!Skin.String(skin.forcedview.seasons)">Skin.SetString(skin.forcedview.seasons,$LOCALIZE[31095])</onload>
 		<onload condition="!Skin.String(skin.forcedview.episodes)">Skin.SetString(skin.forcedview.episodes,$LOCALIZE[31318])</onload>
-		<onload condition="!Skin.String(skin.forcedview.songs)">Skin.SetString(skin.forcedview.songs,$LOCALIZE[31122])</onload>
-		<onload condition="!Skin.String(skin.forcedview.artists)">Skin.SetString(skin.forcedview.artists,$LOCALIZE[31122])</onload>
-		<onload condition="!Skin.String(skin.forcedview.albums)">Skin.SetString(skin.forcedview.albums,$LOCALIZE[31122])</onload>
+		<!-- DEFLIX: the Square view was removed; music lists drew nothing while a saved choice still named it -->
+		<onload condition="!Skin.String(skin.forcedview.songs) | String.IsEqual(Skin.String(skin.forcedview.songs),Bingie Square) | String.IsEqual(Skin.String(skin.forcedview.songs),$LOCALIZE[31122])">Skin.SetString(skin.forcedview.songs,$LOCALIZE[31223])</onload>
+		<onload condition="!Skin.String(skin.forcedview.artists) | String.IsEqual(Skin.String(skin.forcedview.artists),Bingie Square) | String.IsEqual(Skin.String(skin.forcedview.artists),$LOCALIZE[31122])">Skin.SetString(skin.forcedview.artists,$LOCALIZE[31223])</onload>
+		<onload condition="!Skin.String(skin.forcedview.albums) | String.IsEqual(Skin.String(skin.forcedview.albums),Bingie Square) | String.IsEqual(Skin.String(skin.forcedview.albums),$LOCALIZE[31122])">Skin.SetString(skin.forcedview.albums,$LOCALIZE[31223])</onload>
 		<onload condition="!Skin.String(AutoCloseVideoOSDTime)">Skin.SetString(AutoCloseVideoOSDTime,5)</onload>
         <onload condition="!Skin.String(AutoCloseVideoOSDTime)">Skin.SetString(AutoCloseVideoOSDTime.label,5 $LOCALIZE[31231])</onload>
 		<onload condition="!Skin.String(trailersource)">Skin.SetString(trailersource,youtube)</onload>

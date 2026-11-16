@@ -30,6 +30,7 @@
                 <viewtype label="31223">List</viewtype>
                 <include content="View_Forced">
                     <param name="viewtype" value="$LOCALIZE[31223]" />
+                    <param name="legacy" value="List" />
                 </include>
                 <scrolltime tween="quadratic">400</scrolltime>
                 <itemlayout width="1290" height="63">

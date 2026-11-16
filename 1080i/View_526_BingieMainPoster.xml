@@ -66,6 +66,8 @@
             <viewtype label="31027">Bingie Poster</viewtype>
             <include content="View_Forced">
                 <param name="viewtype" value="$LOCALIZE[31027]" />
+                <!-- name this view was saved under before Deflix 3.3.0 -->
+                <param name="legacy" value="Bingie Poster" />
             </include>
             <top>6</top>
             <height>474</height>

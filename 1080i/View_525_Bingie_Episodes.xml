@@ -671,6 +671,8 @@
                     <viewtype label="31318">Bingie Episodes</viewtype>
                     <include content="View_Forced">
                         <param name="viewtype" value="$LOCALIZE[31318]" />
+                        <!-- name this view was saved under before Deflix 3.3.0 -->
+                        <param name="legacy" value="Bingie Episodes" />
                     </include>
                     <top>-153</top>
                     <posx>781</posx>

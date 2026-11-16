@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- DEFLIX -->
-<addon id="Deflix" version="3.3.0" name="Deflix" provider-name="Unrefundable">
+<addon id="Deflix" version="3.3.1" name="Deflix" provider-name="Unrefundable">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.1.2"/>
@@ -27,7 +27,10 @@
 		<description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
 		<description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
 		<platform>all</platform>
-		<news>v3.3.0
+		<news>v3.3.1
+- More Episodes, and every other movie, show, season and episode list, opened to an empty screen after 3.3.0 renamed the views. Saved view choices from before the rename are recognised again
+- Music lists no longer open empty: they use the List view in place of the removed Square view
+v3.3.0
 - The home, screensaver and startup logos and the settings background now show the Deflix name
 - Menus and settings say Deflix instead of Bingie
 - The dark panel behind the logo in the bottom-right corner is gone
