@@ -10,7 +10,9 @@
     <onunload>ClearProperty(ShowViewSubMenu,Home)</onunload>
     <!-- return to infodialog if previous window -->
     <onunload condition="!String.IsEmpty(Window(Home).Property(BaseWindow)) + String.IsEmpty(Window(Home).Property(ListItem.TVShowID)) + !Player.HasVideo">AlarmClock(loadinfo,Action(Info),00:00,silent)</onunload>
-	<onunload condition="!String.IsEmpty(Window(Home).Property(BaseWindow))">ClearProperty(BaseWindow,Home)</onunload>
+	<!-- Starting playback also unloads this window. BaseWindow has to survive that, or Back from the
+	     episode list after watching goes straight home instead of to the title page it came from. -->
+	<onunload condition="!String.IsEmpty(Window(Home).Property(BaseWindow)) + !Player.HasVideo">ClearProperty(BaseWindow,Home)</onunload>
     <!-- clear tvshowid property -->
     <onunload condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onunload>
     <onunload condition="!String.IsEmpty(Window(Home).Property(KeepTVShowID))">ClearProperty(KeepTVShowID,Home)</onunload>

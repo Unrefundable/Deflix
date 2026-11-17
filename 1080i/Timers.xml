@@ -35,4 +35,15 @@
         <onstart condition="String.IsEmpty(Window(Home).Property(DeflixWatchLaterBusy))">SetProperty(DeflixWidgetsReload,$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)],Home)</onstart>
         <onstart>SetProperty(DeflixReloadSeen,$INFO[Window(Home).Property(TMDbBingieHelper.Widgets.Reload)],Home)</onstart>
     </timer>
+    <timer>
+        <name>homefocus</name>
+        <description>Home's default control is the hidden button 1000, which hands focus to the widget
+            rows (77777). At launch the rows are often not loaded yet, the hand-over fails and focus
+            stays on a control nobody can see. This repeats the hand-over once the rows have items,
+            and again a second later if focus is still on the hidden button.</description>
+        <start reset="true">Window.IsActive(home) + !System.HasActiveModalDialog + Control.HasFocus(1000) + Integer.IsGreater(Container(77777).NumItems,0)</start>
+        <stop>!Control.HasFocus(1000) | Integer.IsGreater(Skin.TimerElapsedSecs(homefocus),0)</stop>
+        <onstart>SetFocus(77777)</onstart>
+        <onstop condition="Window.IsActive(home) + !System.HasActiveModalDialog + Control.HasFocus(1000)">SetFocus(77777)</onstop>
+    </timer>
 </timers>

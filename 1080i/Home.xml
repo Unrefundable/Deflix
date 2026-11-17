@@ -49,6 +49,11 @@
             <onfocus condition="String.IsEmpty(Window(Home).Property(HomeFirstLoadDone))">SetProperty(HomeFirstLoadDone,1)</onfocus>
             <onleft>900</onleft>
             <onright>900</onright>
+            <!-- The rows may not have loaded when this button took focus at launch, so the
+                 hand-over above failed. Any direction then still reaches something visible;
+                 the homefocus timer moves focus on its own once the rows are there. -->
+            <onup>77777</onup>
+            <ondown>77777</ondown>
             <onback>900</onback>
         </control>
 

@@ -23,7 +23,7 @@
                 <height>722</height>
                 <onleft>9000</onleft>
 				<onback>ClearProperty(ListAnimation,home)</onback>
-                <onright>60</onright>
+                <onright>noop</onright>
                 <onup>50</onup>
                 <ondown>50</ondown>
                 <pagecontrol>60</pagecontrol>

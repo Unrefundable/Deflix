@@ -77,7 +77,7 @@
             <include>ScrollTime</include>
             <preloaditems>4</preloaditems>
             <pagecontrol>60</pagecontrol>
-            <onright>60</onright>
+            <onright>noop</onright>
 			<onleft>9000</onleft>
             <onup>526</onup>
             <ondown>526</ondown>

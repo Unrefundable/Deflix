@@ -595,7 +595,7 @@
 				<onleft>527</onleft>
 				<onup>5027</onup>
 				<ondown>5027</ondown>
-                <onright>60</onright>
+                <onright>noop</onright>
 				<onback>527</onback>
                 <preloaditems>2</preloaditems>
                 <include>ScrollTime</include>				

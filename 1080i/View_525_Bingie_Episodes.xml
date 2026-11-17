@@ -683,7 +683,7 @@
                     <ondown>525</ondown>
                     <onleft condition="Control.IsVisible(5250)">5250</onleft>
                     <onleft condition="!Control.IsVisible(5250)">9000</onleft>
-                    <onright>60</onright>
+                    <onright>noop</onright>
                     <onback condition="!String.IsEmpty(Window(Home).Property(ListItem.TVShowID))">ClearProperty(ListItem.TVShowID,Home)</onback>
                     <pagecontrol>60</pagecontrol>
                     <preloaditems>2</preloaditems>
