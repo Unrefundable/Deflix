@@ -7,6 +7,9 @@
 	<onload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">ClearProperty(TMDbBingieHelper.syncdecorators.timerlock.sync_data.show.watchlist,Home)</onload>
 	<onload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">Dialog.Close(okdialog,true)</onload>
 	<onunload condition="Window.IsActive(okdialog) + !String.IsEmpty(Window(Home).Property(DeflixQuietSync))">ClearProperty(DeflixQuietSync,Home)</onunload>
+	<!-- Setup's Connect Trakt is waiting on the helper's Trakt code dialog: once it closes, let the
+	     setup screen check whether Trakt is now connected (Custom_1102_StartUp2.xml, button 110) -->
+	<onunload condition="!String.IsEmpty(Window(Home).Property(DeflixTraktWaiting))">AlarmClock(DeflixTraktCheck,SetFocus(110),00:02,silent)</onunload>
 	<onload condition="Control.IsVisible(12)">SetFocus(12)</onload>
     <controls>
 	<control type="group">

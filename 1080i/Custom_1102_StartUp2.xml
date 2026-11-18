@@ -4,6 +4,8 @@
 	<zorder>999</zorder>
 	<defaultcontrol always="true">100</defaultcontrol>
 	<onload>AlarmClock(FocusStartUpButton,SetFocus(100),00:00,silent)</onload>
+	<onunload>CancelAlarm(DeflixTraktCheck,true)</onunload>
+	<onunload>ClearProperty(DeflixTraktWaiting,Home)</onunload>
 	<controls>
 		<control type="group">
 			<control type="image">
@@ -16,6 +18,22 @@
 			</control>
 			<control type="scrollbar" id="3000">
 				<include>HiddenObject</include>
+			</control>
+			<!-- Trakt check: focused when Trakt may have just been connected, either by Connect Trakt
+			     when Trakt is already connected, or by DialogConfirm.xml two seconds after the
+			     helper's Trakt code dialog closes (time for the helper to save the token; Kodi will
+			     not open Home while that dialog is up). Connected: finish setup and go Home.
+			     Not connected (cancelled, code expired): stay here on Connect Trakt.
+			     Kodi reads all the conditions before running any action. -->
+			<control type="button" id="110">
+				<include>HiddenObject</include>
+				<onfocus>ClearProperty(DeflixTraktWaiting,Home)</onfocus>
+				<onfocus condition="!$EXP[DeflixTraktConnected]">SetFocus(101)</onfocus>
+				<onfocus condition="$EXP[DeflixTraktConnected]">Skin.SetBool(BingieSecondStartupDone)</onfocus>
+				<onfocus condition="$EXP[DeflixTraktConnected]">SetProperty(finishBingieStartup2,1,Home)</onfocus>
+				<onfocus condition="$EXP[DeflixTraktConnected]">ClearProperty(StartupMask,Home)</onfocus>
+				<onfocus condition="$EXP[DeflixTraktConnected]">AlarmClock(clear_property,ClearProperty(finishBingieStartup2,Home),00:02,silent)</onfocus>
+				<onfocus condition="$EXP[DeflixTraktConnected]">AlarmClock(delay_window,ReplaceWindow(Home),00:01,silent)</onfocus>
 			</control>
 			<control type="grouplist">
 				<include>Startup_Dialog_OpenClose</include>
@@ -74,12 +92,11 @@
 						<texturefocus border="10" colordiffuse="white">bingie/border/default_button_focus.png</texturefocus>
 						<alttexturefocus border="10" colordiffuse="white">bingie/border/default_button_focus.png</alttexturefocus>
 						<label>$LOCALIZE[31396]</label>
-						<onclick>RunScript(plugin.video.tmdb.bingie.helper,authenticate_trakt)</onclick>
-						<onclick>Skin.SetBool(BingieSecondStartupDone)</onclick>
-						<onclick>SetProperty(finishBingieStartup2,1,Home)</onclick>
-						<onclick>ClearProperty(StartupMask,Home)</onclick>
-						<onclick>AlarmClock(clear_property,ClearProperty(finishBingieStartup2,Home),00:02,silent)</onclick>
-						<onclick>AlarmClock(delay_window,ReplaceWindow(Home),00:01,silent)</onclick>
+						<!-- Already connected: nothing to sign in to, finish setup -->
+						<onclick condition="$EXP[DeflixTraktConnected]">SetFocus(110)</onclick>
+						<!-- Otherwise show the helper's Trakt code dialog; DialogConfirm.xml focuses 110 once it closes -->
+						<onclick condition="!$EXP[DeflixTraktConnected]">SetProperty(DeflixTraktWaiting,1,Home)</onclick>
+						<onclick condition="!$EXP[DeflixTraktConnected]">RunScript(plugin.video.tmdb.bingie.helper,authenticate_trakt)</onclick>
 						<onup>PageUp(3000)</onup>
 						<ondown>PageDown(3000)</ondown>
 					</control>

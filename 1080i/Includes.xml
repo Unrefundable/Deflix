@@ -105,6 +105,9 @@
 
     <expression name="IsFirstRun">!Skin.HasSetting(BingieFirstStartupDone) | !Skin.HasSetting(BingieSecondStartupDone)</expression>
 
+    <!-- The helper keeps the Trakt sign-in in its trakt_token setting; empty until Trakt is connected -->
+    <expression name="DeflixTraktConnected">!String.IsEmpty(Addon.SettingStr(plugin.video.tmdb.bingie.helper,trakt_token))</expression>
+
     <expression name="IsActualKeyboardActive">Window.IsActive(virtualkeyboard) + String.IsEmpty(Window(Home).Property(SpaceSearchTerm)) + String.IsEmpty(Window(Home).Property(BackspaceSearchTerm))</expression>
 
     <expression name="IsCurrentWidgetSpotlight">Control.HasFocus(1508) | [Control.IsVisible(1508) + Container(77777).Position(0)]</expression>
