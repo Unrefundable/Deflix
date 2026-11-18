@@ -43,7 +43,10 @@ KDMM_ID = "plugin.video.kdmm"
 KDMM_BASE_URL = "https://unrefundable.github.io/kdmm"
 KDMM_MIN_KODI = "20.9.1"
 
-EXCLUDED_TOP_LEVEL = {".git", ".github", "docs", "tools", "__MACOSX"}
+EXCLUDED_TOP_LEVEL = {
+    ".git", ".github", ".claude", "docs", "tools", "__MACOSX",
+    "AGENTS.md", "CLAUDE.md",
+}
 EXCLUDED_NAMES = {".DS_Store"}
 
 

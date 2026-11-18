@@ -1,138 +1,298 @@
-# Deflix
+<p align="center">
+  <picture>
+    <source srcset=".github/readme/hero.avif" type="image/avif">
+    <img alt="The Deflix startup intro: streaming service logos orbit, burst into colour and reveal the Deflix name" src=".github/readme/hero.webp" width="100%">
+  </picture>
+</p>
 
-Kodi skin with a streaming-focused layout.
+<h1 align="center">Deflix</h1>
 
-## Install from GitHub Pages
+<p align="center">
+  <b>Every streaming service. One home. Built for the couch.</b><br>
+  <sub>A cinematic, streaming-style skin for Kodi 21 Omega</sub>
+</p>
 
-Use this file source in Kodi:
+<div align="center">
 
-```text
-https://unrefundable.github.io/Deflix/
-```
+<a href="https://unrefundable.github.io/Deflix/">
+  <img alt="Latest version" src="https://img.shields.io/badge/dynamic/xml?url=https%3A%2F%2Fraw.githubusercontent.com%2FUnrefundable%2FDeflix%2Fomega%2Faddon.xml&query=%2Faddon%2F%40version&label=version&prefix=v&color=E50914&style=for-the-badge">
+</a>
+<img alt="Kodi 21 Omega" src="https://img.shields.io/badge/Kodi-21%20Omega-17B2E7?style=for-the-badge&logo=kodi&logoColor=white">
+<img alt="Trakt" src="https://img.shields.io/badge/Trakt-synced-ED1C24?style=for-the-badge&logo=trakt&logoColor=white">
+<img alt="Real-Debrid and AllDebrid" src="https://img.shields.io/badge/Debrid-Real--Debrid%20%7C%20AllDebrid-6A5ACD?style=for-the-badge">
+<a href="LICENSE">
+  <img alt="License: GPL v2" src="https://img.shields.io/badge/license-GPL%20v2-2B6DBE?style=for-the-badge">
+</a>
 
-Then install `repository.deflix-1.0.3.zip` from the source and install the
-skin from **Deflix Repository**.
+</div>
 
-Install the skin from the repository, not from a skin zip. The repository also
-lists the add-ons Deflix depends on, so Kodi installs them along with the skin:
-the Bingie add-ons (the Bingie repository and skin are not needed) and
-[KDMM](https://github.com/Unrefundable/kdmm), which plays the movies and
-episodes. Kodi only resolves those dependencies for add-ons installed from a
-repository.
+<p align="center">
+  <a href="#installation"><b>Install</b></a> ·
+  <a href="#a-hub-for-every-service">Hubs</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#how-it-works">How it works</a> ·
+  <a href="#requirements">Requirements</a> ·
+  <a href="#faq">FAQ</a> ·
+  <a href="#license">License</a>
+</p>
 
-After installing, two sign-ins make everything work: Trakt in TMDb Bingie
-Helper (Home is built from your Trakt rows) and Real-Debrid or AllDebrid in
-KDMM's settings. KDMM sets itself as the helper's default player.
+<p align="center">
+  <img alt="" src=".github/readme/divider.svg" width="100%">
+</p>
 
-The GitHub Pages repository files are generated with:
+<p align="center">
+  <img alt="The Netflix hub: The Flash spotlighted above the Top 100 Shows row" src=".github/readme/netflix.webp" width="100%">
+</p>
 
-```sh
-python3 tools/build_kodi_repo.py
-```
+**Deflix** turns Kodi into the streaming app you already know how to use. A slim sidebar holds a hub for each major service (**Netflix, Prime Video, Apple TV, Disney+, HBO Max, Paramount+ and Crunchyroll**), each in its own colours, with its Top 100, originals, new releases and genres. Home is built from your own Trakt account, so what you were watching is always the first thing you see. Pick a title and press **Play**: no menus, no source lists, no setup screens in the way.
 
-The build copies the current KDMM release from KDMM's own repository, so
-publish KDMM first when the skin needs a newer version of it.
+Everything is designed to be driven from the sofa with a TV remote. Big artwork, clear focus, and a title page for every movie and show with the details you actually want: its match score, the cast, the next episode to watch, and more like it.
 
-Devices with Deflix Repository 1.0.3 or later read KDMM's own repository
-directly and get KDMM updates as soon as KDMM is published. The copy of KDMM in
-the Deflix directory is only for devices still on Deflix Repository 1.0.2 or
-older; it is refreshed whenever the Deflix repository is rebuilt.
+> [!NOTE]
+> Deflix is an unofficial, fan-made skin. It doesn't host, index or provide any content, and it isn't affiliated with Netflix, Amazon, Apple, Disney, Warner Bros. Discovery, Paramount, Crunchyroll, Trakt or TMDb. Service names and logos belong to their owners and are used only to label where a title streams.
 
-## Startup intro
+<p align="center">
+  <img alt="" src=".github/readme/divider.svg" width="100%">
+</p>
 
-The startup animation (`extras/media/deflix_intro_*.mp4`) and the still splash
-image (`extras/media/deflix_splash.png`) are rendered from a script, so they
-can be changed without video editing software:
+## A hub for every service
 
-```sh
-pip install pillow        # once; ffmpeg must also be installed
-python3 tools/build_intro.py
-```
+Each service gets its own hub, catalogued from TMDb and themed in its own colours, right down to the sidebar.
 
-Everything about the look is in `tools/intro.json`. Edit it, then preview
-before rendering the videos:
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <img alt="Prime Video hub" src=".github/readme/prime.webp"><br>
+      <b>Prime Video</b>
+    </td>
+    <td width="50%" align="center">
+      <img alt="Disney+ hub" src=".github/readme/disney.webp"><br>
+      <b>Disney+</b>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img alt="Apple TV hub" src=".github/readme/appletv.webp"><br>
+      <b>Apple TV</b>
+    </td>
+    <td width="50%" align="center">
+      <img alt="HBO Max hub" src=".github/readme/hbomax.webp"><br>
+      <b>HBO Max</b>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img alt="Paramount+ hub" src=".github/readme/paramount.webp"><br>
+      <b>Paramount+</b>
+    </td>
+    <td width="50%" align="center">
+      <img alt="Crunchyroll hub" src=".github/readme/crunchyroll.webp"><br>
+      <b>Crunchyroll</b>
+    </td>
+  </tr>
+</table>
 
-```sh
-python3 tools/build_intro.py --sheet        # contact sheet of the whole animation
-python3 tools/build_intro.py --frame 5.2    # a single frame
-```
+<p align="center">
+  <img alt="" src=".github/readme/divider.svg" width="100%">
+</p>
 
-`"style"` picks the animation:
+## Features
 
-- `orbit` (current): the provider logos, drawn as rounded tiles like the
-  sidebar icons, leave the centre one at a time and circle it, slowly at first
-  and then ever faster until they smear into streaks of their own colours. The
-  ring falls into the centre and bursts into those colours, which keep turning
-  behind the Deflix wordmark before everything fades out.
-- `showcase`: each streaming provider's logo appears with a short
-  animation modelled on that provider's own intro, then all their colours turn
-  slowly as one soft aura behind the Deflix wordmark.
-- `classic`: the original Bingie animation with the Deflix wordmark.
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>Sidebar navigation</h3>
+      Search, Home and seven service hubs, one press away. The sidebar opens with labels when you need it and tints itself to the hub you're in.
+    </td>
+    <td width="33%" valign="top">
+      <h3>A Home that knows you</h3>
+      Continue watching, Watch Later, recently watched and recommendations, all from your Trakt account and in sync with every device you use.
+    </td>
+    <td width="33%" valign="top">
+      <h3>Ranked Top 100s</h3>
+      Top 100 movies and shows for every service, with large ranking numerals, plus originals, new arrivals, studios and genres.
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>Rich title pages</h3>
+      Match score, year, age rating, seasons, cast and creators, then <i>Play</i>, <i>More Episodes</i>, <i>Watch Later</i> and <i>More like this</i>, all on one page.
+    </td>
+    <td width="33%" valign="top">
+      <h3>One-press playback</h3>
+      Playback is handled by <a href="https://github.com/Unrefundable/kdmm">KDMM</a>, which installs with the skin: cached Real-Debrid or AllDebrid streams with no source lists to scroll.
+    </td>
+    <td width="33%" valign="top">
+      <h3>Picks up where you left off</h3>
+      Shows open on <i>Play Season X: Episode Y</i>, the next one you haven't seen, ready the moment the page appears.
+    </td>
+  </tr>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>A real startup intro</h3>
+      The services' logos orbit faster and faster, burst into their colours and reveal the Deflix name, with a matching screensaver.
+    </td>
+    <td width="33%" valign="top">
+      <h3>Made for remotes</h3>
+      Focus is always where you expect it, Back always takes you where you came from, and logos stay clear of the edges TVs crop.
+    </td>
+    <td width="33%" valign="top">
+      <h3>Guided first run</h3>
+      A short setup walks you through the hubs, Trakt and KDMM. Press <i>Connect Trakt</i>, approve the code on your phone, and Home opens by itself.
+    </td>
+  </tr>
+</table>
 
-### Orbit
+### Browse the way you'd expect
 
-The tiles are the lines of `orbit.logos`, in the order they appear. Each has a
-`logo`, a `logo_scale` (how much of the tile it fills), a `background` (one
-colour, or `[top, bottom]` for a gradient), an optional `logo_color` to
-recolour the logo, and a `glow` colour used for its streak, the burst and the
-final aura. Add a line to add a tile; the ring spaces them evenly.
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <img alt="Ranked Top 100 Shows row with large numerals" src=".github/readme/rows1.webp"><br>
+      <sub><b>Ranked rows</b> · The Top 100 with big numerals</sub>
+    </td>
+    <td width="50%" align="center">
+      <img alt="Original Series row with large landscape cards" src=".github/readme/rows3.webp"><br>
+      <sub><b>Landscape cards</b> · Originals, front and centre</sub>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <img alt="Title page for The Vampire Diaries with Play, More Episodes and Watch Later" src=".github/readme/title1.webp"><br>
+      <sub><b>Title pages</b> · Everything about a show in one place</sub>
+    </td>
+    <td width="50%" align="center">
+      <img alt="More Episodes: season list beside episode thumbnails and synopses" src=".github/readme/episodes.webp"><br>
+      <sub><b>More Episodes</b> · Seasons, thumbnails and synopses</sub>
+    </td>
+  </tr>
+</table>
 
-| Setting | What it does |
+<p align="center">
+  <img alt="The sidebar opened with labels, tinted red inside the Netflix hub" src=".github/readme/sidebar.webp" width="70%"><br>
+  <sub><b>The sidebar</b> · Takes on the colour of the hub you're in</sub>
+</p>
+
+<p align="center">
+  <img alt="" src=".github/readme/divider.svg" width="100%">
+</p>
+
+## How it works
+
+Deflix is the face; a few add-ons do the work behind it, and all of them install together.
+
+| Piece | What it does |
 |---|---|
-| `stagger`, `emerge` | Seconds between tiles appearing, and how long each takes to reach the ring |
-| `radius`, `tile` | Size of the ring and of the tiles, as fractions of the screen height |
-| `spin` | Turning speed at the start and at the end, in radians per second |
-| `accelerate` | When the speeding up starts and ends, in seconds |
-| `streak_speed` | The speeds at which tiles begin to blur and at which they are fully streaks |
-| `trail` | Length of the colour tails |
-| `collapse`, `burst` | How long the ring takes to fall inwards, and the moment of the burst |
-| `flash`, `burst_boost`, `sparks` | Length of the white flash, extra brightness of the burst, number of sparks |
+| **Deflix** | The look: sidebar, hubs, rows, title pages, intro and screensaver |
+| **TMDb Bingie Helper** | Fills every row and title page from TMDb, and your Home from Trakt |
+| **[KDMM](https://github.com/Unrefundable/kdmm)** | Finds a cached release through your debrid service and plays it, with resume and next-episode playback |
+| **Bingie add-ons and Skin Shortcuts** | Widgets, menus and helpers the skin is built on |
 
-`orbit.finale` has the same settings as the showcase finale below.
+<p align="center">
+  <img alt="" src=".github/readme/divider.svg" width="100%">
+</p>
 
-### Showcase providers
+## Installation
 
-The providers are the lines of `showcase.providers`, shown in that order. Each
-has a `logo` (a large transparent PNG in `tools/intro_logos/`), a
-`logo_height` (fraction of the screen height), a `glow` colour (also its share
-of the final aura) and an `effect`:
+> [!IMPORTANT]
+> Install Deflix from its **repository**, not from a zip of the skin. Only the repository brings KDMM and the other add-ons Deflix needs along with it.
 
-| Effect | Made for | What happens |
-|---|---|---|
-| `ribbon` | Netflix | The N is drawn stroke by stroke, then the camera dives in and it becomes strands of coloured light |
-| `comet` | Disney+ | Light runs along the arc over a dark logo, flares at the plus, and the logo lights up on teal |
-| `smile` | Prime Video | Blue rings sweep past, the name rises and the smile draws itself through to its arrow |
-| `flare` | Apple TV+ | The logo comes out of black with a flare of light on the plus |
-| `focus` | HBO Max | The logo starts huge, purple and out of focus, then pulls back sharp and white on a purple wash |
-| `starring` | Paramount+ | Stars fly in and ring the mountain on blue, then the name appears (`wordmark` is the name's image) |
-| `bloom` | anything else | The logo, or the `name` as text if there is no `logo`, over a soft glow |
+1. **Add the source.** In Kodi, open **Settings › File manager › Add source**, enter the address below and name it `Deflix`:
 
-The first six effects rely on the shape of that provider's logo, so use them
-with those logos. To add another provider, save its logo in
-`tools/intro_logos/` and add a line with `"effect": "bloom"`:
+   ```text
+   https://unrefundable.github.io/Deflix/
+   ```
 
-```json
-{"name": "Hulu", "effect": "bloom", "logo": "tools/intro_logos/hulu.png", "logo_height": 0.15, "glow": "#1CE783"}
-```
+2. **Install the repository.** Go to **Settings › Add-ons › Install from zip file › Deflix** and choose `repository.deflix-1.0.3.zip`.
 
-The video gets longer by itself. `provider_time` and `crossfade` set how long
-each provider stays. `finale` holds the ending: `spin` is how fast the aura
-turns, `softness` how blurred its colours are, `aura_strength` its brightness
-and `pocket` how much it is darkened behind the wordmark.
+   <sub>If Kodi refuses, turn on **Settings › System › Add-ons › Unknown sources** first.</sub>
 
-The logos come from Wikimedia Commons (recoloured white where the intro needs
-that; the Paramount emblem has the name removed from its dome). They are the
-trademarks of their owners and are only used to build the video, so they stay
-in `tools/` and are not packaged with the skin.
+3. **Install the skin.** Open **Install from repository › Deflix Repository › Look and feel › Skin › Deflix**, press **Install**, then <kbd>OK</kbd> on the list of add-ons that come with it, and say **Yes** to switching skins.
 
-### Other settings
+4. **Sign in twice and you're done.**
+   - **Trakt**: the first-run setup shows a **Connect Trakt** button. Approve the code at trakt.tv on your phone and Home opens by itself.
+   - **Real-Debrid or AllDebrid**: sign in under KDMM's settings (**Add-ons › Video add-ons › KDMM › Configure**).
 
-- `text`, `color`, `cap_height`, `bow`: the Deflix wordmark. The letters D, E,
-  F, L, I and X are drawn by the script to match the original Bingie
-  lettering; other characters use `fallback_font`, and setting `font` to a
-  font file uses that font for every letter.
-- `quality`: video compression, lower is better and larger (18 to 26 is the
-  useful range).
-- A new animation is a new style: add a function next to `style_showcase` in
-  `tools/build_intro.py` and register it in `STYLES`. A new provider animation
-  is a function registered in `EFFECTS`.
+Updates arrive automatically through the Deflix Repository, for the skin and for KDMM.
+
+<p align="center">
+  <img alt="" src=".github/readme/divider.svg" width="100%">
+</p>
+
+## Requirements
+
+| | |
+|---|---|
+| **Kodi** | 21 Omega |
+| **Devices** | Anything that runs Kodi: Android TV and Google TV, Fire TV, Apple TV, Windows, macOS, Linux, LibreELEC and CoreELEC |
+| **Display** | Designed for 1080p and 4K TVs (16:9) |
+| **Accounts** | A free [Trakt](https://trakt.tv) account, and a [Real-Debrid](https://real-debrid.com) or [AllDebrid](https://alldebrid.com) subscription for playback |
+| **Input** | A TV remote, game controller or keyboard |
+
+<p align="center">
+  <img alt="" src=".github/readme/divider.svg" width="100%">
+</p>
+
+## FAQ
+
+<details>
+<summary><b>Do I need subscriptions to Netflix, Disney+ and the others?</b></summary>
+<br>
+No. The hubs are catalogues built from TMDb's data about what each service offers; they don't sign in to those services. Titles play through KDMM and your own debrid account.
+</details>
+
+<details>
+<summary><b>Why does Kodi say a dependency couldn't be found?</b></summary>
+<br>
+That happens when the skin is installed from a zip on its own. Remove it, then install it from <b>Deflix Repository</b> as described in <a href="#installation">Installation</a>: the repository supplies the Bingie add-ons and KDMM.
+</details>
+
+<details>
+<summary><b>Home is empty. What's wrong?</b></summary>
+<br>
+Home is built from your Trakt rows, so it fills in once Trakt is connected. Use <b>Connect Trakt</b> in the first-run setup, or sign in to Trakt in TMDb Bingie Helper's settings.
+</details>
+
+<details>
+<summary><b>Can I use Deflix without a debrid service?</b></summary>
+<br>
+You can browse everything, but titles won't play: KDMM, which handles playback, streams through Real-Debrid or AllDebrid.
+</details>
+
+<details>
+<summary><b>Will my old Bingie setup carry over?</b></summary>
+<br>
+Deflix is based on Bingie but is a separate skin with its own settings and menus. You don't need the Bingie repository or skin installed alongside it.
+</details>
+
+<p align="center">
+  <img alt="" src=".github/readme/divider.svg" width="100%">
+</p>
+
+## Credits
+
+- **[Bingie](https://github.com/matke-84/skin.bingie)** by [matke-84](https://github.com/matke-84), the skin Deflix is built on, and the Bingie helper, widgets and TMDb Bingie Helper add-ons it relies on.
+- **[KDMM](https://github.com/Unrefundable/kdmm)** for playback.
+- **[Skin Shortcuts](https://github.com/BigNoid/script.skinshortcuts)** for the menus.
+- **[TMDb](https://www.themoviedb.org)** for catalogue data and artwork, and **[Trakt](https://trakt.tv)** for watch history. This product uses the TMDb API but is not endorsed or certified by TMDb.
+- Everyone who translated Bingie into other languages.
+
+## License
+
+Deflix is a modified version of the Bingie skin by matke-84 and its contributors. Original work copyright © matke-84 and the Bingie contributors; modifications copyright © Unrefundable.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the **GNU General Public License, version 2**, as published by the Free Software Foundation. The full text of the license is in the [LICENSE](LICENSE) file.
+
+This program is distributed in the hope that it will be useful, but **WITHOUT ANY WARRANTY**; without even the implied warranty of **MERCHANTABILITY** or **FITNESS FOR A PARTICULAR PURPOSE**. See the GNU General Public License for more details.
+
+**Third-party components.** Fonts, images, artwork and add-ons included with or installed alongside Deflix remain the property of their respective owners and are subject to their own licenses and terms.
+
+**Trademarks.** Netflix, Prime Video, Apple TV, Disney+, HBO Max, Paramount+, Crunchyroll, Trakt, TMDb, Real-Debrid, AllDebrid and Kodi are trademarks of their respective owners. Their use here is solely to identify those services and does not imply any affiliation with or endorsement by them.
+
+**Content and use.** Deflix is a user interface. It does not host, store, index or distribute any media. You are responsible for complying with the terms of service of any third-party service you connect to it and with the laws that apply where you live.
+
+<br>
+
+<p align="center">
+  <sub><a href="AGENTS.md">Developer notes for contributors are in AGENTS.md</a></sub>
+</p>
