@@ -33,10 +33,10 @@ python3 tools/build_kodi_repo.py
 The build copies the current KDMM release from KDMM's own repository, so
 publish KDMM first when the skin needs a newer version of it.
 
-Between skin releases, the `Sync KDMM into the Deflix repository` workflow
-checks hourly for a new KDMM release and publishes it into the repository on
-`gh-pages` (`tools/sync_kdmm.py`), so devices receive KDMM updates without a
-Deflix rebuild. It can also be started by hand from the Actions tab.
+Devices with Deflix Repository 1.0.3 or later read KDMM's own repository
+directly and get KDMM updates as soon as KDMM is published. The copy of KDMM in
+the Deflix directory is only for devices still on Deflix Repository 1.0.2 or
+older; it is refreshed whenever the Deflix repository is rebuilt.
 
 ## Startup intro
 
