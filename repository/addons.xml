@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <addons>
-    <addon id="Deflix" version="3.3.4" name="Deflix" provider-name="Unrefundable">
+    <addon id="Deflix" version="3.3.5" name="Deflix" provider-name="Unrefundable">
         <requires>
             <import version="5.17.0" addon="xbmc.gui" />
             <import addon="script.bingie.helper" version="1.1.2" />
@@ -27,7 +27,9 @@
             <description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
             <description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
             <platform>all</platform>
-            <news>v3.3.4
+            <news>v3.3.5
+- Resume on a title page starts where you stopped, and Play from beginning starts at the beginning (needs KDMM 2.7.13)
+v3.3.4
 - First-run setup: after Trakt is connected with Connect Trakt, setup finishes and Home opens by itself; if the sign-in is cancelled or the code expires, setup stays on the Trakt step
 v3.3.3
 - The remote works straight away at launch: focus no longer sits on a hidden control until Left or Right is pressed
@@ -111,7 +113,7 @@ v2.2.1
             </assets>
         </extension>
     </addon>
-    <addon id="plugin.video.kdmm" version="2.7.11" name="KDMM" provider-name="Unrefundable">
+    <addon id="plugin.video.kdmm" version="2.7.13" name="KDMM" provider-name="Unrefundable">
         <requires>
             <import addon="xbmc.python" version="3.0.0" />
             <import addon="script.module.requests" version="2.9.1" />
