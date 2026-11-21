@@ -504,6 +504,8 @@
                                 <radioposx>13</radioposx>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
+                                <!-- DEFLIX: tell KDMM to start at 0; Kodi's noresume flag does not reach it reliably -->
+                                <onclick>SetProperty(kdmm.play_from_beginning,1,home)</onclick>
                                 <onclick condition="!Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
                                 <!-- play episode -->
                                 <onclick condition="!Control.IsVisible(5050) + String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.DBID) + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia(videodb://tvshows/$INFO[ListItem.DBID]),00:01,silent)</onclick>
@@ -1775,6 +1777,8 @@
 								<radioposy>22</radioposy>
                                 <radiowidth>22</radiowidth>
                                 <radioheight>22</radioheight>
+                                <!-- DEFLIX: tell KDMM to start at 0; Kodi's noresume flag does not reach it reliably -->
+                                <onclick>SetProperty(kdmm.play_from_beginning,1,home)</onclick>
                                 <onclick condition="!Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">Dialog.Close(movieinformation)</onclick>
                                 <!-- play episode -->
                                 <onclick condition="!Control.IsVisible(5050) + String.IsEqual(ListItem.DBTYPE,episode) + !String.IsEmpty(ListItem.DBID) + !Window.IsActive(Custom_1190_TMDbBingieHelperCast.xml)">AlarmClock(PlayMovie,PlayMedia(videodb://tvshows/$INFO[ListItem.DBID]),00:01,silent)</onclick>
