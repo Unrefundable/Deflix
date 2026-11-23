@@ -16,7 +16,7 @@ features and install guide are in [README.md](README.md).
 | `extras/` | Skin extras: backgrounds, the startup intro videos and splash, view thumbs |
 | `resources/` | Add-on icon and fanart |
 | `tools/` | Build scripts (not packaged with the skin) |
-| `docs/` | Generated Kodi repository served by GitHub Pages (do not edit by hand) |
+| `docs/` | Generated Kodi repository (do not edit by hand). GitHub Pages does not serve it from here: it is copied to the `gh-pages` branch to go live (see [Publishing a release](#publishing-a-release)) |
 | `.github/readme/` | Images used by README.md (not packaged with the skin) |
 
 `tools/check_skin.py` is a static check of the skin XML.
@@ -45,19 +45,67 @@ in KDMM's settings. KDMM sets itself as the helper's default player.
 
 ### Building the repository
 
-The GitHub Pages repository files in `docs/` are generated with:
+The repository files in `docs/` are generated with:
 
 ```sh
 python3 tools/build_kodi_repo.py
 ```
 
-The build copies the current KDMM release from KDMM's own repository, so
-publish KDMM first when the skin needs a newer version of it.
+The build zips the skin from the folder it runs in, uncommitted changes
+included. Build a release from a clean checkout of the commit being released
+(see below), not from a working copy with experiments in it.
+
+The build copies the current KDMM release from KDMM's own published
+repository, so publish KDMM first when the skin needs a newer version of it.
+To build against a KDMM release that is committed but not yet published, point
+`KDMM_DOCS` at that checkout's `docs/` folder.
 
 Devices with Deflix Repository 1.0.3 or later read KDMM's own repository
 directly and get KDMM updates as soon as KDMM is published. The copy of KDMM in
 the Deflix directory is only for devices still on Deflix Repository 1.0.2 or
 older; it is refreshed whenever the Deflix repository is rebuilt.
+
+### Publishing a release
+
+GitHub Pages serves `https://unrefundable.github.io/Deflix/` from the
+**`gh-pages` branch**, whose root is a copy of `docs/`. Pushing `omega` does
+not change the live site. Each release adds one "Publish Deflix X repository"
+commit to `gh-pages`.
+
+1. If the skin needs a new KDMM, release and push KDMM first (its site is
+   served from KDMM's `main` branch), so the KDMM version Deflix requires can
+   be installed.
+2. Commit the skin change on `omega`. Then, in a clean worktree of that
+   commit, raise the version and `<news>` in `addon.xml` and run the build:
+
+   ```sh
+   git worktree add --detach ../deflix-release HEAD
+   cd ../deflix-release
+   # edit addon.xml: version, <news>, and the plugin.video.kdmm import if needed
+   KDMM_DOCS=../kdmm/docs python3 tools/build_kodi_repo.py   # KDMM_DOCS only if KDMM is unpublished
+   git add -A addon.xml docs && git commit -m "Release Deflix X: ..."
+   ```
+
+   Bring that commit back to `omega` (`git merge --ff-only <commit>` from
+   the main checkout), remove the worktree, and push `omega`.
+3. Copy `docs/` onto `gh-pages` and push it:
+
+   ```sh
+   git fetch origin gh-pages
+   # FETCH_HEAD, not origin/gh-pages: a one-branch fetch can leave that ref stale
+   git worktree add --detach ../deflix-pages FETCH_HEAD
+   rsync -a --delete --exclude .git docs/ ../deflix-pages/   # from a clean omega checkout
+   cd ../deflix-pages
+   git add -A && git commit -m "Publish Deflix X repository"
+   git push origin HEAD:gh-pages
+   ```
+
+   The commit should only change `index.html`, the two repository zips,
+   `repository/addons.xml` and its `.md5`, and swap the old skin (and KDMM)
+   zip for the new one.
+4. Pages deploys in about half a minute. Check that
+   `https://unrefundable.github.io/Deflix/repository/addons.xml` lists the new
+   version and that the new skin zip downloads.
 
 ## Startup intro
 
