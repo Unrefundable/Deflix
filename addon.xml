@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- DEFLIX -->
-<addon id="Deflix" version="3.3.5" name="Deflix" provider-name="Unrefundable">
+<addon id="Deflix" version="3.3.6" name="Deflix" provider-name="Unrefundable">
 	<requires>
 		<import version="5.17.0" addon="xbmc.gui"/>
 		<import addon="script.bingie.helper" version="1.1.2"/>
@@ -9,7 +9,7 @@
 		<import addon="script.skinshortcuts" version="2.0.3"/>
 		<import addon="resource.images.studios.coloured" version="1.0.0" />
 		<import addon="plugin.video.tmdb.bingie.helper" version="1.0.1" />
-		<import addon="plugin.video.kdmm" version="2.7.5" />
+		<import addon="plugin.video.kdmm" version="2.7.14" />
 		<import addon="plugin.program.autocompletion" version="2.1.3" />
 	</requires>
 	<extension debugging="false" defaultthemename="Textures.xbt" effectslowdown="1" point="xbmc.gui.skin">
@@ -27,7 +27,9 @@
 		<description lang="es_AR">Deflix - tu hogar de películas y series favoritas!</description>
 		<description lang="es_MX">Deflix - tu hogar de películas y series favoritas!</description>
 		<platform>all</platform>
-		<news>v3.3.5
+		<news>v3.3.6
+- After you stop, the title page shows Resume straight away instead of Play, using KDMM's saved position rather than waiting for Trakt (needs KDMM 2.7.14)
+v3.3.5
 - Resume on a title page starts where you stopped, and Play from beginning starts at the beginning (needs KDMM 2.7.13)
 v3.3.4
 - First-run setup: after Trakt is connected with Connect Trakt, setup finishes and Home opens by itself; if the sign-in is cancelled or the code expires, setup stays on the Trakt step
