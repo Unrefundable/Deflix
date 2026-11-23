@@ -4,6 +4,8 @@
     <defaultcontrol always="true">8000</defaultcontrol>
 	<!-- DEFLIX: ask KDMM for the show's remembered next-up episode, so the Play button need not wait for Trakt -->
 	<onload condition="System.AddonIsEnabled(plugin.video.kdmm) + String.IsEqual(ListItem.DBType,tvshow) + String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.UniqueID(tmdb))">NotifyAll(plugin.video.kdmm,upnext_$INFO[ListItem.UniqueID(tmdb)])</onload>
+	<!-- DEFLIX: ask KDMM whether it has a saved position for the movie; Trakt's resume point arrives seconds after a stop -->
+	<onload condition="System.AddonIsEnabled(plugin.video.kdmm) + String.IsEqual(ListItem.DBType,movie) + String.IsEmpty(ListItem.DBID) + !String.IsEmpty(ListItem.UniqueID(tmdb))">NotifyAll(plugin.video.kdmm,resume_$INFO[ListItem.UniqueID(tmdb)]_$INFO[ListItem.UniqueID(imdb)])</onload>
 	<onload condition="!String.IsEqual(ListItem.Property(tmdb_type),person)">SetFocus(8000)</onload>
 	<onload condition="String.IsEqual(ListItem.Property(tmdb_type),person)">SetFocus(2999,0)</onload>
 	<onload condition="!String.IsEmpty(Window.Property(AdditionalInfo))">ClearProperty(AdditionalInfo)</onload>

@@ -455,7 +455,7 @@
 
                             <!-- Resume -->
                             <control type="radiobutton" id="90">
-								<visible>ListItem.IsResumable + !$EXP[IsTvShowDBTypeNoFallback]</visible>
+								<visible>[ListItem.IsResumable | $EXP[KDMMMovieResumable]] + !$EXP[IsTvShowDBTypeNoFallback]</visible>
                                 <include content="Bingie_InfoDialog_Button_Texture">
                                     <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
                                 </include>
@@ -485,7 +485,7 @@
 							<!-- Play from beginning -->
                             <control type="radiobutton" id="52">
 								<visible>Skin.HasSetting(videoinfo_button_play_beginning)</visible>
-								<visible>Control.IsVisible(90) | [Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable + !Container(5050).IsUpdating + !Integer.IsEqual(Container(5050).NumItems,0)] | [Control.IsVisible(8181) + Control.IsVisible(1234) + Container(1234).ListItem.IsResumable + !Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)] | [[[Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable] | [Control.IsVisible(8181) + Control.IsVisible(1234) + Container(1234).ListItem.IsResumable]] + !String.IsEmpty(Window.Property(ShowPlayBeginning))]</visible>
+								<visible>Control.IsVisible(90) | [Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable + !Container(5050).IsUpdating + !Integer.IsEqual(Container(5050).NumItems,0)] | [Control.IsVisible(8181) + Control.IsVisible(1234) + [Container(1234).ListItem.IsResumable | $EXP[KDMMUpNextResumable]] + !Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)] | [[[Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable] | [Control.IsVisible(8181) + Control.IsVisible(1234) + [Container(1234).ListItem.IsResumable | $EXP[KDMMUpNextResumable]]]] + !String.IsEmpty(Window.Property(ShowPlayBeginning))]</visible>
                                 <include content="Bingie_InfoDialog_Button_Texture">
                                     <param name="radiotexture" value="dialogs/videoinfo/info/play_beginning.png"/>
                                 </include>
@@ -1746,7 +1746,7 @@
 
                             <!-- Resume -->
                             <control type="radiobutton" id="90">
-								<visible>ListItem.IsResumable + !$EXP[IsTvShowDBTypeNoFallback]</visible>
+								<visible>[ListItem.IsResumable | $EXP[KDMMMovieResumable]] + !$EXP[IsTvShowDBTypeNoFallback]</visible>
                                 <include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
                                     <param name="radiotexture" value="dialogs/videoinfo/info/play2.png"/>
@@ -1767,7 +1767,7 @@
 							<!-- Play from beginning -->
                             <control type="radiobutton" id="52">
 								<visible>Skin.HasSetting(videoinfo_button_play_beginning)</visible>
-                                <visible>Control.IsVisible(90) | [Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable + !Container(5050).IsUpdating + !Integer.IsEqual(Container(5050).NumItems,0)] | [Control.IsVisible(8181) + Control.IsVisible(1234) + Container(1234).ListItem.IsResumable + !Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)] | [[[Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable] | [Control.IsVisible(8181) + Control.IsVisible(1234) + Container(1234).ListItem.IsResumable]] + !String.IsEmpty(Window.Property(ShowPlayBeginning))]</visible>
+                                <visible>Control.IsVisible(90) | [Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable + !Container(5050).IsUpdating + !Integer.IsEqual(Container(5050).NumItems,0)] | [Control.IsVisible(8181) + Control.IsVisible(1234) + [Container(1234).ListItem.IsResumable | $EXP[KDMMUpNextResumable]] + !Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)] | [[[Control.IsVisible(51) + Control.IsVisible(5050) + Container(5050).ListItem.IsResumable] | [Control.IsVisible(8181) + Control.IsVisible(1234) + [Container(1234).ListItem.IsResumable | $EXP[KDMMUpNextResumable]]]] + !String.IsEmpty(Window.Property(ShowPlayBeginning))]</visible>
                                 <include>Bingie_InfoDialog_Button_Default_Defs</include>
                                 <include content="Bingie_InfoDialog_Button_Texture">
                                     <param name="radiotexture" value="dialogs/videoinfo/info/play_beginning.png"/>
@@ -3961,7 +3961,7 @@
 	</variable>
 
 	<variable name="PlayOrResumeSeasonEpisodeLabel3">
-        <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Container(1234).ListItem.IsResumable">$LOCALIZE[13404]$INFO[Container(1234).ListItem.Season, $LOCALIZE[31000],: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[31002]. ,]</value>
+        <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + [Container(1234).ListItem.IsResumable | $EXP[KDMMUpNextResumable]]">$LOCALIZE[13404]$INFO[Container(1234).ListItem.Season, $LOCALIZE[31000],: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[31002]. ,]</value>
         <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)">$LOCALIZE[208]$INFO[Container(1234).ListItem.Season, $LOCALIZE[20373] ,: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[20359] ,]</value>
         <!-- DEFLIX: what KDMM remembers for this show, until the helper's list has loaded -->
         <value condition="$EXP[KDMMUpNextRemembered] + !String.IsEmpty(Window(Home).Property(kdmm.upnext.resumable))">$LOCALIZE[13404]$INFO[Window(Home).Property(kdmm.upnext.season), $LOCALIZE[31000],: ]$INFO[Window(Home).Property(kdmm.upnext.episode),$LOCALIZE[31002]. ,]</value>
@@ -3970,7 +3970,7 @@
     </variable>
 
 	<variable name="PlayOrResumeSeasonEpisodeLabel4">
-        <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + Container(1234).ListItem.IsResumable">$LOCALIZE[13404]$INFO[Container(1234).ListItem.Season, $LOCALIZE[31000],: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[31001],]</value>
+        <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0) + [Container(1234).ListItem.IsResumable | $EXP[KDMMUpNextResumable]]">$LOCALIZE[13404]$INFO[Container(1234).ListItem.Season, $LOCALIZE[31000],: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[31001],]</value>
         <value condition="!Container(1234).IsUpdating + !Integer.IsEqual(Container(1234).NumItems,0)">$LOCALIZE[208]$INFO[Container(1234).ListItem.Season, $LOCALIZE[31000],: ]$INFO[Container(1234).ListItem.Episode,$LOCALIZE[31001],]</value>
         <!-- DEFLIX: what KDMM remembers for this show, until the helper's list has loaded -->
         <value condition="$EXP[KDMMUpNextRemembered] + !String.IsEmpty(Window(Home).Property(kdmm.upnext.resumable))">$LOCALIZE[13404]$INFO[Window(Home).Property(kdmm.upnext.season), $LOCALIZE[31000],: ]$INFO[Window(Home).Property(kdmm.upnext.episode),$LOCALIZE[31001],]</value>

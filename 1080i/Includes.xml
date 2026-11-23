@@ -50,6 +50,10 @@
 
     <!-- expressions -->
     <!-- DEFLIX: KDMM has published the next-up episode for the show on the open title page (kdmm/lib/upnext.py) -->
+    <!-- DEFLIX: KDMM has a saved position for the episode the helper's up-next list shows -->
+    <expression name="KDMMUpNextResumable">!String.IsEmpty(Window(Home).Property(kdmm.upnext.tmdb)) + String.IsEqual(Window(Home).Property(kdmm.upnext.tmdb),ListItem.UniqueID(tmdb)) + !String.IsEmpty(Window(Home).Property(kdmm.upnext.resumable)) + String.IsEqual(Window(Home).Property(kdmm.upnext.season),Container(1234).ListItem.Season) + String.IsEqual(Window(Home).Property(kdmm.upnext.episode),Container(1234).ListItem.Episode)</expression>
+    <!-- DEFLIX: KDMM has a saved position for the movie on the open title page (kdmm/lib/title_resume.py) -->
+    <expression name="KDMMMovieResumable">!String.IsEmpty(Window(Home).Property(kdmm.resume.tmdb)) + String.IsEqual(Window(Home).Property(kdmm.resume.tmdb),ListItem.UniqueID(tmdb))</expression>
     <expression name="KDMMUpNextRemembered">!String.IsEmpty(Window(Home).Property(kdmm.upnext.tmdb)) + String.IsEqual(Window(Home).Property(kdmm.upnext.tmdb),ListItem.UniqueID(tmdb))</expression>
     <expression name="IsBingieViewsActive">Window.IsActive(Home) | Window.IsActive(1109) | Window.IsActive(1119) | Window.IsActive(1110) | Window.IsActive(1111) | Window.IsActive(1112) | Window.IsActive(1113) | Window.IsActive(1123) | Window.IsActive(1124) | Window.IsActive(1125) | Window.IsActive(1114) | Window.IsActive(1116) | Window.IsActive(1118) | Window.IsActive(1120)</expression>
 
